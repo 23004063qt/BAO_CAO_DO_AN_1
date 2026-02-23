@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "dangkytk/dangkytk"
   get "qltaikhoan/qltaikhoan"
   get "nophoso/nophoso"
   get "dangnhap/dangnhap"

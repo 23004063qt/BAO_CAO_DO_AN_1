@@ -69,83 +69,86 @@ body {
     margin: 0 auto;
 }
 
-
-main {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-/*nút thêm*/
-.actions {
-    margin-bottom: 15px;
-}
-.btn-add {
-    background-color: #4a90e2;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.btn-add a{
-    color: white;
-    text-decoration: none;
-}
-.btn-add:hover {
-    background-color: #357ab8;
-}
-/*nút sửa*/
-.btn-up {
-    background-color: #7c973e;
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.btn-up:hover {
-    background-color: #357ab8;
-}
-
-/* Table */
-.taikhoan {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.taikhoan  .head {
-    background-color: #4a90e2;
-    color: white;
-}
-
-.taikhoan  th, .taikhoan  td {
-    padding: 12px;
-    border: 1px solid #ddd;
+.form_dangkytk  {
+    background: #f1f5f9;
+    padding: 45px 50px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    width: 480px;
+    margin: 50px auto;
     text-align: center;
 }
-/*chọn những phần tử con ở vị trí chẵn đổi thành odd nếu muốn lẻ*/
-.taikhoan  tr:nth-child(even) {
-    background-color: #f1f1f1;
+
+
+.form_dangkytk label {
+    display: block;
+    margin-bottom: 30px;
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 1px;
 }
 
-.btn-delete {
-    background-color: #ff4d4d;
-    color: white;
-    padding: 5px 12px;
+
+.form_dangkytk table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px; /* tạo khoảng cách giữa các dòng */
+}
+
+
+.form_dangkytk table th:first-child {
+    text-align: right;
+    font-weight: 600;
+    font-size: 16px;
+    padding-right: 15px;
+    width: 35%;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.form_dangkytk table th:last-child {
+    width: 65%;
+}
+
+
+.form_dangkytk input,
+.form_dangkytk select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: 0.3s ease;
+    background: white;
+}
+
+
+.form_dangkytk input:focus,
+.form_dangkytk select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+
+.form_dangkytk button {
+    width: 70%;
+    padding: 12px;
+    background: #3775f2;;
     border: none;
-    border-radius: 6px;
-    cursor: pointer; /*thay đổi con trỏ chuột */
+    border-radius: 10px;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
     transition: 0.3s;
 }
-/*khi con chuột di chuyển vào phần tử được chỉ định*/
-.btn-delete:hover {
-    background-color: #cc0000;
-}
 
+.form_dangkytk button:hover {
+    background: #0353f1;
+}
 
 .footer {
     background: var(--dark-color);
