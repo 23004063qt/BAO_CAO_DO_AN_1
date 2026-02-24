@@ -9,7 +9,7 @@
             <li>Thông Tin Trường</li>
             <li>Tin Tức</li>
             <li>Ngành Học</li>
-            <li>Lịch Tuyển Sinh</li>
+            <li><%= link_to "Lịch Tuyển Sinh", lichtuyensinh_lichtuyensinh_path %></li>
             <li><%= link_to "Nộp hồ sơ", nophoso_nophoso_path %></li>
             <li><%= link_to "Đăng nhập", dangnhap_dangnhap_path %></li>
         </ul>
@@ -33,7 +33,7 @@
             <h3>Tra Cứu Ngành</h3>
             <p>Xem thông tin các ngành đào tạo</p>
         </div>
-        <div class="congcu">
+        <div class="congcu" onclick="window.location.href='<%= lichtuyensinh_lichtuyensinh_path %>'">
             <div class="icon">📅</div>
             <h3>Lịch Tuyển Sinh</h3>
             <p>Xem lịch trình tuyển sinh chi tiết</p>
