@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #3b82f6;
+    --dark-color: #1e293b;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(37, 99, 235, 0.2);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.menu li {
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.menu li:hover {
+    opacity: 0.8;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.container {
+    padding: 30px 60px;
+    background: #f5f7fa;
+}
+
+.tieude {
+    text-align: center;
+    color: #2563eb;
+    margin-bottom: 25px;
+}
+
+
+.noidung {
+    display: flex;
+    gap: 20px;
+}
+
+/*cột bên trái*/
+.trai {
+    flex: 3;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.trai label {
+    font-weight: 600;
+    display: block;
+    margin-top: 15px;
+}
+
+.trai input,
+.trai textarea {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    resize: none; /*khóa kéo dãn*/
+}
+
+/* upload hình */
+.upload {
+    height: 120px;
+    background: #e5e7eb;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    color: #666;
+}
+
+
+/* cột bên phải */
+.phai {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.anhdaidien {
+    height: 120px;
+    background: #e5e7eb;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.phai select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+/* các nút */
+.nut {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-submit {
+    background: #3775f2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+.btn-cancel {
+    background: #d1d5db;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+.btn-submit:hover{
+    background: #0353f1;
+}
+
+.btn-cancel:hover{
+    background: #ff0101f2;
+}
+
+.footer {
+    background: var(--dark-color);
+    color: white;
+    padding: 60px 20px 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer1 h3 {
+    margin-bottom: 1.5rem;
+}
+
+.footer1 ul {
+    list-style: none;
+}
+
+.footer1 ul li {
+    margin-bottom: 0.8rem;
+    color: #94a3b8;
+}
+
+.footer2 {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #334155;
+    color: #94a3b8;
+}
