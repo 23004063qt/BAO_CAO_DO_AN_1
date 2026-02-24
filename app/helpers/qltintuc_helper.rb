@@ -1,0 +1,2 @@
+module QltintucHelper
+end

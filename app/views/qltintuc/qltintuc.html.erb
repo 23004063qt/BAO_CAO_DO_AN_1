@@ -16,24 +16,27 @@
 </div>
 <main>
         <div class="actions">
-            <button class="btn-add"><%= link_to "+Thêm", dangkytk_dangkytk_path %></button>
-            
+            <button class="btn-add">+Thêm</button>
         </div>
             <table class="taikhoan">
                     <tr class="head">
                         <th>STT</th>
-                        <th>Mã tài khoản</th>
-                        <th>UserName</th>
-                        <th>Pass</th>
-                        <th>Vai trò</th>
+                        <th>Mã tin tức</th>
+                        <th>Ảnh đại diện</th>
+                        <th>Tiêu đề</th>
+                        <th>Ngày đăng</th>
+                        <th>Ngày sửa</th>
+                        <th>Người đăng</th>
                         <th></th>
                     </tr>
                     
                     <tr>
                         <th>1</th>
                         <th>001</th>
-                        <th>UserName</th>
-                        <th>Pass123</th>
+                        <th><%= image_tag "logovlute.png",  width: 50 %></th>
+                        <th>Thông báo nghỉ Tết</th>
+                        <th>24/02/2026</th>
+                        <th>25/02/2026</th>
                         <th>Admin</th>
                         <th>
                             <button class="btn-delete">🗑️ Xóa</button>
@@ -44,8 +47,10 @@
                     <tr>
                         <th>2</th>
                         <th>002</th>
-                        <th>UserName2</th>
-                        <th>Pass333</th>
+                        <th><%= image_tag "logovlute.png",  width: 50 %></th>
+                        <th>Thông báo nghỉ Lễ</th>
+                        <th>25/02/2026</th>
+                        <th>27/02/2026</th>
                         <th>Admin</th>
                         <th>
                             <button class="btn-delete">🗑️ Xóa</button>
@@ -56,8 +61,10 @@
                     <tr>
                         <th>3</th>
                         <th>003</th>
-                        <th>UserName3</th>
-                        <th>Pass321</th>
+                        <th><%= image_tag "logovlute.png",  width: 50 %></th>
+                        <th>Lịch nhập học</th>
+                        <th>28/02/2026</th>
+                        <th>29/02/2026</th>
                         <th>Admin</th>
                         <th>
                             <button class="btn-delete">🗑️ Xóa</button>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "themtintuc/themtintuc"
+  get "qltintuc/qltintuc"
   get "dangkytk/dangkytk"
   get "qltaikhoan/qltaikhoan"
   get "nophoso/nophoso"
