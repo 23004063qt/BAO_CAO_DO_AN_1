@@ -141,7 +141,6 @@ main {
     cursor: pointer; /*thay đổi con trỏ chuột */
     transition: 0.3s;
 }
-/*khi con chuột di chuyển vào phần tử được chỉ định*/
 .btn-delete:hover {
     background-color: #cc0000;
 }

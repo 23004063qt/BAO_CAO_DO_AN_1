@@ -15,8 +15,9 @@
 </div>
 
 <div class="content">
+    <label><h1>NỘP HỒ SƠ ĐĂNG KÝ TUYỂN SINH</h1></label>
     <form class="form_thisinh">
-        <label>THÔNG TIN THÍ SINH</label>
+        <label><h3>Thông tin cá nhân</h3></label>
         <table>
             <tr>
                 <th>Họ và tên: </th>
@@ -54,62 +55,71 @@
             </tr>
 
             <tr>
-                <th>Tỉnh/Thành phố: </th>
+                <th>Địa chỉ: </th>
                 <th>
-                    <select name="tinh">
-                        <option>Chọn tỉnh/thành phố</option>
-                        <option>An Giang</option>
-                        <option>Bắc Giang</option>
-                        <option>Bắc Ninh</option>
-                        <option>Bến Tre</option>
-                        <option>Bình Dương</option>
-                        <option>Bình Định</option>
-                        <option>Cà Mau</option>
-                        <option>Cần Thơ</option>
-                        <option>Cao Bằng</option>
-                        <option>Đà Nẵng</option>
-                        <option>Đắk Lắk</option>
-                        <option>Điện Biên</option>
-                        <option>Đồng Nai</option>
-                        <option>Đồng Tháp</option>
-                        <option>Gia Lai</option>
-                        <option>Hà Nội</option>
-                        <option>Hà Tĩnh</option>
-                        <option>Hải Phòng</option>
-                        <option>Hưng Yên</option>
-                        <option>Khánh Hòa</option>
-                        <option>Lai Châu</option>
-                        <option>Lâm Đồng</option>
-                        <option>Lạng Sơn</option>
-                        <option>Lào Cai</option>
-                        <option>Nghệ An</option>
-                        <option>Ninh Bình</option>
-                        <option>Phú Thọ</option>
-                        <option>Quảng Ngãi</option>
-                        <option>Quảng Ninh</option>
-                        <option>Thanh Hóa</option>
-                        <option>Thừa Thiên Huế</option>
-                        <option>TP. Hồ Chí Minh</option>
-                        <option>Tuyên Quang</option>
-                        <option>Vĩnh Long</option>
-                    </select>
+                    <input type="text" name="diachi" placeholder="Nhập địa chỉ thường trú">
                 </th>
             </tr>
-
+        </table>
+        <label><h3>Thông tin học tập</h3></label>
+        <table>
             <tr>
                 <th>Trường THPT: </th>
                 <th>
                     <input type="text" name="truong" placeholder="Nhập tên trường">
                 </th>
             </tr>
-
             <tr>
-                <th></th>
+                <th>Năm tốt nghiệp: </th>
                 <th>
-                    <button type="submit">Gửi Thông Tin</button>
+                    <input type="text" name="namtotnghiep" placeholder="Nhập năm tốt nghiệp">
+                </th>
+            </tr>
+            <tr>
+                <th>Chọn nguyện vọng 1: </th>
+                <th>
+                    <select id="nv1" required>
+                        <option value="">-- Chọn ngành --</option>
+                        <option value="CNTT">Công Nghệ Thông Tin</option>
+                        <option value="QTKD">Quản Trị Kinh Doanh</option>
+                        <option value="KTCK">Kỹ Thuật Cơ Khí</option>
+                    </select>
+                </th>
+            </tr>
+            <tr>
+                <th>Chọn nguyện vọng 2: </th>
+                <th>
+                    <select id="nv2" required>
+                        <option value="">-- Chọn ngành --</option>
+                        <option value="CNTT">Công Nghệ Thông Tin</option>
+                        <option value="QTKD">Quản Trị Kinh Doanh</option>
+                        <option value="KTCK">Kỹ Thuật Cơ Khí</option>
+                    </select>
+                </th>
+            </tr>
+            <tr>
+                <th>Chọn phương thức xét tuyển</th>
+                <th>
+                    <select id="xettuyen" required>
+                        <option value="">-- Chọn phương thức --</option>
+                        <option value="CNTT">Xét điểm thi</option>
+                        <option value="QTKD">Xứt điểm học bạ</option>
+                        <option value="KTCK">Ưu tiên xét tuyển</option>
+                    </select>
                 </th>
             </tr>
         </table>
+        <label><h3>Tải lên thông tin hồ sơ</h3></label>
+        <label>Hồ Sơ Minh Chứng (PDF, JPG, PNG - Tối đa 5MB)</label>
+        <div class="file-upload" onclick="document.getElementById('fileInput').click()">
+            <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png" multiple>
+            <span>
+                <p>📎 Click để chọn file hoặc kéo thả vào đây </p>
+                <p> Bao gồm: Bản sao CMND, Học bạ, Giấy khai sinh </p>
+            </span>
+            
+        </div>
+        <button class="btn-nop">Nộp hồ sơ</button>
     </form>
 </div>
 </div>

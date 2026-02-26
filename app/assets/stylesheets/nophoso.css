@@ -68,86 +68,80 @@ body {
     max-width: 1000px;
     margin: 0 auto;
 }
-.form_thisinh {
-    background: #f1f5f9;
-    padding: 45px 50px;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-    width: 480px;
-    margin: 50px auto;
+
+.content h1 {
     text-align: center;
+    margin-bottom: 20px;
+    color: #1f80ef;
 }
 
-
-.form_thisinh  label {
-    display: block;
-    margin-bottom: 30px;
-    color: #2563eb;
-    font-weight: 700;
-    font-size: 26px;
-    letter-spacing: 1px;
+.form_thisinh {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
 }
 
+.form_thisinh h3 {
+    margin: 20px 0 10px;
+    color: #3e90ee;
+}
 
 .form_thisinh table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 15px; /* tạo khoảng cách giữa các dòng */
+    border-collapse: collapse;
 }
 
-
-.form_thisinh table th:first-child {
-    text-align: right;
-    font-weight: 600;
-    font-size: 16px;
-    padding-right: 15px;
-    width: 35%;
-    color: #334155;
-    vertical-align: middle;
+.form_thisinh th {
+    text-align: left;
+    padding: 10px;
 }
 
-
-.form_thisinh table th:last-child {
-    width: 65%;
+.form_thisinh th:first-child {
+    width: 15%;
 }
-
 
 .form_thisinh input,
 .form_thisinh select {
     width: 100%;
-    padding: 11px 14px;
-    border: 1px solid #cbd5e1;
-    border-radius: 10px;
-    font-size: 14px;
-    transition: 0.3s ease;
-    background: white;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-
 
 .form_thisinh input:focus,
 .form_thisinh select:focus {
     outline: none;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    border-color: #0e60bd;
 }
 
+.file-upload {
+    height: 120px;
+    background: #e5e7eb;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
 
-.form_thisinh button {
-    width: 70%;
-    padding: 12px;
-    background: #3775f2;;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: 17px;
-    font-weight: 600;
+.file-upload input{
+    display: none;
+}
+
+.btn-nop {
     margin-top: 20px;
-    cursor: pointer;
-    transition: 0.3s;
+    padding: 10px;
+    width: 100%;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
 }
 
-.form_thisinh button:hover {
-    background: #0353f1;
+.btn-nop:hover{
+    background-color: #357ab8;
 }
 
 .footer {
