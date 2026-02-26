@@ -75,6 +75,39 @@ body {
     color: #1f80ef;
 }
 
+.thanh-menu{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.menu2{
+    flex:1;
+    text-align:center;
+    padding:10px;
+    background:#ddd;
+    border-radius:20px;
+}
+
+.menu2.active{
+    background:#2563eb;
+    color:white;
+}
+
+.form-menu{
+    display:none;
+}
+
+.form-menu.active{
+    display:block;
+}
+
+.nut-dieuhuong{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+}
+
 .form_thisinh {
     background: #fff;
     padding: 25px;

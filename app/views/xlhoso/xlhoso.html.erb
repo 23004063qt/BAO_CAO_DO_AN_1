@@ -14,54 +14,23 @@
             <li>Thống kê và báo cáo</li>
         </ul>
 </div>
-<main class="container">
-
-    <h1 class="tieude">THÊM MỚI BÀI ĐĂNG</h1>
-
-    <div class="noidung">
-
-        <!-- CỘT TRÁI -->
-        <div class="trai">
-
-            <label>Tiêu đề</label>
-            <input type="text" placeholder="Nhập tiêu đề bài đăng">
-
-            <label>Tóm tắt nội dung</label>
-            <textarea rows="3" placeholder="Nhập tóm tắt"></textarea>
-
-            <label>Nội dung chi tiết của bài đăng</label>
-            <textarea rows="6" placeholder="Nhập nội dung"></textarea>
-
-            <div class="image">
-                <p>Hình ảnh bài viết</p>
-                <div class="anhbaiviet" onclick="document.getElementById('fileanhbaiviet').click()">
-                    <input type="file" id="fileanhbaiviet" accept=".pdf,.jpg,.jpeg,.png" multiple>
-                    <span>📎 Click để chọn file ảnh</span>
-                </div>
-            </div>
-
-            <textarea rows="4" placeholder="Nhập nội dung thêm"></textarea>
-
+<main>
+        <div class="actions">
+            <button class="btn-add"><%=link_to "+Thêm", themtintuc_themtintuc_path %></button>
         </div>
-
-        <!-- CỘT PHẢI -->
-        <div class="phai">
-
-            <label>Ảnh đại diện</label>
-            <div class="anhdaidien" onclick="document.getElementById('fileanhdaidien').click()">
-                <input type="file" id="fileanhdaidien" accept=".pdf,.jpg,.jpeg,.png" multiple>
-                <span>📎 Click để chọn file ảnh</span>
-            </div>
-            <div class="nut">
-                <button class="btn-submit">Đăng tải</button>
-                <button class="btn-cancel">Hủy bỏ</button>
-            </div>
-
-        </div>
-
-    </div>
-
-</main>  
+            <table class="bang">
+                    <tr class="head">
+                        <th>STT</th>
+                        <th>Mã hồ sơ</th>
+                        <th>Ảnh đại diện</th>
+                        <th>Tiêu đề</th>
+                        <th>Ngày đăng</th>
+                        <th>Ngày sửa</th>
+                        <th>Người đăng</th>
+                        <th></th>
+                    </tr>
+            </table>
+</main>
 
 <div class="footer">
     <div class="footer-content">

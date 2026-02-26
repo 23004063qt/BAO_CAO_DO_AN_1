@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "xlhoso/xlhoso"
   get "lichtuyensinh/lichtuyensinh"
   get "tinhdiem/tinhdiem"
   get "themtintuc/themtintuc"

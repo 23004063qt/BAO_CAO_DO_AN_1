@@ -105,7 +105,7 @@ body {
 }
 
 /* upload hình */
-.upload {
+.anhbaiviet {
     height: 120px;
     background: #e5e7eb;
     border-radius: 6px;
@@ -116,6 +116,9 @@ body {
     color: #666;
 }
 
+.anhbaiviet input{
+    display: none;
+}
 
 /* cột bên phải */
 .phai {
@@ -133,6 +136,9 @@ body {
     justify-content: center;
     align-items: center;
     margin: 10px 0;
+}
+.anhdaidien input{
+    display: none;
 }
 
 .phai select {

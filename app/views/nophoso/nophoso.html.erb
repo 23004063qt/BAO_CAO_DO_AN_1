@@ -16,110 +16,125 @@
 
 <div class="content">
     <label><h1>NỘP HỒ SƠ ĐĂNG KÝ TUYỂN SINH</h1></label>
+    <div class="thanh-menu">
+        <div class="menu2 active">Thông tin cá nhân</div>
+        <div class="menu2">Thông tin học tập</div>
+        <div class="menu2">Thông tin đăng ký</div>
+        <div class="menu2">Hoàn thành</div>
+    </div>
     <form class="form_thisinh">
-        <label><h3>Thông tin cá nhân</h3></label>
-        <table>
-            <tr>
-                <th>Họ và tên: </th>
-                <th>
-                    <input type="text" name="hoten" placeholder="Nhập họ và tên">
-                </th>
-            </tr>
+        <div class="form-menu active">
+            <label><h3>Thông tin cá nhân</h3></label>
+            <table>
+                <tr>
+                    <th>Họ và tên: </th>
+                    <th>
+                        <input type="text" name="hoten" placeholder="Nhập họ và tên">
+                    </th>
+                </tr>
 
-            <tr>
-                <th>Số CCCD: </th>
-                <th>
-                    <input type="text" name="cccd" placeholder="Nhập số căn cước công dân">
-                </th>
-            </tr>
+                <tr>
+                    <th>Số CCCD: </th>
+                    <th>
+                        <input type="text" name="cccd" placeholder="Nhập số căn cước công dân">
+                    </th>
+                </tr>
 
-            <tr>
-                <th>Ngày sinh: </th>
-                <th>
-                    <input type="date" name="ngaysinh">
-                </th>
-            </tr>
+                <tr>
+                    <th>Ngày sinh: </th>
+                    <th>
+                        <input type="date" name="ngaysinh">
+                    </th>
+                </tr>
 
-            <tr>
-                <th>Số điện thoại: </th>
-                <th>
-                    <input type="text" name="sdt" placeholder="Nhập số điện thoại">
-                </th>
-            </tr>
+                <tr>
+                    <th>Số điện thoại: </th>
+                    <th>
+                        <input type="text" name="sdt" placeholder="Nhập số điện thoại">
+                    </th>
+                </tr>
 
-            <tr>
-                <th>Email: </th>
-                <th>
-                    <input type="email" name="email" placeholder="Nhập địa chỉ email">
-                </th>
-            </tr>
+                <tr>
+                    <th>Email: </th>
+                    <th>
+                        <input type="email" name="email" placeholder="Nhập địa chỉ email">
+                    </th>
+                </tr>
 
-            <tr>
-                <th>Địa chỉ: </th>
-                <th>
-                    <input type="text" name="diachi" placeholder="Nhập địa chỉ thường trú">
-                </th>
-            </tr>
-        </table>
-        <label><h3>Thông tin học tập</h3></label>
-        <table>
-            <tr>
-                <th>Trường THPT: </th>
-                <th>
-                    <input type="text" name="truong" placeholder="Nhập tên trường">
-                </th>
-            </tr>
-            <tr>
-                <th>Năm tốt nghiệp: </th>
-                <th>
-                    <input type="text" name="namtotnghiep" placeholder="Nhập năm tốt nghiệp">
-                </th>
-            </tr>
-            <tr>
-                <th>Chọn nguyện vọng 1: </th>
-                <th>
-                    <select id="nv1" required>
-                        <option value="">-- Chọn ngành --</option>
-                        <option value="CNTT">Công Nghệ Thông Tin</option>
-                        <option value="QTKD">Quản Trị Kinh Doanh</option>
-                        <option value="KTCK">Kỹ Thuật Cơ Khí</option>
-                    </select>
-                </th>
-            </tr>
-            <tr>
-                <th>Chọn nguyện vọng 2: </th>
-                <th>
-                    <select id="nv2" required>
-                        <option value="">-- Chọn ngành --</option>
-                        <option value="CNTT">Công Nghệ Thông Tin</option>
-                        <option value="QTKD">Quản Trị Kinh Doanh</option>
-                        <option value="KTCK">Kỹ Thuật Cơ Khí</option>
-                    </select>
-                </th>
-            </tr>
-            <tr>
-                <th>Chọn phương thức xét tuyển</th>
-                <th>
-                    <select id="xettuyen" required>
-                        <option value="">-- Chọn phương thức --</option>
-                        <option value="CNTT">Xét điểm thi</option>
-                        <option value="QTKD">Xứt điểm học bạ</option>
-                        <option value="KTCK">Ưu tiên xét tuyển</option>
-                    </select>
-                </th>
-            </tr>
-        </table>
-        <label><h3>Tải lên thông tin hồ sơ</h3></label>
-        <label>Hồ Sơ Minh Chứng (PDF, JPG, PNG - Tối đa 5MB)</label>
-        <div class="file-upload" onclick="document.getElementById('fileInput').click()">
-            <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png" multiple>
-            <span>
-                <p>📎 Click để chọn file hoặc kéo thả vào đây </p>
-                <p> Bao gồm: Bản sao CMND, Học bạ, Giấy khai sinh </p>
-            </span>
-            
+                <tr>
+                    <th>Địa chỉ: </th>
+                    <th>
+                        <input type="text" name="diachi" placeholder="Nhập địa chỉ thường trú">
+                    </th>
+                </tr>
+                <tr>
+                    <th>Dân tộc: </th>
+                    <th>
+                        <input type="text" name="dantoc" placeholder="Nhập tên dân tộc">
+                    </th>
+                </tr>
+                <tr>
+                    <th>Đối tượng ưu tiên: </th>
+                    <th>
+                        <input type="text" name="uutien" placeholder="Để trống nếu không có">
+                    </th>
+                </tr>
+            </table>
         </div>
-        <button class="btn-nop">Nộp hồ sơ</button>
+        <div class="form-menu">
+            <label><h3>Thông tin học tập</h3></label>
+            <table>
+                <tr>
+                    <th>Trường THPT: </th>
+                    <th>
+                        <input type="text" name="truong" placeholder="Nhập tên trường">
+                    </th>
+                </tr>
+                <tr>
+                    <th>Năm tốt nghiệp: </th>
+                    <th>
+                        <input type="text" name="namtotnghiep" placeholder="Nhập năm tốt nghiệp">
+                    </th>
+                </tr>
+                <tr>
+                    <th>Hạnh kiểm: </th>
+                    <th>
+                        <select id="hanhkiem" required>
+                            <option value="">-- Chọn hạnh kiểm --</option>
+                            <option value="CNTT">Tốt</option>
+                            <option value="QTKD">Khá</option>
+                            <option value="KTCK">Trung bình</option>
+                            <option value="KTCK">Yếu</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>ĐTB năm 12: </th>
+                    <th><input type="text" name="dtb" placeholder="Nhập điểm trung bình năm 12"></th>
+                </tr>
+            </table>
+        </div>
+        <div class="form-menu">
+            <label><h3>Thông tin đăng ký xét tuyển</h3></label>
+            <label><h3>Tải lên thông tin hồ sơ</h3></label>
+            <label>Hồ Sơ Minh Chứng (PDF, JPG, PNG - Tối đa 5MB)</label>
+            <div class="file-upload" onclick="document.getElementById('filehoso').click()">
+                <input type="file" id="filehoso" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                <span>
+                    <p>📎 Click để chọn file hoặc kéo thả vào đây </p>
+                    <p> Bao gồm: Bản sao CMND, Học bạ, Giấy khai sinh </p>
+                </span>
+            </div>
+        </div>
+        <div class="form-menu">
+            <h3>Hoàn thành hồ sơ</h3>
+            <p>Vui lòng kiểm tra lại thông tin trước khi nộp.</p>
+            <button class="btn-nop">Nộp hồ sơ</button>
+        </div>
+        <div class="nut-dieuhuong">
+            <button type="button" onclick="buocTruoc()">← Quay lại</button>
+            <button type="button" onclick="buocTiepTheo()">Tiếp theo →</button>
+        </div>
     </form>
 </div>
 </div>
@@ -154,3 +169,48 @@
         <p>&copy; 2026 Hệ Thống Tư Vấn Tuyển Sinh </p>
     </div>
 </div>
+
+
+<script>
+
+    let buocht = 0;
+    const danhSachForm = document.querySelectorAll(".form-menu");
+    const danhSachTieuDe = document.querySelectorAll(".menu2");
+
+    function hienThiBuoc(soBuoc){
+
+        // ẩn tất cả form
+        danhSachForm.forEach(form =>
+            form.classList.remove("active")
+        );
+
+        // reset thanh bước
+        danhSachTieuDe.forEach(b =>
+            b.classList.remove("active")
+        );
+
+        // hiện bước hiện tại
+        danhSachForm[soBuoc].classList.add("active");
+        danhSachTieuDe[soBuoc].classList.add("active");
+    }
+
+
+    // tiếp tục
+    function buocTiepTheo(){
+
+        if(buocht < danhSachForm.length - 1){
+            buocht++;
+            hienThiBuoc(buocht);
+        }
+    }
+
+
+    // quay lại
+    function buocTruoc(){
+
+        if(buocht > 0){
+            buocht--;
+            hienThiBuoc(buocht);
+        }
+    }
+</script>

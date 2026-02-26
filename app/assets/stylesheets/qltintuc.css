@@ -110,25 +110,25 @@ main {
 }
 
 /* Table */
-.taikhoan {
+.bang {
     width: 100%;
     border-collapse: collapse;
     background: #fff;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.taikhoan  .head {
+.bang  .head {
     background-color: #4a90e2;
     color: white;
 }
 
-.taikhoan  th, .taikhoan  td {
+.bang  th, .bang  td {
     padding: 12px;
     border: 1px solid #ddd;
     text-align: center;
 }
 /*chọn những phần tử con ở vị trí chẵn đổi thành odd nếu muốn lẻ*/
-.taikhoan  tr:nth-child(even) {
+.bang  tr:nth-child(even) {
     background-color: #f1f1f1;
 }
 
