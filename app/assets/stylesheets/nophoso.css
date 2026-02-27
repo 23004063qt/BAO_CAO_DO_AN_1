@@ -108,6 +108,19 @@ body {
     margin-top:20px;
 }
 
+.btn-dh{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+.btn-dh:hover{
+    background-color: #0665b8;
+}
 .form_thisinh {
     background: #fff;
     padding: 25px;
@@ -146,6 +159,44 @@ body {
 .form_thisinh select:focus {
     outline: none;
     border-color: #0e60bd;
+}
+
+.nguyenvong-table {
+    width: 100%;
+}
+
+.nguyenvong-table th:first-child {
+    text-align: left;
+    font-weight: 500;
+    padding-right: 15px;
+    width: 180px;
+}
+
+.khoi-lop {
+    margin-top: 3rem;
+}
+
+.tieu-de-lop {
+    color: #3e90ee;
+    font-size: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.tieu-de-hocky {
+    color: black;
+    margin-bottom: 1rem;
+}
+
+.luoi-mon-hoc {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.o-mon-hoc {
+    display: flex;
+    flex-direction: column;
 }
 
 .file-upload {

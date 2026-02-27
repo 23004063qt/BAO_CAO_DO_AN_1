@@ -17,10 +17,10 @@
 <div class="content">
     <label><h1>NỘP HỒ SƠ ĐĂNG KÝ TUYỂN SINH</h1></label>
     <div class="thanh-menu">
-        <div class="menu2 active">Thông tin cá nhân</div>
-        <div class="menu2">Thông tin học tập</div>
-        <div class="menu2">Thông tin đăng ký</div>
-        <div class="menu2">Hoàn thành</div>
+        <div class="menu2 active">Bước 1</div>
+        <div class="menu2">Bước 2</div>
+        <div class="menu2">Bước 3</div>
+        <div class="menu2">Bước 4</div>
     </div>
     <form class="form_thisinh">
         <div class="form-menu active">
@@ -34,9 +34,119 @@
                 </tr>
 
                 <tr>
-                    <th>Số CCCD: </th>
+                    <th>Giới tính: </th>
                     <th>
-                        <input type="text" name="cccd" placeholder="Nhập số căn cước công dân">
+                        <select id="gioitinh" required>
+                            <option value="">-- Chọn giới tính --</option>
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                        </select>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>Nơi sinh: </th>
+                    <th>
+                        <select id="noisinh" required>
+                            <option value="">-- Chọn tỉnh --</option>
+                            <option>An Giang</option>
+                            <option>Bắc Giang</option>
+                            <option>Bắc Ninh</option>
+                            <option>Bến Tre</option>
+                            <option>Bình Dương</option>
+                            <option>Bình Định</option>
+                            <option>Cà Mau</option>
+                            <option>Cần Thơ</option>
+                            <option>Cao Bằng</option>
+                            <option>Đà Nẵng</option>
+                            <option>Đắk Lắk</option>
+                            <option>Điện Biên</option>
+                            <option>Đồng Nai</option>
+                            <option>Đồng Tháp</option>
+                            <option>Gia Lai</option>
+                            <option>Hà Nội</option>
+                            <option>Hà Tĩnh</option>
+                            <option>Hải Phòng</option>
+                            <option>Hưng Yên</option>
+                            <option>Khánh Hòa</option>
+                            <option>Lai Châu</option>
+                            <option>Lâm Đồng</option>
+                            <option>Lạng Sơn</option>
+                            <option>Lào Cai</option>
+                            <option>Nghệ An</option>
+                            <option>Ninh Bình</option>
+                            <option>Phú Thọ</option>
+                            <option>Quảng Ngãi</option>
+                            <option>Quảng Ninh</option>
+                            <option>Thanh Hóa</option>
+                            <option>Thừa Thiên Huế</option>
+                            <option>TP. Hồ Chí Minh</option>
+                            <option>Tuyên Quang</option>
+                            <option>Vĩnh Long</option>
+                        </select>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>Dân tộc: </th>
+                    <th>
+                        <select id="dantoc" required>
+                            <option value="">-- Chọn dân tộc --</option>
+                            <option>Kinh</option>
+                            <option>Tày</option>
+                            <option>Thái</option>
+                            <option>Mường</option>
+                            <option>Khmer</option>
+                            <option>Hoa</option>
+                            <option>Nùng</option>
+                            <option>H'Mông</option>
+                            <option>Dao</option>
+                            <option>Gia Rai</option>
+                            <option>Ê Đê</option>
+                            <option>Ba Na</option>
+                            <option>Sán Chay</option>
+                            <option>Chăm</option>
+                            <option>Cơ Ho</option>
+                            <option>Xơ Đăng</option>
+                            <option>Sán Dìu</option>
+                            <option>Hrê</option>
+                            <option>Ra Glai</option>
+                            <option>M'nông</option>
+                            <option>Thổ</option>
+                            <option>Khơ Mú</option>
+                            <option>Bru - Vân Kiều</option>
+                            <option>Cơ Tu</option>
+                            <option>Giáy</option>
+                            <option>Tà Ôi</option>
+                            <option>Mạ</option>
+                            <option>Giẻ Triêng</option>
+                            <option>Co</option>
+                            <option>Chơ Ro</option>
+                            <option>Xinh Mun</option>
+                            <option>Hà Nhì</option>
+                            <option>Chu Ru</option>
+                            <option>Lào</option>
+                            <option>La Chí</option>
+                            <option>La Ha</option>
+                            <option>Phù Lá</option>
+                            <option>La Hủ</option>
+                            <option>Lự</option>
+                            <option>Lô Lô</option>
+                            <option>Chứt</option>
+                            <option>Mảng</option>
+                            <option>Pà Thẻn</option>
+                            <option>Cơ Lao</option>
+                            <option>Cống</option>
+                            <option>Bố Y</option>
+                            <option>Si La</option>
+                            <option>Pu Péo</option>
+                            <option>Brâu</option>
+                            <option>Ơ Đu</option>
+                            <option>Rơ Măm</option>
+                            <option>Ngái</option>
+                            <option>Chứt</option>
+                            <option>Kháng</option>
+                        </select>
                     </th>
                 </tr>
 
@@ -48,9 +158,170 @@
                 </tr>
 
                 <tr>
+                    <th>Giấy khai sinh: </th>
+                    <th>
+                        <div class="file" onclick="document.getElementById('filegiayks').click()">
+                            <input type="file" id="filegiayks" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                        </div>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>Số CCCD: </th>
+                    <th>
+                        <input type="number" name="cccd" placeholder="Nhập số căn cước công dân">
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>CCCD mặt trước: </th>
+                    <th>
+                        <div class="file" onclick="document.getElementById('filecccdt').click()">
+                            <input type="file" id="filecccdt" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                        </div>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>CCCD mặt sau: </th>
+                    <th>
+                        <div class="file" onclick="document.getElementById('filecccds').click()">
+                            <input type="file" id="filecccds" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                        </div>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>Tỉnh thường trú: </th>
+                    <th>
+                        <select id="thuongtru" required>
+                            <option value="">-- Chọn tỉnh  --</option>
+                            <option>An Giang</option>
+                            <option>Bắc Giang</option>
+                            <option>Bắc Ninh</option>
+                            <option>Bến Tre</option>
+                            <option>Bình Dương</option>
+                            <option>Bình Định</option>
+                            <option>Cà Mau</option>
+                            <option>Cần Thơ</option>
+                            <option>Cao Bằng</option>
+                            <option>Đà Nẵng</option>
+                            <option>Đắk Lắk</option>
+                            <option>Điện Biên</option>
+                            <option>Đồng Nai</option>
+                            <option>Đồng Tháp</option>
+                            <option>Gia Lai</option>
+                            <option>Hà Nội</option>
+                            <option>Hà Tĩnh</option>
+                            <option>Hải Phòng</option>
+                            <option>Hưng Yên</option>
+                            <option>Khánh Hòa</option>
+                            <option>Lai Châu</option>
+                            <option>Lâm Đồng</option>
+                            <option>Lạng Sơn</option>
+                            <option>Lào Cai</option>
+                            <option>Nghệ An</option>
+                            <option>Ninh Bình</option>
+                            <option>Phú Thọ</option>
+                            <option>Quảng Ngãi</option>
+                            <option>Quảng Ninh</option>
+                            <option>Thanh Hóa</option>
+                            <option>Thừa Thiên Huế</option>
+                            <option>TP. Hồ Chí Minh</option>
+                            <option>Tuyên Quang</option>
+                            <option>Vĩnh Long</option>
+                        </select>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>Đối tượng ưu tiên: </th>
+                    <th>
+                        <select id="dtut" required>
+                            <option value="">Không thuộc đối tượng nào</option>
+                            <option value="Đối tượng 1">Đối tượng 1</option>
+                            <option value="Đối tượng 2">Đối tượng 2</option>
+                            <option value="Đối tượng 3">Đối tượng 3</option>
+                            <option value="Đối tượng 4">Đối tượng 4</option>
+                            <option value="Đối tượng 5">Đối tượng 5</option>
+                        </select>
+                    </th>
+                </tr> 
+
+                 <tr>
+                    <th>Khu vực ưu tiên: </th>
+                    <th>
+                        <select id="kvut" required>
+                            <option value="">--Chọn--</option>
+                            <option value="KV 1">KV 1</option>
+                            <option value="KV 2-NT">KV 2-NT</option>
+                            <option value="KV 2">KV 2</option>
+                            <option value="KV 3">KV 3</option>
+                        </select>
+                    </th>
+                </tr> 
+
+                <tr>
+                    <th>Năm tốt nghiệp: </th>
+                    <th>
+                        <input type="number" name="sdt" placeholder="Nhập năm tốt nghiệp">
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>Nơi học lớp 12: </th>
+                    <th>
+                        <select id="noihoc12" required>
+                            <option value="">-- Chọn tỉnh --</option>
+                            <option>An Giang</option>
+                            <option>Bắc Giang</option>
+                            <option>Bắc Ninh</option>
+                            <option>Bến Tre</option>
+                            <option>Bình Dương</option>
+                            <option>Bình Định</option>
+                            <option>Cà Mau</option>
+                            <option>Cần Thơ</option>
+                            <option>Cao Bằng</option>
+                            <option>Đà Nẵng</option>
+                            <option>Đắk Lắk</option>
+                            <option>Điện Biên</option>
+                            <option>Đồng Nai</option>
+                            <option>Đồng Tháp</option>
+                            <option>Gia Lai</option>
+                            <option>Hà Nội</option>
+                            <option>Hà Tĩnh</option>
+                            <option>Hải Phòng</option>
+                            <option>Hưng Yên</option>
+                            <option>Khánh Hòa</option>
+                            <option>Lai Châu</option>
+                            <option>Lâm Đồng</option>
+                            <option>Lạng Sơn</option>
+                            <option>Lào Cai</option>
+                            <option>Nghệ An</option>
+                            <option>Ninh Bình</option>
+                            <option>Phú Thọ</option>
+                            <option>Quảng Ngãi</option>
+                            <option>Quảng Ninh</option>
+                            <option>Thanh Hóa</option>
+                            <option>Thừa Thiên Huế</option>
+                            <option>TP. Hồ Chí Minh</option>
+                            <option>Tuyên Quang</option>
+                            <option>Vĩnh Long</option>
+                        </select>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>Trường THPT: </th>
+                    <th>
+                        <input type="text" name="diachi" placeholder="Nhập địa chỉ thường trú">
+                    </th>
+                </tr>
+
+                <tr>
                     <th>Số điện thoại: </th>
                     <th>
-                        <input type="text" name="sdt" placeholder="Nhập số điện thoại">
+                        <input type="number" name="sdt" placeholder="Nhập số điện thoại">
                     </th>
                 </tr>
 
@@ -67,73 +338,190 @@
                         <input type="text" name="diachi" placeholder="Nhập địa chỉ thường trú">
                     </th>
                 </tr>
+                
+            </table>
+        </div>
+        <div class="form-menu">
+            <label><h3>Thông tin xét tuyển</h3></label>
+            <table>
                 <tr>
-                    <th>Dân tộc: </th>
+                    <th>Phương thức xét tuyển: </th>
                     <th>
-                        <input type="text" name="dantoc" placeholder="Nhập tên dân tộc">
+                        <select id="ptxt" required>
+                            <option value="">--Chọn--</option>
+                            <option value="Xét học bạ">Xét học bạ</option>
+                            <option value="Xét tuyển thẳng">Xét tuyển thẳng</option>
+                            <option value="Xét kết quả thi đánh giá năng lực">Xét kết quả thi đánh giá năng lực</option>
+                        </select>
                     </th>
                 </tr>
+
                 <tr>
-                    <th>Đối tượng ưu tiên: </th>
+                    <th>Loại hình đào tạo: </th>
                     <th>
-                        <input type="text" name="uutien" placeholder="Để trống nếu không có">
+                        <select id="ptxt" required>
+                            <option value="">--Chọn--</option>
+                            <option value="Chương trình đại trà">Chương trình đại trà</option>
+                            <option value="Chương trình chất lượng cao">Chương trình chất lượng cao</option>
+                            <option value="Chương trình đào tạo kỹ sư Nhật Bản">Chương trình đào tạo kỹ sư Nhật Bản</option>
+                        </select>
                     </th>
                 </tr>
+
+                <tr>
+                    <th>Ngành xét tuyển: </th>
+                    <th>
+                        <table class="nguyenvong-table">
+
+                            <tr>
+                                <th>Nguyện vọng 1</th>
+                                <th>
+                                    <select name="nguyenvong1">
+                                        <option value="">--Chọn--</option>
+                                        <option>Công nghệ thông tin</option>
+                                        <option>Công nghệ thực phẩm</option>
+                                        <option>Thú y</option>
+                                        <option>Truyền thông đa phương tiện</option>
+                                    </select>
+                                </th>
+                            </tr>
+
+                            <tr>
+                                <th>Nguyện vọng 2</th>
+                                <th>
+                                    <select name="nguyenvong2">
+                                        <option value="">--Chọn--</option>
+                                        <option>Công nghệ thông tin</option>
+                                        <option>Công nghệ thực phẩm</option>
+                                        <option>Thú y</option>
+                                        <option>Truyền thông đa phương tiện</option>
+                                    </select>
+                                </th>
+                            </tr>
+
+                        </table>
+                    </th>
+                </tr>
+                
             </table>
         </div>
         <div class="form-menu">
             <label><h3>Thông tin học tập</h3></label>
+            <%
+                #Danh sách khối lớp
+                ds_lop = [10,11,12]
+
+                #Danh sách học kỳ 
+                ds_hk = [1, 2]
+
+                # Danh sách môn học
+                ds_mon = [
+                ["toan", "Toán"],
+                ["van", "Ngữ Văn"],
+                ["anh", "Tiếng Anh"],
+                ["ly", "Vật Lý"],
+                ["hoa", "Hóa"],
+                ["sinh", "Sinh Học"],
+                ["su", "Lịch Sử"],
+                ["dia", "Địa"],
+                ["tin", "Tin Học"],
+                ["gdkt", "GDKT và PL"],
+                ["gdcd", "GDCD"],
+                ["cn", "Công nghệ công nghiệp"],
+                ["cnn", "Công nghệ nông nghiệp"]
+                ]
+            %>
+            <!-- Tạo biến lớp, lấy từng phần tử lớp trong danh sách lớp -->
+            <% ds_lop.each do |lop| %>
+
+            <div class="khoi-lop">
+
+                <h3 class="tieu-de-lop">
+                    Lớp <%= lop %>
+                </h3>
+
+                <% ds_hk.each do |hk| %>
+
+                    <h4 class="tieu-de-hocky">
+                        Học kì <%= hk %> lớp <%= lop %>
+                    </h4>
+
+                    <div class="luoi-mon-hoc">
+
+                        <% ds_mon.each do |ma_mon, ten_mon| %>
+
+                            <div class="o-mon-hoc">
+
+                                <label>
+                                    <%= ten_mon %>
+                                </label>
+
+                                <input type="number"
+                                    id="l<%= lop %>hk<%= hk %>-<%= ma_mon %>"
+                                    min="0"
+                                    max="10"
+                                    step="0.1"
+                                    placeholder="Nhập điểm">
+
+                            </div>
+
+                        <% end %>
+
+                    </div>
+
+                <% end %>
+
+            </div>
+
+            <% end %>
             <table>
-                <tr>
-                    <th>Trường THPT: </th>
-                    <th>
-                        <input type="text" name="truong" placeholder="Nhập tên trường">
-                    </th>
-                </tr>
-                <tr>
-                    <th>Năm tốt nghiệp: </th>
-                    <th>
-                        <input type="text" name="namtotnghiep" placeholder="Nhập năm tốt nghiệp">
-                    </th>
-                </tr>
                 <tr>
                     <th>Hạnh kiểm: </th>
                     <th>
                         <select id="hanhkiem" required>
-                            <option value="">-- Chọn hạnh kiểm --</option>
-                            <option value="CNTT">Tốt</option>
-                            <option value="QTKD">Khá</option>
-                            <option value="KTCK">Trung bình</option>
-                            <option value="KTCK">Yếu</option>
+                            <option value="">-- Chọn  --</option>
+                            <option value="Tốt">Tốt</option>
+                            <option value="Khá">Khá</option>
+                            <option value="Trung bình">Trung bình</option>
+                            <option value="Yếu">Yếu</option>
                         </select>
                     </th>
                 </tr>
+
                 <tr>
-                    <th>ĐTB năm 12: </th>
-                    <th><input type="text" name="dtb" placeholder="Nhập điểm trung bình năm 12"></th>
+                    <th>Kết quả học tập năm 12: </th>
+                    <th>
+                        <select id="kqht" required>
+                            <option value="">-- Chọn  --</option>
+                            <option value="Tốt">Tốt</option>
+                            <option value="Khá">Khá</option>
+                            <option value="Đạt">Đạt</option>
+                            <option value="Chưa Đạt">Chưa Đạt</option>
+                        </select>
+                    </th>
                 </tr>
             </table>
         </div>
         <div class="form-menu">
-            <label><h3>Thông tin đăng ký xét tuyển</h3></label>
-            <label><h3>Tải lên thông tin hồ sơ</h3></label>
-            <label>Hồ Sơ Minh Chứng (PDF, JPG, PNG - Tối đa 5MB)</label>
+            <label><h3>Thông tin bổ sung và nộp hồ sơ</h3></label>
+            <label>
+                Tải lên minh chứng học sinh giỏi, đạt giải quốc gia, vùng sâu vùng xa, kết quả thi đánh giá năng lực <br>
+                (Không bắt buộc với xét học bạ)
+            </label>
             <div class="file-upload" onclick="document.getElementById('filehoso').click()">
                 <input type="file" id="filehoso" accept=".pdf,.jpg,.jpeg,.png" multiple>
                 <span>
                     <p>📎 Click để chọn file hoặc kéo thả vào đây </p>
-                    <p> Bao gồm: Bản sao CMND, Học bạ, Giấy khai sinh </p>
+                    <p> (PDF, JPG, PNG - Tối đa 5MB) </p>
                 </span>
             </div>
-        </div>
-        <div class="form-menu">
             <h3>Hoàn thành hồ sơ</h3>
             <p>Vui lòng kiểm tra lại thông tin trước khi nộp.</p>
             <button class="btn-nop">Nộp hồ sơ</button>
         </div>
         <div class="nut-dieuhuong">
-            <button type="button" onclick="buocTruoc()">← Quay lại</button>
-            <button type="button" onclick="buocTiepTheo()">Tiếp theo →</button>
+            <button type="button" onclick="buocTruoc()" class="btn-dh">← Quay lại</button>
+            <button type="button" onclick="buocTiepTheo()" class="btn-dh">Tiếp theo →</button>
         </div>
     </form>
 </div>
