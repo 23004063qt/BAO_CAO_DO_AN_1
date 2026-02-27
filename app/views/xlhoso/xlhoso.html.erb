@@ -6,7 +6,7 @@
         <ul class="menu">
             <li><%= link_to "Trang chủ", trangchu_index_path %></li>
             <li><%=link_to "QL tài khoản", qltaikhoan_qltaikhoan_path %></li>
-            <li>Xử lý hồ sơ thí sinh</li>
+            <li><%=link_to "Xử lý hồ sơ thí sinh", xlhoso_xlhoso_path %></li>
             <li>QL thông tin tuyển sinh</li>
             <li>QL ngành học</li>
             <li><%=link_to "QL tin tức", qltintuc_qltintuc_path %></li>
@@ -15,19 +15,28 @@
         </ul>
 </div>
 <main>
-        <div class="actions">
-            <button class="btn-add"><%=link_to "+Thêm", themtintuc_themtintuc_path %></button>
-        </div>
             <table class="bang">
                     <tr class="head">
                         <th>STT</th>
                         <th>Mã hồ sơ</th>
-                        <th>Ảnh đại diện</th>
-                        <th>Tiêu đề</th>
-                        <th>Ngày đăng</th>
-                        <th>Ngày sửa</th>
-                        <th>Người đăng</th>
+                        <th>Tên thí sinh</th>
+                        <th>CCCD</th>
+                        <th>Tỉnh thường trú</th>
+                        <th>Trường THPT</th>
+                        <th>Phương thức xét tuyển</th>
+                        <th>Hạnh kiểm</th>
                         <th></th>
+                    </tr>
+                    <tr>
+                        <th>01</th>
+                        <th>001</th>
+                        <th>Lê Huỳnh Anh Duy</th>
+                        <th>0123456789</th>
+                        <th>Vĩnh Long</th>
+                        <th>Nguyễn Thông</th>
+                        <th>Xét học bạ</th>
+                        <th>Tốt</th>
+                        <th><button class="btn-chitiet"><%=link_to "Chi tiết", cthoso_cthoso_path %></button></th>
                     </tr>
             </table>
 </main>
