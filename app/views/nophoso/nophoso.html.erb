@@ -160,9 +160,8 @@
                 <tr>
                     <th>Giấy khai sinh: </th>
                     <th>
-                        <div class="file" onclick="document.getElementById('filegiayks').click()">
-                            <input type="file" id="filegiayks" accept=".pdf,.jpg,.jpeg,.png" multiple>
-                        </div>
+                        <label class="file" for="filegiayks"></label>
+                        <input type="file" id="filegiayks" accept=".pdf,.jpg,.jpeg,.png" multiple >
                     </th>
                 </tr>
 
@@ -176,18 +175,16 @@
                 <tr>
                     <th>CCCD mặt trước: </th>
                     <th>
-                        <div class="file" onclick="document.getElementById('filecccdt').click()">
-                            <input type="file" id="filecccdt" accept=".pdf,.jpg,.jpeg,.png" multiple>
-                        </div>
+                        <label class="file" for="filecccdt"> </label>
+                        <input type="file" id="filecccdt" accept=".pdf,.jpg,.jpeg,.png" multiple >
                     </th>
                 </tr>
 
                 <tr>
                     <th>CCCD mặt sau: </th>
                     <th>
-                        <div class="file" onclick="document.getElementById('filecccds').click()">
-                            <input type="file" id="filecccds" accept=".pdf,.jpg,.jpeg,.png" multiple>
-                        </div>
+                        <label class="file" for="filecccds"></label>
+                        <input type="file" id="filecccds" accept=".pdf,.jpg,.jpeg,.png" multiple >
                     </th>
                 </tr>
 
@@ -314,7 +311,7 @@
                 <tr>
                     <th>Trường THPT: </th>
                     <th>
-                        <input type="text" name="diachi" placeholder="Nhập địa chỉ thường trú">
+                        <input type="text" name="tentruong" placeholder="Nhập tên trường">
                     </th>
                 </tr>
 
@@ -500,6 +497,16 @@
                         </select>
                     </th>
                 </tr>
+                <label>
+                    <h3>Tải lên ảnh chụp học bạ</h3>
+                </label>
+                <div class="file-upload" onclick="document.getElementById('filehocba').click()">
+                <input type="file" id="filehocba" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                <span>
+                    <p>📎 Click để chọn file hoặc kéo thả vào đây </p>
+                    <p> (PDF, JPG, PNG - Tối đa 5MB) </p>
+                </span>
+            </div>
             </table>
         </div>
         <div class="form-menu">
