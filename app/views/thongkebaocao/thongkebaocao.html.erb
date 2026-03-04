@@ -1,0 +1,145 @@
+<div class="header">
+        <div class="logo">
+            <%= image_tag "logovlute.png",  width: 50 %>
+            Hệ Thống Tư Vấn Tuyển Sinh
+        </div>
+        <ul class="menu">
+            <li><%= link_to "Trang chủ", trangchu_index_path %></li>
+            <li><%=link_to "QL tài khoản", qltaikhoan_qltaikhoan_path %></li>
+            <li><%=link_to "Xử lý hồ sơ thí sinh", xlhoso_xlhoso_path %></li>
+            <li>QL thông tin tuyển sinh</li>
+            <li>QL ngành học</li>
+            <li><%=link_to "QL tin tức", qltintuc_qltintuc_path %></li>
+            <li>Chatbot AI</li>
+            <li>Thống kê và báo cáo</li>
+        </ul>
+</div>
+
+<div class="content">
+    <div class="tieu-de-trang">
+        <h2>Thống kê và báo cáo</h2>
+        <p>Quản lý và theo dõi các số liệu tuyển sinh</p>
+    </div>
+
+    <div class="thanh-menu">
+        <div class="menu2 active">Thống kê lượt truy cập</div>
+        <div class="menu2">Thống kê hồ sơ đăng ký</div>
+        <div class="menu2">Thống kê lượt tư vấn</div>
+        <div class="menu2">Thống kê tỉ lệ trúng tuyển</div>
+        <div class="menu2">Thống kê kê ngành được quan tâm</div>
+        <div class="menu2">Phân tích xu thế tuyển sinh</div>
+    </div>
+
+    <div class="form-menu active">
+        <label><h3>Thống kê lượt truy cập</h3></label>
+        <p>Tổng lượt truy cập: 12000</p>
+    </div>
+
+    <div class="form-menu">
+        <label><h3>Thống kê hồ sơ đăng ký</h3></label>
+        <p>Tổng hồ sơ đăng ký: 12000</p>
+    </div>
+
+    <div class="form-menu">
+        <label><h3>Thống kê lượt tư vấn</h3></label>
+        <p>Tổng lượt tư vấn: 12000</p>
+    </div>
+
+    <div class="form-menu">
+        <label><h3>Thống kê tỉ lệ trúng tuyển</h3></label>
+        <p>Tỉ lệ trúng tuyển: 100%</p>
+    </div>
+
+    <div class="form-menu">
+        <label><h3>Thống kê kê ngành được quan tâm</h3></label>
+        <p>Công nghệ thông tin</p>
+        <p>Khoa học máy tính</p>
+    </div>
+
+    <div class="form-menu">
+        <label><h3>Phân tích xu thế tuyển sinh</h3></label>
+        <p>Công nghệ thông tin</p>
+        <p>Khoa học máy tính</p>
+    </div>
+
+    <div class="nut-dieuhuong">
+        <button type="button" onclick="buocTruoc()" class="btn-dh">← Quay lại</button>
+        <button type="button" onclick="buocTiepTheo()" class="btn-dh">Tiếp theo →</button>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-content">
+        <div class="footer1">
+            <h3>Về Chúng Tôi</h3>
+            <p style="color: #94a3b8; line-height: 1.8;">
+                Hệ thống tư vấn tuyển sinh.
+            </p>
+        </div>
+        <div class="footer1">
+            <h3>Liên Kết Nhanh</h3>
+            <ul>
+                <li>Ngành học<</li>
+                <li>Lịch tuyển sinh</li>
+                <li>Nộp hồ sơ</li>
+                <li>Câu hỏi thường gặp</li>
+            </ul>
+        </div>
+        <div class="footer1">
+            <h3>Liên Hệ</h3>
+            <ul>
+                <li>Hotline: 123</li>
+                <li>Email: tuyensinh@vlute.edu.vn</li>
+                <li>Địa chỉ: Vĩnh Long</li>
+                <li>Giờ làm việc: 8:00 - 17:00</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer2">
+        <p>&copy; 2026 Hệ Thống Tư Vấn Tuyển Sinh </p>
+    </div>
+</div>
+
+<script>
+
+    let buocht = 0;
+    const danhSachForm = document.querySelectorAll(".form-menu");
+    const danhSachTieuDe = document.querySelectorAll(".menu2");
+
+    function hienThiBuoc(soBuoc){
+
+        // ẩn tất cả form
+        danhSachForm.forEach(form =>
+            form.classList.remove("active")
+        );
+
+        // reset thanh bước
+        danhSachTieuDe.forEach(b =>
+            b.classList.remove("active")
+        );
+
+        // hiện bước hiện tại
+        danhSachForm[soBuoc].classList.add("active");
+        danhSachTieuDe[soBuoc].classList.add("active");
+    }
+
+
+    // tiếp tục
+    function buocTiepTheo(){
+
+        if(buocht < danhSachForm.length - 1){
+            buocht++;
+            hienThiBuoc(buocht);
+        }
+    }
+
+
+    // quay lại
+    function buocTruoc(){
+
+        if(buocht > 0){
+            buocht--;
+            hienThiBuoc(buocht);
+        }
+    }
+</script>
