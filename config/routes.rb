@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "trangchu#index"
+
+  post '/api/chat', to: 'chat#create'
 end

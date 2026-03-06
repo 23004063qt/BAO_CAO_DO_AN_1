@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-turbo="false">
   <head>
     <title><%= content_for(:title) || "Tuvantuyensinh" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,22 +8,154 @@
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
-
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <%= yield %>
+
+    <!-- ═══ CHATBOT HTML ═══ -->
+    <button id="chat-toggle">
+      <div id="notif-badge">1</div>
+      💬
+    </button>
+
+    <div id="chatbot-box">
+      <div class="chat-header">
+        <div class="avatar-wrap"><%= image_tag "logovlute.png",  width: 30 %></div>
+        <div class="header-info">
+          <h4>AI Tư Vấn Tuyển Sinh</h4>
+          <p><span class="status-dot"></span> Đang hoạt động</p>
+        </div>
+        <button class="close-btn" id="close-btn">✕</button>
+      </div>
+
+      <div class="suggestions" id="suggestions">
+        <span class="chip">Ngành học hot 2026</span>
+        <span class="chip">Điểm chuẩn năm nay</span>
+        <span class="chip">Cách nộp hồ sơ</span>
+        <span class="chip">Học phí & học bổng</span>
+      </div>
+
+      <div id="chat-messages"></div>
+
+      <div class="chat-input-wrap">
+        <textarea id="user-input" rows="1" placeholder="Nhập câu hỏi tuyển sinh…"
+          maxlength="500"></textarea>
+        <button id="send-btn">➤</button>
+      </div>
+      <div class="char-count" id="char-count">0 / 500</div>
+    </div>
+
+    <%= javascript_importmap_tags %>
+
+    <script>
+    // Dùng addEventListener thay onclick để tương thích Turbo
+    document.addEventListener("turbo:load", initChatbot);
+    document.addEventListener("DOMContentLoaded", initChatbot);
+
+    function initChatbot() {
+      // Tránh gắn event 2 lần
+      if (window._chatbotInited) return;
+      window._chatbotInited = true;
+
+      document.getElementById("chat-toggle")?.addEventListener("click", toggleChatbot);
+      document.getElementById("close-btn")?.addEventListener("click", toggleChatbot);
+      document.getElementById("send-btn")?.addEventListener("click", () => sendMessage());
+      document.getElementById("user-input")?.addEventListener("keydown", handleKey);
+      document.getElementById("user-input")?.addEventListener("input", function() {
+        autoGrow(this); updateCount(this);
+      });
+      document.querySelectorAll(".chip").forEach(chip => {
+        chip.addEventListener("click", () => sendMessage(chip.textContent));
+      });
+    }
+
+    const SYSTEM_PROMPT = `Bạn là trợ lý tư vấn tuyển sinh của Trường VLUTE.
+Hỗ trợ thí sinh về ngành học, điểm chuẩn, hồ sơ, học phí, học bổng.
+Phong cách: thân thiện, ngắn gọn. Nếu không chắc, đề nghị liên hệ hotline: 0270.3822.498`;
+
+    let isOpen = false, isLoading = false;
+    const history = [];
+
+    function toggleChatbot() {
+      isOpen = !isOpen;
+      document.getElementById("chatbot-box").classList.toggle("open", isOpen);
+      document.getElementById("notif-badge")?.remove();
+      if (isOpen && history.length === 0)
+        setTimeout(() => addBotMessage("Xin chào! 👋 Mình là AI tư vấn tuyển sinh VLUTE. Bạn cần hỏi gì nào?"), 300);
+      if (isOpen) setTimeout(() => document.getElementById("user-input")?.focus(), 400);
+    }
+
+    async function sendMessage(text) {
+      const input = document.getElementById("user-input");
+      const msg = (text || input.value).trim();
+      if (!msg || isLoading) return;
+      input.value = ""; input.style.height = ""; updateCount(input);
+      document.getElementById("suggestions").style.display = "none";
+      addUserMessage(msg);
+      history.push({ role: "user", content: msg });
+      const typingId = addTypingIndicator();
+      setBusy(true);
+      try {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
+          },
+          body: JSON.stringify({ system: SYSTEM_PROMPT, messages: history })
+        });
+        removeTyping(typingId);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const reply = data.content?.[0]?.text || "Xin lỗi, thử lại nhé!";
+        history.push({ role: "assistant", content: reply });
+        addBotMessage(reply);
+      } catch (e) {
+        removeTyping(typingId);
+        addBotMessage(`<span class="error-text">⚠️ Lỗi: ${e.message}</span>`, true);
+      }
+      setBusy(false);
+    }
+
+    function handleKey(e)    { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); } }
+    function autoGrow(el)    { el.style.height = ""; el.style.height = Math.min(el.scrollHeight, 100) + "px"; }
+    function updateCount(el) { document.getElementById("char-count").textContent = `${el.value.length} / 500`; }
+
+    function addUserMessage(text) {
+      const w = document.createElement("div");
+      w.className = "bubble-wrap user";
+      w.innerHTML = `<div><div class="bubble user">${esc(text)}</div><div class="bubble-time">${now()}</div></div>
+                     <div class="bubble-avatar user">🧑</div>`;
+      msgs().appendChild(w); scroll();
+    }
+    function addBotMessage(html, raw = false) {
+      const w = document.createElement("div");
+      w.className = "bubble-wrap";
+      w.innerHTML = `<div class="bubble-avatar bot"><%= image_tag "logovlute.png",  width: 20 %></div>
+                     <div><div class="bubble bot">${raw ? html : esc(html).replace(/\n/g,"<br>")}</div>
+                     <div class="bubble-time">${now()}</div></div>`;
+      msgs().appendChild(w); scroll();
+    }
+    function addTypingIndicator() {
+      const id = "t-" + Date.now(), w = document.createElement("div");
+      w.className = "bubble-wrap"; w.id = id;
+      w.innerHTML = `<div class="bubble-avatar bot"><%= image_tag "logovlute.png",  width: 20 %></div>
+                     <div class="bubble bot"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+      msgs().appendChild(w); scroll(); return id;
+    }
+    function removeTyping(id) { document.getElementById(id)?.remove(); }
+    function setBusy(v) { isLoading = v; document.getElementById("send-btn").disabled = v; }
+    function msgs()  { return document.getElementById("chat-messages"); }
+    function scroll(){ const m = msgs(); m.scrollTop = m.scrollHeight; }
+    function now()   { return new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"}); }
+    function esc(s)  { return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+    </script>
+
   </body>
 </html>
