@@ -12,7 +12,7 @@ class ChatController < ApplicationController
 
     req = Net::HTTP::Post.new(uri)
     req["Content-Type"]  = "application/json"
-    req["Authorization"] = "Bearer nhapkey"
+    req["Authorization"] = "Bearer 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"
     req.body = {
       model:    "llama-3.3-70b-versatile",
       messages: [
