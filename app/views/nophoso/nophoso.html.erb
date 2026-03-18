@@ -565,7 +565,7 @@
     </div>
 </div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@2/dist/tesseract.min.js"></script>
 <script>
 
     let buocht = 0;
@@ -591,7 +591,15 @@
 
 
     // tiếp tục
-    function buocTiepTheo(){
+    async function buocTiepTheo(){
+
+        // nếu đang ở bước 1 thì kiểm tra CCCD
+        if (buocht === 0) {
+
+            let hopLe = await docCCCD();
+
+            if (!hopLe) return; 
+        }
 
         if(buocht < danhSachForm.length - 1){
             buocht++;
@@ -608,4 +616,52 @@
             hienThiBuoc(buocht);
         }
     }
+
+
+    // kiểm tra bước hiện tại
+    function kiemTraBuoc() {
+        let hopLe = true;
+
+        // Lấy các input trong bước 
+        const formHienTai = danhSachForm[buocht];
+        const inputs = formHienTai.querySelectorAll("input, select");
+
+        inputs.forEach(input => {
+            if (input.value.trim() === "") {
+                hopLe = false;
+                input.style.border = "2px solid red"; // tô đỏ nếu thiếu
+            } else {
+                input.style.border = "";
+            }
+        });
+
+        if (!hopLe) {
+            alert("Vui lòng nhập đầy đủ thông tin trước khi sang bước tiếp theo!");
+        }
+
+        return hopLe;
+    }
+
+    //async là hàm bất đồng bộ, đọc cccd cần có thời gian nên ko phản hồi ngay
+    async function docCCCD() {
+        const file = document.getElementById("filecccdt").files[0];
+
+        if (!file) {
+            alert("Vui lòng tải CCCD!");
+            return false;
+        }
+
+        //await đợi, Tesseract.recognize(file, 'vie'); là hàm bất đồng bộ, đọc ảnh xong mới chạy tiếp
+        const result = await Tesseract.recognize(file, 'vie'); 
+        const text = result.data.text;
+
+        // kiểm tra số CCCD 
+        if (!/\d{12}/.test(text)) {
+            alert("Không tìm thấy số CCCD!");
+            return false;
+        }
+
+        return true;
+    }
+
 </script>
