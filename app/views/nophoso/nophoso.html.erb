@@ -651,10 +651,12 @@
             return false;
         }
 
+        document.body.style.cursor = "wait";
+
         //await đợi, Tesseract.recognize(file, 'vie'); là hàm bất đồng bộ, đọc ảnh xong mới chạy tiếp
         const result = await Tesseract.recognize(file, 'vie'); 
         const text = result.data.text;
-
+        document.body.style.cursor = "default";
         // kiểm tra số CCCD 
         if (!/\d{12}/.test(text)) {
             alert("Không tìm thấy số CCCD!");
