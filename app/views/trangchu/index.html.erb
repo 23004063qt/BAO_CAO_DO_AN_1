@@ -8,7 +8,7 @@
             <li><%= link_to "Trang chủ", trangchu_index_path %></li>
             <li><%= link_to "Thông Tin Trường", thongtintruong_thongtintruong_path %></li>
             <li><%= link_to "Tin Tức", tintuc_tintuc_path %></li>
-            <li>Ngành Học</li>
+            <li><%= link_to "Ngành Học", nganh_nganh_path %></li>
             <li><%= link_to "Lịch Tuyển Sinh", lichtuyensinh_lichtuyensinh_path %></li>
             <li><%= link_to "Nộp hồ sơ", nophoso_nophoso_path %></li>
             <li><%= link_to "Đăng nhập", dangnhap_dangnhap_path %></li>
@@ -62,7 +62,7 @@
             <h3>Tính Điểm Thi</h3>
             <p>Tính điểm xét tuyển theo tổ hợp môn</p>
         </div>
-        <div class="congcu">
+        <div class="congcu" onclick="window.location.href='<%= nganh_nganh_path %>'">
             <div class="icon">📚</div>
             <h3>Tra Cứu Ngành</h3>
             <p>Xem thông tin các ngành đào tạo</p>
@@ -83,12 +83,12 @@
 <section class="tintuc-section">
     <div class="tintuc-header">
         <h2>Tin Mới Nhất</h2>
-        <a href="#" class="xemthem-btn">Xem tất cả</a>
+        <a class="xemthem-btn" onclick="window.location.href='<%= tintuc_tintuc_path %>'">Xem tất cả</a>
     </div>
     <div class="tintuc-grid">
         <div class="news-card" onclick="window.location.href='<%= noidungtin_noidungtin_path %>'">
             <div class="news-img-wrap">
-                <div class="news-img-placeholder c1"></div>
+                <div class="news-img-placeholder c1"><%= image_tag "vfast.jpg",  width: 500 %></div>
                 <span class="news-tag">Tin tức</span>
             </div>
             <div class="news-body">
@@ -99,7 +99,7 @@
         </div>
         <div class="news-card">
             <div class="news-img-wrap">
-                <div class="news-img-placeholder c2"></div>
+                <div class="news-img-placeholder c2"><%= image_tag "ts.jpg",  width: 500 %></div>
                 <span class="news-tag">Tuyển sinh</span>
             </div>
             <div class="news-body">
@@ -110,7 +110,7 @@
         </div>
         <div class="news-card">
             <div class="news-img-wrap">
-                <div class="news-img-placeholder c3"></div>
+                <div class="news-img-placeholder c3"><%= image_tag "hv.jpg",  width: 500 %></div>
                 <span class="news-tag">Hợp tác</span>
             </div>
             <div class="news-body">
@@ -121,7 +121,7 @@
         </div>
         <div class="news-card">
             <div class="news-img-wrap">
-                <div class="news-img-placeholder c4"></div>
+                <div class="news-img-placeholder c4"><%= image_tag "ct.jpg",  width: 500 %></div>
                 <span class="news-tag">Hướng nghiệp</span>
             </div>
             <div class="news-body">
