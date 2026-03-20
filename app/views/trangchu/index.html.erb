@@ -7,7 +7,7 @@
         <ul class="menu">
             <li><%= link_to "Trang chủ", trangchu_index_path %></li>
             <li><%= link_to "Thông Tin Trường", thongtintruong_thongtintruong_path %></li>
-            <li>Tin Tức</li>
+            <li><%= link_to "Tin Tức", tintuc_tintuc_path %></li>
             <li>Ngành Học</li>
             <li><%= link_to "Lịch Tuyển Sinh", lichtuyensinh_lichtuyensinh_path %></li>
             <li><%= link_to "Nộp hồ sơ", nophoso_nophoso_path %></li>
@@ -53,12 +53,8 @@
         </div>
     </div>
 </section>
-<%# <section class="banner" id="home">
-    <div class="noidungbanner">
-        <h1>Hệ Thống Tư Vấn Tuyển Sinh</h1>
-        <p>Kết hợp AI Chatbot - Tư vấn 24/7 - Nộp hồ sơ trực tuyến - Theo dõi kết quả</p>
-    </div>
-</section> %>
+
+
 <section class="congcu-class">
     <div class="congcu-container">
         <div class="congcu" onclick="window.location.href='<%= tinhdiem_tinhdiem_path %>'">
@@ -83,6 +79,60 @@
         </div>
     </div>
 </section>
+
+<section class="tintuc-section">
+    <div class="tintuc-header">
+        <h2>Tin Mới Nhất</h2>
+        <a href="#" class="xemthem-btn">Xem tất cả</a>
+    </div>
+    <div class="tintuc-grid">
+        <div class="news-card" onclick="window.location.href='<%= noidungtin_noidungtin_path %>'">
+            <div class="news-img-wrap">
+                <div class="news-img-placeholder c1"></div>
+                <span class="news-tag">Tin tức</span>
+            </div>
+            <div class="news-body">
+                <div class="news-date">19/03/2026</div>
+                <div class="news-title">VLUTE "Tiếp nhận thiết bị tài trợ ô tô điện phục vụ giảng dạy từ công ty TNHH sản xuất và kinh doanh VinFast</div>
+                <div class="news-excerpt">Sáng 19/3/2026, tại Nhà thi đấu đa năng, Trường Đại học Sư phạm Kỹ thuật Vĩnh Long (VLUTE) tổ chức lễ tiếp nhận tài trợ xe ô tô điện phục vụ công tác giảng dạy...</div>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="news-img-wrap">
+                <div class="news-img-placeholder c2"></div>
+                <span class="news-tag">Tuyển sinh</span>
+            </div>
+            <div class="news-body">
+                <div class="news-date">14/03/2026</div>
+                <div class="news-title">Tư vấn tuyển sinh năm 2026, đợt 3 – Ngày hội kết nối và trải nghiệm VLUTE OPEN DAY</div>
+                <div class="news-excerpt">Chiều ngày 14/03/2026 Trường Đại học Sư phạm Kỹ thuật Vĩnh Long (VLUTE) tổ chức chương trình tư vấn tuyển sinh đợt 3 với chủ đề "Ngày hội kết nối và trải nghiệm"...</div>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="news-img-wrap">
+                <div class="news-img-placeholder c3"></div>
+                <span class="news-tag">Hợp tác</span>
+            </div>
+            <div class="news-body">
+                <div class="news-date">13/03/2026</div>
+                <div class="news-title">VLUTE đến thăm và thảo luận hợp tác đào tạo với Học viện Tư Pháp</div>
+                <div class="news-excerpt">Sáng 13/3/2026, đoàn công tác của Trường Đại học Sư phạm Kỹ thuật Vĩnh Long (VLUTE) đã có buổi làm việc, thăm và trao đổi hợp tác đào tạo với Học viện Tư Pháp...</div>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="news-img-wrap">
+                <div class="news-img-placeholder c4"></div>
+                <span class="news-tag">Hướng nghiệp</span>
+            </div>
+            <div class="news-body">
+                <div class="news-date">08/03/2026</div>
+                <div class="news-title">Tư vấn tuyển sinh – hướng nghiệp năm 2026 tại Trường THPT An Bình</div>
+                <div class="news-excerpt">Sáng ngày 08/3/2026 tại Trường Đại học Sư phạm Kỹ thuật Vĩnh Long, Sở Giáo dục và Đào tạo tổ chức chương trình tư vấn tuyển sinh hướng nghiệp cho học sinh lớp 12...</div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <footer>
     <div class="footer-content">
         <div class="footer1">
@@ -114,4 +164,3 @@
         <p>&copy; 2026 Hệ Thống Tư Vấn Tuyển Sinh </p>
     </div>
 </footer>
-<%# <button class="chatbot-button">🗨️</button> %>

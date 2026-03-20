@@ -1,0 +1,101 @@
+<header>
+    <nav>
+        <div class="logo">
+            <%= image_tag "logovlute.png",  width: 50 %>
+            Hệ Thống Tư Vấn Tuyển Sinh
+        </div>
+        <ul class="menu">
+            <li><%= link_to "Trang chủ", trangchu_index_path %></li>
+            <li><%= link_to "Thông Tin Trường", thongtintruong_thongtintruong_path %></li>
+            <li>Tin Tức</li>
+            <li>Ngành Học</li>
+            <li><%= link_to "Lịch Tuyển Sinh", lichtuyensinh_lichtuyensinh_path %></li>
+            <li><%= link_to "Nộp hồ sơ", nophoso_nophoso_path %></li>
+            <li><%= link_to "Đăng nhập", dangnhap_dangnhap_path %></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="page-wrapper">
+    <main>
+        <div class="filter-bar">
+            <span class="filter-label">Lọc theo:</span>
+            <button class="filter-btn active" onclick="setFilter(this)">Tất cả</button>
+            <button class="filter-btn" onclick="setFilter(this)">Tin tức</button>
+            <button class="filter-btn" onclick="setFilter(this)">Tuyển sinh</button>
+            <button class="filter-btn" onclick="setFilter(this)">Hợp tác</button>
+            <button class="filter-btn" onclick="setFilter(this)">Hướng nghiệp</button>
+        </div>
+        <div class="news-featured" onclick="window.location.href='<%= noidungtin_noidungtin_path %>'">
+            <div class="news-featured-main">
+                <div class="featured-img"></div>
+                <div class="featured-body">
+                    <h2>VLUTE "Tiếp nhận thiết bị tài trợ đào tạo lĩnh vực ô tô điện" từ VinFast</h2>
+                    <p>Sáng 19/3/2026, tại Nhà thi đấu đa năng, Trường Đại học Sư phạm Kỹ thuật Vĩnh Long (VLUTE) đã tổ chức chương trình tiếp nhận tài trợ với sự tham gia của nhiều doanh nghiệp và đông đảo giảng viên, sinh viên.</p>
+                    <span class="featured-date">19/03/2026</span>
+                </div>
+            </div>
+        </div>
+        <div class="news-divider">
+            <span class="news-divider-title">Tin Mới Nhất</span>
+            <div class="news-divider-line"></div>
+        </div>
+ 
+        <div class="news-grid">
+ 
+            <div class="news-card">
+                <div class="card-img">
+                    <span class="card-tag">Tuyển sinh</span>
+                </div>
+                <div class="card-body">
+                    <div class="card-date">14/03/2026</div>
+                    <div class="card-title">Tư vấn tuyển sinh năm 2026, đợt 3 – Ngày hội kết nối và trải nghiệm VLUTE OPEN DAY</div>
+                    <div class="card-excerpt">Chiều ngày 14/03/2026 Trường Đại học Sư phạm Kỹ thuật Vĩnh Long tổ chức chương trình tư vấn tuyển sinh đợt 3...</div>
+                </div>
+            </div>
+        </div>
+
+         <div class="pagination">
+            <button class="page-btn arrow">‹</button>
+            <button class="page-btn">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">5</button>
+            <button class="page-btn arrow">›</button>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer1">
+            <h3>Về Chúng Tôi</h3>
+            <p style="color: #94a3b8; line-height: 1.8;">
+                Hệ thống tư vấn tuyển sinh.
+            </p>
+        </div>
+        <div class="footer1">
+            <h3>Liên Kết Nhanh</h3>
+            <ul>
+                <li>Ngành học<</li>
+                <li>Lịch tuyển sinh</li>
+                <li>Nộp hồ sơ</li>
+                <li>Câu hỏi thường gặp</li>
+            </ul>
+        </div>
+        <div class="footer1">
+            <h3>Liên Hệ</h3>
+            <ul>
+                <li>Hotline: 123</li>
+                <li>Email: tuyensinh@vlute.edu.vn</li>
+                <li>Địa chỉ: Vĩnh Long</li>
+                <li>Giờ làm việc: 8:00 - 17:00</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer2">
+        <p>&copy; 2026 Hệ Thống Tư Vấn Tuyển Sinh </p>
+    </div>
+</footer>

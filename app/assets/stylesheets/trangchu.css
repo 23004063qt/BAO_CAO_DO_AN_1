@@ -15,6 +15,7 @@ body {
     color: #333;
     overflow-x: hidden;
 }
+
 header {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
@@ -24,6 +25,7 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(37, 99, 235, 0.2);
 }
+    
 nav {
     max-width: 1400px;
     margin: 0 auto;
@@ -32,6 +34,7 @@ nav {
     align-items: center;
     padding: 0 20px;
 }
+    
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
@@ -281,26 +284,159 @@ footer {
     color: #94a3b8;
 }
 
-/* .chatbot-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+.tintuc-section {
+    padding: 60px 20px;
+    background: white;
+}
+
+.tintuc-header {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tintuc-header h2 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #e02020;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.tintuc-header h2::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 28px;
+    background: #e02020;
+    border-radius: 3px;
+}
+
+.xemthem-btn {
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid var(--primary);
+    padding: 0.4rem 1.1rem;
+    border-radius: 100px;
+    transition: all 0.2s;
+}
+
+.xemthem-btn:hover {
+    background: var(--primary);
     color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.8rem;
+}
+
+.tintuc-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.news-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    transition: all 0.3s;
     cursor: pointer;
-    box-shadow: 0 5px 20px rgba(37, 99, 235, 0.4);
-    transition: transform 0.3s;
-    z-index: 999;
+}
+
+.news-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.13);
+}
+
+.news-img-wrap {
+    position: relative;
+    height: 190px;
+    overflow: hidden;
+    background: #e2e8f0;
+}
+
+.news-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.news-card:hover .news-img-wrap img {
+    transform: scale(1.06);
+}
+
+.news-tag {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(224,32,32,0.88);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Placeholder colored backgrounds when no image */
+.news-img-placeholder {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 3rem;
+}
+.news-img-placeholder.c1 { background: linear-gradient(135deg, white, white); }
+.news-img-placeholder.c2 { background: linear-gradient(135deg, white, white); }
+.news-img-placeholder.c3 { background: linear-gradient(135deg, white, white); }
+.news-img-placeholder.c4 { background: linear-gradient(135deg, white, white); }
+
+.news-body {
+    padding: 1.1rem 1.2rem 1.4rem;
 }
 
-.chatbot-button:hover {
-    transform: scale(1.1);
-} */
+.news-title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #e02020;
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-title:hover { text-decoration: underline; }
+
+.news-date {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.news-excerpt {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+ 
