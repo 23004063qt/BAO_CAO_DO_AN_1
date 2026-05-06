@@ -23,10 +23,10 @@
             <button class="tab-btn active" onclick="setFilter(this, 'all')">Tất Cả</button>
             <button class="tab-btn" onclick="setFilter(this, 'cong-nghe')">Công Nghệ Thông Tin</button>
             <button class="tab-btn" onclick="setFilter(this, 'kinh-te')">Kinh Tế - Luật</button>
-            <button class="tab-btn" onclick="setFilter(this, 'ky-thuat')">Cơ Khí</button>
-            <button class="tab-btn" onclick="setFilter(this, 'ky-thuat')">Cơ Khí Động Lực</button>
-            <button class="tab-btn" onclick="setFilter(this, 'ky-thuat')">Điện - Điện Tử</button>
-            <button class="tab-btn" onclick="setFilter(this, 'ky-thuat')">Sinh Hóa - Thực Phẩm </button>
+            <button class="tab-btn" onclick="setFilter(this, 'co-khi')">Cơ Khí</button>
+            <button class="tab-btn" onclick="setFilter(this, 'co-khi-dong-luc')">Cơ Khí Động Lực</button>
+            <button class="tab-btn" onclick="setFilter(this, 'dien-dien-tu')">Điện - Điện Tử</button>
+            <button class="tab-btn" onclick="setFilter(this, 'sinh-hoa')">Sinh Hóa - Thực Phẩm </button>
             <button class="tab-btn" onclick="setFilter(this, 'khac')">Chính Trị - Ngoại Ngữ </button>
             <button class="tab-btn" onclick="setFilter(this, 'su-pham')">Sư Phạm KT và XHNV</button>
         </div>
@@ -50,19 +50,215 @@
  
     <div class="section-title">
         <span class="title-text">Tất cả ngành đào tạo</span>
-        <span id="countLabel">(20 ngành)</span>
+        <span id="countLabel">(30 ngành)</span>
     </div>
     <div class="nganh-grid" id="nganhGrid">
  
-        <div class="nganh-card" data-cat="ky-thuat">
-            <div class="nganh-img-placeholder"><%= image_tag "ktkh.jpg",  width: 500 %></div>
+        <div class="nganh-card" data-cat="sinh-hoa">
+            <div class="card-image">
+                <div class="badge hot">HOT</div>
+                <%= image_tag "ktkh.jpg", alt: "Ngành Kỹ thuật hóa học", class: "card-photo" %>
+            </div>
             <div class="nganh-body">
-                <div class="nganh-khoa">Khoa Kỹ thuật Hóa học</div>
-                <div class="nganh-ten">Ngành Kỹ thuật Hóa học</div>
-                <div class="nganh-mo-ta">Thông tin chi tiết về chương trình học. Xem tại đây để tìm hiểu thêm về ngành Kỹ thuật Hóa học tại VLUTE.</div>
-                <div class="nganh-footer">
-                    <span class="nganh-ma">Mã ngành: 7520301</span>
-                    <a href="#" class="xem-them">Xem thêm</a>
+                <div class="nganh-meta">
+                    <span class="nganh-code">7520301</span>
+                    <%= link_to "Mô tả ngành", nganh_ky_thuat_hoa_hoc_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">KỸ THUẬT HÓA HỌC</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> A00, B00, C04, D01, A01, A04, A06, A02, X08, X12 (dự kiến)</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_ky_thuat_hoa_hoc_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="sinh-hoa">
+            <div class="card-image">
+                <div class="badge hot">HOT</div>
+                <%= image_tag "CongNgheThucPham.png", alt: "Ngành Công nghệ thực phẩm", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7540101</span>
+                    <%= link_to "Mô tả ngành", nganh_cong_nghe_thuc_pham_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">CÔNG NGHỆ THỰC PHẨM</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> A00, B00, C04, D01, A01, A04, A06, A02, X08, X12 (dự kiến)</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_cong_nghe_thuc_pham_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="co-khi">
+            <div class="card-image">
+                <div class="badge hot">HOT</div>
+                <%= image_tag "CoKhi.jpg", alt: "Ngành Công nghệ kỹ thuật cơ khí", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7510201</span>
+                    <%= link_to "Mô tả ngành", nganh_cong_nghe_ky_thuat_co_khi_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">CÔNG NGHỆ KỸ THUẬT CƠ KHÍ</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> A00, A01, D01, C03, A03, A04, D09, D10, X19, X23 (dự kiến)</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_cong_nghe_ky_thuat_co_khi_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="co-khi">
+            <div class="card-image">
+                <div class="badge hot">HOT</div>
+                <%= image_tag "CoDienTu.jpg", alt: "Ngành Công nghệ kỹ thuật cơ điện tử", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7510203</span>
+                    <%= link_to "Mô tả ngành", nganh_cong_nghe_ky_thuat_co_dien_tu_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">CÔNG NGHỆ KỸ THUẬT CƠ ĐIỆN TỬ</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> A00, A01, D01, C03, A03, A04, D09, D10, X03, X07 (dự kiến)</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_cong_nghe_ky_thuat_co_dien_tu_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="co-khi">
+            <div class="card-image">
+                <div class="badge new">NEW</div>
+                <%= image_tag "KyThuatRobot.jpg", alt: "Ngành Kỹ thuật Robot", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7520107</span>
+                    <%= link_to "Mô tả ngành", nganh_ky_thuat_robot_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">KỸ THUẬT ROBOT</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> A00, A01, D01, C03, A03, A04, D09, D10, X03, X07 (dự kiến)</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_ky_thuat_robot_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="co-khi-dong-luc">
+            <div class="card-image">
+                <div class="badge hot">HOT</div>
+                <%= image_tag "CongNgheKyThuatOto.jpg", alt: "Ngành Công nghệ kỹ thuật ô tô", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7510205</span>
+                    <%= link_to "Mô tả ngành", nganh_cong_nghe_ky_thuat_o_to_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">CÔNG NGHỆ KỸ THUẬT Ô TÔ</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> A00, A01, D01, C03, A03, A04, D09, D10, X03, X07 (dự kiến)</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_cong_nghe_ky_thuat_o_to_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="co-khi-dong-luc">
+            <div class="card-image">
+                <div class="badge hot">HOT</div>
+                <%= image_tag "OtoDien.jpg", alt: "Ngành Kỹ thuật ô tô điện", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7520130</span>
+                    <%= link_to "Mô tả ngành", nganh_ky_thuat_o_to_dien_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">KỸ THUẬT Ô TÔ (Ô TÔ ĐIỆN)</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> A00, A01, D01, C03, A03, A04, D09, D10, X03, X07 (dự kiến)</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_ky_thuat_o_to_dien_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="co-khi-dong-luc">
+            <div class="card-image">
+                <div class="badge hot">HOT</div>
+                <%= image_tag "XayDung.png", alt: "Ngành Công nghệ kỹ thuật công trình xây dựng", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7510102</span>
+                    <%= link_to "Mô tả ngành", nganh_cong_nghe_ky_thuat_cong_trinh_xay_dung_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">CÔNG NGHỆ KỸ THUẬT CÔNG TRÌNH XÂY DỰNG</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> A00, A01, D01, C03, A03, A04, D09, D10, X03, X07 (dự kiến)</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_cong_nghe_ky_thuat_cong_trinh_xay_dung_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="dien-dien-tu">
+            <div class="card-image">
+                <div class="badge hot">HOT</div>
+                <%= image_tag "DK_TDH.jpg", alt: "Ngành Công nghệ kỹ thuật điều khiển và tự động hóa", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7510303</span>
+                    <%= link_to "Mô tả ngành", nganh_cong_nghe_ky_thuat_dieu_khien_va_tdh_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">CÔNG NGHỆ KỸ THUẬT ĐIỀU KHIỂN VÀ TĐH</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> A00, A01, D01, C03, A03, A04, D09, D10, X03, X07 (dự kiến)</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_cong_nghe_ky_thuat_dieu_khien_va_tdh_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="dien-dien-tu">
+            <div class="card-image">
+                <div class="badge hot">HOT</div>
+                <%= image_tag "Dien.jpg", alt: "Ngành Công nghệ kỹ thuật điện, điện tử", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7510301</span>
+                    <%= link_to "Mô tả ngành", nganh_cong_nghe_ky_thuat_dien_dien_tu_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">CÔNG NGHỆ KỸ THUẬT ĐIỆN, ĐIỆN TỬ</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> A00, A01, D01, C03, A03, A04, D09, D10, X19, X23 (dự kiến)</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_cong_nghe_ky_thuat_dien_dien_tu_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="dien-dien-tu">
+            <div class="card-image">
+                <div class="badge hot">HOT</div>
+                <%= image_tag "Nhiet_DienLanh.jpg", alt: "Ngành Công nghệ kỹ thuật nhiệt điện lạnh", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7510206</span>
+                    <%= link_to "Mô tả ngành", nganh_cong_nghe_ky_thuat_nhiet_dien_lanh_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">CÔNG NGHỆ KỸ THUẬT NHIỆT (ĐIỆN LẠNH)</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> A00, A01, D01, C03, A03, A04, D09, D10, X03, X07 (dự kiến)</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_cong_nghe_ky_thuat_nhiet_dien_lanh_path, class: "btn program-btn" %>
                 </div>
             </div>
         </div>
@@ -269,9 +465,11 @@ function setFilter(button, category) {
     
     // Show/hide cards based on category
     const cards = document.querySelectorAll('.nganh-card');
+    const kyThuatCats = ['co-khi', 'co-khi-dong-luc', 'dien-dien-tu', 'sinh-hoa'];
     let visibleCount = 0;
     cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-cat') === category) {
+        const cardCat = card.getAttribute('data-cat');
+        if (category === 'all' || cardCat === category || (category === 'ky-thuat' && kyThuatCats.includes(cardCat))) {
             card.style.display = 'block';
             visibleCount++;
         } else {

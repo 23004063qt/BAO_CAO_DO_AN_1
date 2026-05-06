@@ -31,4 +31,37 @@ class NganhController < ApplicationController
 
   def toan_tin
   end
+
+  def cong_nghe_ky_thuat_co_khi
+  end
+
+  def cong_nghe_ky_thuat_co_dien_tu
+  end
+
+  def ky_thuat_robot
+  end
+
+  def cong_nghe_ky_thuat_o_to
+  end
+
+  def ky_thuat_o_to_dien
+  end
+
+  def cong_nghe_ky_thuat_cong_trinh_xay_dung
+  end
+
+  def cong_nghe_ky_thuat_dieu_khien_va_tdh
+  end
+
+  def cong_nghe_ky_thuat_dien_dien_tu
+  end
+
+  def cong_nghe_ky_thuat_nhiet_dien_lanh
+  end
+
+  def ky_thuat_hoa_hoc
+  end
+
+  def cong_nghe_thuc_pham
+  end
 end
