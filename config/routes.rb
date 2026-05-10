@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get "nganh/cong_tac_xa_hoi"
   get "nganh/chinh_tri_hoc"
   get "nganh/triet_hoc"
+  get "nganh/su_pham_cong_nghe"
   get "nganh/giao_duc_hoc"
   get "nganh/du_lich"
   get "nganh/thu_y"

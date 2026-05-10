@@ -1,7 +1,7 @@
 <header>
     <nav>
         <div class="logo">
-            <%= image_tag "logovlute.png",  width: 50 %>
+            <%= image_tag "logovlute.png", width: 50 %>
             Hệ Thống Tư Vấn Tuyển Sinh
         </div>
         <ul class="menu">
@@ -50,10 +50,29 @@
  
     <div class="section-title">
         <span class="title-text">Tất cả ngành đào tạo</span>
-        <span id="countLabel">(30 ngành)</span>
+        <span id="countLabel">(31 ngành)</span>
     </div>
     <div class="nganh-grid" id="nganhGrid">
  
+        <div class="nganh-card" data-cat="su-pham">
+            <div class="card-image">
+                <div class="badge new">NEW</div>
+                <%= image_tag "SPCN.jpg", alt: "Ngành Sư phạm công nghệ", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7140246</span>
+                    <%= link_to "Mô tả ngành", nganh_su_pham_cong_nghe_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">SƯ PHẠM CÔNG NGHỆ</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> C03, C04, D01, C14, A09, X01, X02, X03, X04, X21, X72, X76, X78, Y08, Y10</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Xét kết quả thi tốt nghiệp THPT</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_su_pham_cong_nghe_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
         <div class="nganh-card" data-cat="sinh-hoa">
             <div class="card-image">
                 <div class="badge hot">HOT</div>
@@ -529,7 +548,7 @@
             </div>
         </div>
 
-        <div class="nganh-card" data-cat="su-pham">
+        <div class="nganh-card" data-cat="khac">
             <div class="card-image">
                 <div class="badge hot">HOT</div>
                 <%= image_tag "NgonNguAnh.jpeg", alt: "Ngành Ngôn ngữ Anh", class: "card-photo" %>
@@ -660,7 +679,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="footer1">
             <h3>Liên Kết Nhanh</h3>
             <ul>
-                <li>Ngành học<</li>
+                <li>Ngành học</li>
                 <li>Lịch tuyển sinh</li>
                 <li>Nộp hồ sơ</li>
                 <li>Câu hỏi thường gặp</li>
