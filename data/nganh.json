@@ -1,0 +1,247 @@
+[  
+    
+   {
+"ten_nganh": "Truyền thông đa phương tiện",
+"ma_nganh": "7320104",
+"ky_nang": ["thiết kế", "đồ họa", "sáng tạo"],
+"to_hop": [ "A01", "C03", "C14", "C04", "C01", "D01", "X01", "X02", "D96", "X03", "C07", "C09", "D11", "X71", "Y10" ],
+"mo_ta": "Thiết kế nội dung số và truyền thông",
+"nghe_nghiep": ["Designer", "Content Creator"]
+},
+{
+"ten_nganh": "Toán tin",
+"ma_nganh": "7460117",
+"ky_nang": ["toán học", "thuật toán", "phân tích"],
+"to_hop": [ "A00", "C01", "D01", "X01", "X02", "X03", "X06", "X25", "X26", "X27", "C14", "X18", "X07", "X17", "X21"],
+"mo_ta": "Kết hợp toán học và khoa học máy tính",
+"nghe_nghiep": ["Data Analyst", "Algorithm Engineer"]
+},
+{
+"ten_nganh": "Khoa học dữ liệu",
+"ma_nganh": "7460108",
+"ky_nang": ["phân tích dữ liệu", "AI", "machine learning"],
+"to_hop": [ "A00", "A01", "D15", "C03", "D07", "C14", "C04", "X01", "X26", "X03", "X19", "X22", "X07", "X17", "X21" ],
+"mo_ta": "Phân tích và khai thác dữ liệu lớn",
+"nghe_nghiep": ["Data Scientist", "Machine Learning Engineer"]
+},
+  {
+    "_comment": "Ngành học nền tảng, cơ hội nghề nghiệp đa dạng trong mọi lĩnh vực - Kinh Tế ",
+    "ten_nganh": "Kinh tế",
+    "ma_nganh": "7310101",
+    "ky_nang": ["tư duy phản biện", "phân tích dữ liệu", "hoạch định chính sách"],
+    "to_hop": ["A01", "A09", "D01", "C03", "A04", "A08", "C04", "D10", "X17", "X21", "X01", "X02", "X25", "X53", "X79"],
+    "mo_ta": "Nghiên cứu sự vận hành của nền kinh tế và cách tối ưu hóa nguồn lực",
+    "nghe_nghiep": ["Chuyên viên phân tích thị trường", "Cố vấn chính sách", "Giảng viên kinh tế"]
+},
+  {
+    "_comment": "Sự giao thoa hoàn hảo giữa kinh tế và công nghệ thông tin",
+    "ten_nganh": "Thương mại điện tử",
+    "ma_nganh": "7340122",
+    "ky_nang": ["Digital Marketing", "Quản trị vận hành sàn TMĐT", "Phân tích dữ liệu khách hàng", "SEO/SEM"],
+    "to_hop": ["A01", "A09", "D01", "A08", "C04", "D10", "X17", "X21", "X26"],
+    "mo_ta": "Ứng dụng công nghệ và nền tảng số để thực hiện các hoạt động kinh doanh, giao dịch trực tuyến",
+    "nghe_nghiep": ["E-commerce Manager", "Chuyên viên tối ưu hóa trải nghiệm khách hàng", "Kinh doanh online"]
+},
+{
+    "_comment": "Ngành 'xương sống' của nền kinh tế toàn cầu, đảm bảo hàng hóa lưu thông tối ưu",
+    "ten_nganh": "Logistics và Quản lý chuỗi cung ứng",
+    "ma_nganh": "7510605",
+    "ky_nang": ["Quản trị kho bãi", "Lập kế hoạch nhu cầu", "Vận tải đa phương thức", "Quản trị rủi ro chuỗi cung ứng"],
+    "to_hop": ["A01", "A09", "D01", "A08", "C04", "D10", "X17", "X21", "X22"],
+    "mo_ta": "Quản lý mạng lưới kết nối từ khâu thu mua nguyên liệu, sản xuất đến khi sản phẩm tận tay người tiêu dùng một cách hiệu quả nhất",
+    "nghe_nghiep": ["Chuyên viên điều phối vận tải", "Quản lý kho hàng (Warehouse Manager)", "Chuyên viên thu mua", "Chuyên gia phân tích chuỗi cung ứng"]
+},
+{
+    "_comment": "Ngành bảo vệ công lý và thiết lập trật tự kỷ cương xã hội",
+    "ten_nganh": "Luật",
+    "ma_nganh": "7380101",
+    "ky_nang": ["Tư duy pháp lý", "Tranh tụng", "Soạn thảo văn bản quy phạm", "Giải quyết tranh chấp"],
+    "to_hop": ["C00", "C03", "D01", "C14", "X01", "X17", "X70", "X74", "X03", "X54"],
+    "mo_ta": "Nghiên cứu hệ thống quy tắc ứng xử do nhà nước ban hành và kỹ năng áp dụng pháp luật vào thực tiễn",
+    "nghe_nghiep": ["Luật sư", "Thẩm phán", "Kiểm sát viên", "Chuyên viên pháp chế doanh nghiệp"]
+},
+{
+    "_comment": "Cầu nối giữa quy định pháp luật và hoạt động quản trị kinh doanh",
+    "ten_nganh": "Luật Kinh tế",
+    "ma_nganh": "7380107",
+    "ky_nang": ["Tư duy pháp lý doanh nghiệp", "Đàm phán hợp đồng", "Giải quyết tranh chấp thương mại", "Tư vấn đầu tư"],
+    "to_hop": ["C00", "C03", "C14", "C19", "D01", "X01", "X03", "X17", "X70", "X74"],
+    "mo_ta": "Nghiên cứu các quy định pháp luật điều chỉnh các quan hệ kinh tế phát sinh trong quá trình sản xuất, kinh doanh",
+    "nghe_nghiep": ["Luật sư chuyên về thương mại", "Chuyên viên pháp chế tại tập đoàn", "Tư vấn viên đầu tư quốc tế", "Trọng tài viên thương mại"]
+},
+{
+    "_comment": "Nghệ thuật thấu hiểu khách hàng và xây dựng giá trị thương hiệu",
+    "ten_nganh": "Marketing",
+    "ma_nganh": "7340115",
+    "ky_nang": ["Nghiên cứu thị trường", "Xây dựng chiến lược thương hiệu", "Sáng tạo nội dung (Content)", "Phân tích hành vi người tiêu dùng"],
+    "to_hop": ["A01", "A09", "C03", "C04", "D01", "D10", "X17", "X21", "X79"],
+    "mo_ta": "Quá trình quản trị nhằm phát hiện, kích thích và đáp ứng nhu cầu của khách hàng để tạo ra lợi nhuận bền vững",
+    "nghe_nghiep": ["Chuyên viên truyền thông (PR)", "Quản trị thương hiệu (Brand Manager)", "Chuyên viên nghiên cứu thị trường", "Account Executive"]
+},
+ {
+"ten_nganh": "Công nghệ kỹ thuật cơ khí",
+"ma_nganh": "7510201",
+"ky_nang": ["cơ khí", "thiết kế máy", "kỹ thuật"],
+"to_hop": [ "A00", "A01", "D01", "C03", "A03", "A04", "D09", "D10", "X02", "X03", "X06", "X07", "X19", "X22", "X23" ],
+"mo_ta": "Thiết kế, chế tạo và vận hành máy móc cơ khí",
+"nghe_nghiep": ["Mechanical Engineer", "Production Engineer"]
+},
+{
+"ten_nganh": "Công nghệ kỹ thuật cơ điện tử",
+"ma_nganh": "7510203",
+"ky_nang": ["robot", "tự động hóa", "điện tử"],
+"to_hop": [ "A00", "A01", "D01", "C03", "A03", "A04", "D09", "D10", "X02", "X03", "X06", "X07", "X19", "X22", "X23" ],
+"mo_ta": "Kết hợp cơ khí, điện tử và điều khiển tự động",
+"nghe_nghiep": ["Automation Engineer", "Mechatronics Engineer"]
+},
+{
+"ten_nganh": "Kỹ thuật Robot",
+"ma_nganh": "7520216",
+"ky_nang": ["robot", "AI", "điều khiển"],
+"to_hop": [ "A00", "A01", "D01", "C03", "A03", "A04", "D09", "D10", "X02", "X03", "X06", "X07", "X19", "X22", "X23" ],
+"mo_ta": "Nghiên cứu và phát triển robot thông minh",
+"nghe_nghiep": ["Robotics Engineer", "Automation Specialist"]
+},
+{
+    "ten_nganh": "Công nghệ kỹ thuật ô tô",
+    "ma_nganh": "7510205",
+    "ky_nang": ["ô tô", "động cơ", "cơ khí"],
+    "to_hop": [ "A00", "A01", "D01", "C03", "A03", "A04", "D09", "D10", "X02", "X03",     "X06", "X07", "X19", "X22", "X23"],
+    "mo_ta": "Thiết kế, bảo trì và vận hành hệ thống ô tô",
+    "nghe_nghiep": ["Automotive Engineer", "Service Engineer"]
+  },
+  {
+    "ten_nganh": "Kỹ thuật ô tô điện",
+    "ma_nganh": "7520130",
+    "ky_nang": ["ô tô điện", "pin", "điện tử"],
+    "to_hop": [ "A00", "A01", "D01", "C03", "A03", "A04", "D09", "D10", "X02", "X03", "X06", "X07", "X19", "X22", "X23" ],
+    "mo_ta": "Nghiên cứu và phát triển xe điện, hệ thống pin và điều khiển",
+    "nghe_nghiep": ["EV Engineer", "Battery Engineer"]
+  },
+  {
+    "ten_nganh": "Công nghệ kỹ thuật công trình xây dựng",
+    "ma_nganh": "7510103",
+    "ky_nang": ["xây dựng", "thiết kế", "kết cấu"],
+    "to_hop": [ "A00", "A01", "D01", "C03", "A03" ,"A04", "D09", "D10", "X02", "X03", "X06", "X07", "X19", "X22", "X23"],
+    "mo_ta": "Thiết kế và thi công các công trình xây dựng",
+    "nghe_nghiep": ["Civil Engineer", "Construction Supervisor"]
+  },
+  {
+    "_comment": "Trí tuệ của các nhà máy thông minh và hệ thống robot",
+    "ten_nganh": "Công nghệ Kỹ thuật Điều khiển và Tự động hóa",
+    "ma_nganh": "7510303",
+    "ky_nang": ["Lập trình PLC/Scada", "Thiết kế hệ thống Robot", "Xử lý tín hiệu số", "Vận hành dây chuyền tự động"],
+    "to_hop": ["A00", "A01", "D01", "C03", "A03", "A04", "D09", "D10", "X03", "X07"],
+    "mo_ta": "Nghiên cứu, thiết kế và vận hành các hệ thống điều khiển tự động nhằm tối ưu hóa năng suất và độ chính xác trong công nghiệp",
+    "nghe_nghiep": ["Kỹ sư lập trình Robot", "Kỹ sư vận hành hệ thống IoT", "Chuyên gia tư vấn giải pháp Smart City"]
+},
+{
+    "_comment": "Nguồn năng lượng và linh hồn của mọi thiết bị hiện đại",
+    "ten_nganh": "Công nghệ Kỹ thuật Điện, Điện tử",
+    "ma_nganh": "7510301",
+    "ky_nang": ["Thiết kế mạch điện tử", "Quản lý lưới điện", "Sửa chữa thiết bị điện công nghiệp", "Lập trình vi điều khiển"],
+    "to_hop": ["A00", "A01", "D01", "C03", "A03", "A04", "D09", "D10", "X19", "X23"],
+    "mo_ta": "Nghiên cứu ứng dụng các hiện tượng điện từ để biến đổi năng lượng và xử lý thông tin",
+    "nghe_nghiep": ["Kỹ sư điện lưới", "Thiết kế vi mạch", "Quản lý hệ thống điện tòa nhà", "Kỹ sư bảo trì điện-điện tử"]
+},
+{
+    "_comment": "Chuyên gia điều phối năng lượng nhiệt và môi trường sống",
+    "ten_nganh": "Công nghệ Kỹ thuật Nhiệt",
+    "ma_nganh": "7510206",
+    "ky_nang": ["Thiết kế hệ thống HVAC", "Tính toán nhiệt động lực học", "Vận hành lò hơi/tua bin", "Kỹ thuật điện lạnh"],
+    "to_hop": ["A00", "A01", "D01", "C03", "A03", "A04", "D09", "D10", "X03", "X07"],
+    "mo_ta": "Ứng dụng các nguyên lý nhiệt động lực học để thiết kế các hệ thống làm lạnh, điều hòa không khí và nhà máy nhiệt điện",
+    "nghe_nghiep": ["Kỹ sư HVAC (Điều hòa/Thông gió)", "Kỹ sư vận hành nhà máy nhiệt điện", "Chuyên viên tư vấn tiết kiệm năng lượng"]
+},
+{
+    "_comment": "Phù thủy của các phản ứng và quy trình sản xuất vật chất",
+    "ten_nganh": "Kỹ thuật Hóa học",
+    "ma_nganh": "7520301",
+    "ky_nang": ["Phân tích hóa lý", "Vận hành thiết bị phản ứng", "Nghiên cứu vật liệu mới", "Kiểm soát an toàn hóa chất"],
+    "to_hop": ["A00", "B00", "C04", "D01", "A01", "A04", "A06", "A02", "X08", "X12"],
+    "mo_ta": "Nghiên cứu và ứng dụng các kiến thức hóa học vào quy trình sản xuất quy mô công nghiệp để tạo ra sản phẩm phục vụ đời sống",
+    "nghe_nghiep": ["Kỹ sư quy trình", "Chuyên viên R&D mỹ phẩm/dược phẩm", "Kỹ sư kiểm soát chất lượng (QC)"]
+},
+{
+    "_comment": "Đảm bảo chất lượng và sự đổi mới cho ngành công nghiệp ăn uống",
+    "ten_nganh": "Công nghệ Thực phẩm",
+    "ma_nganh": "7540101",
+    "ky_nang": ["Phân tích vi sinh thực phẩm", "Phát triển sản phẩm mới", "Quản lý chất lượng (HACCP/ISO)", "Kỹ thuật bảo quản"],
+    "to_hop": ["A00", "B00", "C04", "D01", "A01", "A04", "A06", "A02", "X08", "X12"],
+    "mo_ta": "Ứng dụng các nguyên lý khoa học và kỹ thuật để chế biến, đóng gói và phân phối thực phẩm an toàn, tiện lợi",
+    "nghe_nghiep": ["Kỹ sư phát triển sản phẩm (R&D)", "Chuyên viên kiểm tra vệ sinh an toàn thực phẩm", "Quản lý dây chuyền sản xuất thực phẩm"]
+},
+{
+    "_comment": "Bảo vệ sức khỏe động vật và an ninh y tế cộng đồng",
+    "ten_nganh": "Thú y",
+    "ma_nganh": "7640101",
+    "ky_nang": ["Chẩn đoán hình ảnh thú y", "Phẫu thuật ngoại khoa động vật", "Phòng chống dịch bệnh truyền nhiễm", "Kỹ thuật xét nghiệm bệnh phẩm"],
+    "to_hop": ["A01", "B00", "C04", "D01", "B08", "A02", "B04", "B02", "X13", "X14"],
+    "mo_ta": "Đào tạo các chuyên gia về y tế động vật, từ chăm sóc thú cưng đến quản lý dịch bệnh trong chăn nuôi công nghiệp",
+    "nghe_nghiep": ["Bác sĩ thú y", "Chuyên viên kiểm dịch động vật", "Chuyên gia kỹ thuật trang trại", "Kinh doanh dược phẩm thú y"]
+},
+{
+    "_comment": "Khai phá sức mạnh của sự sống ở cấp độ tế bào và phân tử",
+    "ten_nganh": "Công nghệ Sinh học",
+    "ma_nganh": "7420201",
+    "ky_nang": ["Kỹ thuật di truyền", "Nuôi cấy mô tế bào", "Kỹ thuật PCR/Giải trình tự gen", "Vi sinh ứng dụng"],
+    "to_hop": ["A02", "B00", "B01", "B03", "B08", "C06", "C08", "C12", "C13", "C18", "C26", "X13", "X16", "X67", "X69"],
+    "mo_ta": "Sử dụng các cơ chế sinh học ở cấp độ phân tử để tạo ra các giải pháp đột phá trong y tế, nông nghiệp và năng lượng tái tạo",
+    "nghe_nghiep": ["Kỹ sư công nghệ sinh học", "Chuyên viên xét nghiệm di truyền", "Nghiên cứu viên giống cây trồng/vật nuôi", "Chuyên viên pháp y"]
+},
+{
+    "_comment": "Nền tảng của sự nghiệp trồng người và phát triển nguồn nhân lực",
+    "ten_nganh": "Giáo dục học",
+    "ma_nganh": "7140101",
+    "ky_nang": ["Thiết kế chương trình đào tạo", "Tâm lý học giáo dục", "Kỹ năng giảng dạy", "Quản lý dự án giáo dục"],
+    "to_hop": ["C00", "C03", "C19", "D01", "C14", "C04", "D15", "X01", "X02", "X70", "X72", "X76", "X78", "Y08", "Y10"],
+    "mo_ta": "Nghiên cứu các quy luật của quá trình giáo dục, đào tạo và định hình nhân cách con người trong các môi trường khác nhau",
+    "nghe_nghiep": ["Chuyên viên giáo dục", "Giảng viên", "Cán bộ quản lý trường học", "Tư vấn tâm lý học đường"]
+},
+{
+    "_comment": "Chìa khóa hội nhập và giao thoa văn hóa toàn cầu",
+    "ten_nganh": "Ngôn ngữ Anh",
+    "ma_nganh": "7220201",
+    "ky_nang": ["Biên - Phiên dịch", "Tiếng Anh chuyên ngành (Kinh tế/Du lịch)", "Giao tiếp liên văn hóa", "Nghiên cứu ngôn ngữ học"],
+    "to_hop": ["D01", "D14", "D15", "D09", "D10", "D66", "D84", "D07", "X25", "X78", "X26", "X27", "X79", "X80", "X81"],
+    "mo_ta": "Nghiên cứu về cấu trúc ngôn ngữ, kỹ năng thực hành tiếng Anh và ứng dụng trong các lĩnh vực chuyên môn đa dạng",
+    "nghe_nghiep": ["Biên - Phiên dịch viên", "Điều phối viên quốc tế", "Giảng viên tiếng Anh", "Chuyên viên truyền thông đối ngoại"]
+},
+{
+    "_comment": "Nghệ thuật quản lý nhà nước và định hướng tư tưởng xã hội",
+    "ten_nganh": "Chính trị học",
+    "ma_nganh": "7310201",
+    "ky_nang": ["Phân tích chính sách công", "Tư duy lý luận", "Truyền thông chính trị", "Vận động chính sách"],
+    "to_hop": ["C00", "C03", "C14", "C19", "C20", "D01", "D09", "D15", "D66", "X01", "X25", "X70", "X74", "X78", "Y08"],
+    "mo_ta": "Nghiên cứu về các thể chế, lý thuyết chính trị và cách vận hành của hệ thống quyền lực trong xã hội",
+    "nghe_nghiep": ["Cán bộ trong cơ quan Nhà nước", "Chuyên viên nghiên cứu lý luận", "Cố vấn chính trị", "Phóng viên mảng thời sự/chính trị"]
+},
+{
+    "_comment": "Gốc rễ của tư duy logic và thế giới quan khoa học",
+    "ten_nganh": "Triết học",
+    "ma_nganh": "7229001",
+    "ky_nang": ["Tư duy trừu tượng", "Lập luận logic", "Phân tích hệ thống tư tưởng", "Phê bình lý thuyết"],
+    "to_hop": ["C00", "C03", "C14", "C19", "C20", "D01", "D09", "D15", "D66", "X01", "X25", "X70", "X74", "X78", "Y08"],
+    "mo_ta": "Nghiên cứu về những quy luật chung nhất của tự nhiên, xã hội và tư duy nhằm hình thành nhân sinh quan và thế giới quan đúng đắn",
+    "nghe_nghiep": ["Giảng viên lý luận chính trị", "Nghiên cứu viên khoa học xã hội", "Chuyên viên tuyên giáo", "Biên tập viên nội dung tư tưởng"]
+},
+{
+    "_comment": "Đào tạo người truyền cảm hứng kỹ thuật và tư duy sáng tạo công nghệ",
+    "ten_nganh": "Sư phạm Công nghệ",
+    "ma_nganh": "7140246",
+    "ky_nang": ["Kỹ năng giảng dạy tích hợp", "Sử dụng thiết bị kỹ thuật", "Thiết kế giáo án STEM/STEAM", "Quản lý phòng thực hành"],
+    "to_hop": ["C03", "C04", "D01", "C14", "A09", "X01", "X02", "X03", "X04", "X21", "X72", "X76", "X78", "Y08", "Y10"],
+    "mo_ta": "Đào tạo giáo viên có năng lực chuyên môn về lĩnh vực công nghệ và kỹ năng nghiệp vụ sư phạm để giảng dạy trong hệ thống giáo dục quốc dân",
+    "nghe_nghiep": ["Giáo viên môn Công nghệ", "Chuyên gia đào tạo tại các trung tâm STEM", "Cán bộ quản lý thiết bị dạy học", "Nghiên cứu viên giáo dục kỹ thuật"]
+},
+{
+    "_comment": "Ngành công nghiệp không khói - Đại sứ văn hóa và dịch vụ",
+    "ten_nganh": "Du lịch",
+    "ma_nganh": "7810101",
+    "ky_nang": ["Điều hành tour lữ hành", "Giao tiếp liên văn hóa", "Quản trị sự kiện và lễ hội", "Kỹ năng hướng dẫn và hoạt náo"],
+    "to_hop": ["C00", "C03", "C19", "D01", "C14", "C04", "D15", "X01", "X02", "X70", "X72", "X76", "X78", "Y08", "Y10"],
+    "mo_ta": "Nghiên cứu tổng thể các hoạt động liên quan đến lữ hành, quản lý điểm đến và cung ứng dịch vụ du lịch bền vững",
+    "nghe_nghiep": ["Hướng dẫn viên du lịch", "Chuyên viên điều hành tour", "Quản lý điểm đến du lịch", "Chuyên viên tư vấn du lịch tại các đại lý"]
+}
+
+]
