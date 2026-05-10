@@ -92,6 +92,44 @@
             </div>
         </div>
 
+        <div class="nganh-card" data-cat="sinh-hoa">
+            <div class="card-image">
+                <div class="badge new">NEW</div>
+                <%= image_tag "ThuY.jpg", alt: "Ngành Thú y", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7640101</span>
+                    <%= link_to "Mô tả ngành", nganh_thu_y_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">THÚ Y</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> A01, B00, C04, D01, B08, A02, B04, B02, X13, X14 (dự kiến)</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_thu_y_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="sinh-hoa">
+            <div class="card-image">
+                <div class="badge new">NEW</div>
+                <%= image_tag "CongNgheSinhHoc.jpg", alt: "Ngành Công nghệ sinh học", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7420201</span>
+                    <%= link_to "Mô tả ngành", nganh_cong_nghe_sinh_hoc_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">CÔNG NGHỆ SINH HỌC</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> A02, B00, B01, B03, B08, C06, C08, C12, C13, C18, C26, X13, X16, X67, X69</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_cong_nghe_sinh_hoc_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
         <div class="nganh-card" data-cat="co-khi">
             <div class="card-image">
                 <div class="badge hot">HOT</div>
@@ -452,32 +490,140 @@
                 </div>
             </div>
         </div>
+
+        <div class="nganh-card" data-cat="khac">
+            <div class="card-image">
+                <div class="badge new">NEW</div>
+                <%= image_tag "GiaoDucHoc.jpg", alt: "Ngành Giáo dục học", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7140101</span>
+                    <%= link_to "Mô tả ngành", nganh_giao_duc_hoc_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">GIÁO DỤC HỌC</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> C00, C03, C19, D01, C14, C04, D15, X01, X02, X70, X72, X76, X78, Y08, Y10</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_giao_duc_hoc_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="su-pham">
+            <div class="card-image">
+                <div class="badge new">NEW</div>
+                <%= image_tag "DuLich.jpg", alt: "Ngành Du lịch", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7810101</span>
+                    <%= link_to "Mô tả ngành", nganh_du_lich_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">DU LỊCH</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> C00, C03, C19, D01, C14, C04, D15, X01, X02, X70, X72, X76, X78, Y08, Y10</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_du_lich_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="su-pham">
+            <div class="card-image">
+                <div class="badge hot">HOT</div>
+                <%= image_tag "NgonNguAnh.jpeg", alt: "Ngành Ngôn ngữ Anh", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7220201</span>
+                    <%= link_to "Mô tả ngành", nganh_ngon_ngu_anh_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">NGÔN NGỮ ANH</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> D01, D14, D15, D09, D10, D66, D84, D07, X25, X78, X26, X27, X79, X80, X81</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_ngon_ngu_anh_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="khac">
+            <div class="card-image">
+                <div class="badge hot">HOT</div>
+                <%= image_tag "ChinhTriHoc.jpg", alt: "Ngành Chính trị học", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7310201</span>
+                    <%= link_to "Mô tả ngành", nganh_chinh_tri_hoc_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">CHÍNH TRỊ HỌC</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> C00, C03, C14, C19, C20, D01, D09, D15, D66, X01, X25, X70, X74, X78, Y08</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_chinh_tri_hoc_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="nganh-card" data-cat="khac">
+            <div class="card-image">
+                <div class="badge hot">HOT</div>
+                <%= image_tag "TrietHoc.jpg", alt: "Ngành Triết học", class: "card-photo" %>
+            </div>
+            <div class="nganh-body">
+                <div class="nganh-meta">
+                    <span class="nganh-code">7229001</span>
+                    <%= link_to "Mô tả ngành", nganh_triet_hoc_path, class: "btn describe-btn" %>
+                </div>
+                <h3 class="nganh-ten">TRIẾT HỌC</h3>
+                <p class="nganh-info"><strong>Tổ hợp:</strong> C00, C03, C14, C19, C20, D01, D09, D15, D66, X01, X25, X70, X74, X78, Y08</p>
+                <p class="nganh-info"><strong>Phương thức:</strong> Học bạ, Tuyển thẳng, Điểm thi THPT, Điểm thi ĐGNL</p>
+                <div class="nganh-actions">
+                    <%= link_to "Chương trình đào tạo", nganh_triet_hoc_path, class: "btn program-btn" %>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
 function setFilter(button, category) {
-    // Remove active class from all tab-btn and filter-chip
-    document.querySelectorAll('.tab-btn, .filter-chip').forEach(btn => btn.classList.remove('active'));
-    
-    // Add active class to clicked button
-    if (button) button.classList.add('active');
-    
-    // Show/hide cards based on category
     const cards = document.querySelectorAll('.nganh-card');
-    const kyThuatCats = ['co-khi', 'co-khi-dong-luc', 'dien-dien-tu', 'sinh-hoa'];
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const filterChips = document.querySelectorAll('.filter-chip');
+
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    filterChips.forEach(chip => chip.classList.remove('active'));
+
+    if (button) {
+        button.classList.add('active');
+    }
+
     let visibleCount = 0;
     cards.forEach(card => {
-        const cardCat = card.getAttribute('data-cat');
-        if (category === 'all' || cardCat === category || (category === 'ky-thuat' && kyThuatCats.includes(cardCat))) {
+        const cardCategory = card.getAttribute('data-cat');
+        let showCard = false;
+
+        if (category === 'all') {
+            showCard = true;
+        } else if (category === 'ky-thuat') {
+            showCard = ['co-khi', 'co-khi-dong-luc', 'dien-dien-tu'].includes(cardCategory);
+        } else if (category === 'cong-nghe') {
+            showCard = cardCategory === 'cong-nghe';
+        } else {
+            showCard = cardCategory === category;
+        }
+
+        if (showCard) {
             card.style.display = 'block';
             visibleCount++;
         } else {
             card.style.display = 'none';
         }
     });
-    
-    // Update count label
+
     document.getElementById('countLabel').textContent = `(${visibleCount} ngành)`;
 }
 

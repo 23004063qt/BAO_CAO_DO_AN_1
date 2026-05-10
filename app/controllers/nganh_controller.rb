@@ -64,4 +64,28 @@ class NganhController < ApplicationController
 
   def cong_nghe_thuc_pham
   end
+
+  def cong_nghe_sinh_hoc
+  end
+
+  def ngon_ngu_anh
+  end
+
+  def cong_tac_xa_hoi
+  end
+
+  def chinh_tri_hoc
+  end
+
+  def triet_hoc
+  end
+
+  def giao_duc_hoc
+  end
+
+  def du_lich
+  end
+
+  def thu_y
+  end
 end
