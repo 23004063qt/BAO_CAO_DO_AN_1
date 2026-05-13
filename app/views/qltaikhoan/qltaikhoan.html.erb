@@ -25,45 +25,25 @@
                         <th>Mã tài khoản</th>
                         <th>UserName</th>
                         <th>Pass</th>
+                        <th>Email</th>
                         <th>Vai trò</th>
                         <th></th>
                     </tr>
                     
-                    <tr>
-                        <th>1</th>
-                        <th>001</th>
-                        <th>UserName</th>
-                        <th>Pass123</th>
-                        <th>Admin</th>
-                        <th>
-                            <button class="btn-delete">🗑️ Xóa</button>
-                            <button class="btn-up">✎ Sửa</button>
-                        </th>
-                    </tr>
-                    
-                    <tr>
-                        <th>2</th>
-                        <th>002</th>
-                        <th>UserName2</th>
-                        <th>Pass333</th>
-                        <th>Admin</th>
-                        <th>
-                            <button class="btn-delete">🗑️ Xóa</button>
-                            <button class="btn-up">✎ Sửa</button>
-                        </th>
-                    </tr>
-
-                    <tr>
-                        <th>3</th>
-                        <th>003</th>
-                        <th>UserName3</th>
-                        <th>Pass321</th>
-                        <th>Admin</th>
-                        <th>
-                            <button class="btn-delete">🗑️ Xóa</button>
-                            <button class="btn-up">✎ Sửa</button>
-                        </th>
-                    </tr>
+                    <% @nguoidungs.each_with_index do |user, index| %>
+                        <tr>
+                            <td><%= index + 1 %></td>
+                            <td><%= user.IDNGUOIDUNG %></td>
+                            <td><%= user.USERNAME %></td>
+                            <td><%= user.MATKHAU %></td>
+                            <td><%= user.EMAIL %></td>
+                            <td><%= user.VAITRO %></td>
+                            <td>
+                                <button class="btn-delete">🗑️ Xóa</button>
+                                <button class="btn-up">✎ Sửa</button>
+                            </td>
+                        </tr>
+                    <% end %>
             </table>
 </main>
 
@@ -78,7 +58,7 @@
         <div class="footer1">
             <h3>Liên Kết Nhanh</h3>
             <ul>
-                <li>Ngành học<</li>
+                <li>Ngành học</li>
                 <li>Lịch tuyển sinh</li>
                 <li>Nộp hồ sơ</li>
                 <li>Câu hỏi thường gặp</li>
