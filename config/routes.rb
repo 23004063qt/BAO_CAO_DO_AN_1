@@ -60,4 +60,7 @@ Rails.application.routes.draw do
   root "trangchu#index"
 
   post '/api/chat', to: 'chat#create'
+
+  post "/xac-thuc-cccd",
+  to: "nophoso#xac_thuc_cccd"
 end
