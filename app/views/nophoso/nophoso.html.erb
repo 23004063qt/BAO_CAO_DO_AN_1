@@ -345,11 +345,13 @@
                 <tr>
                     <th>Phương thức xét tuyển: </th>
                     <th>
-                        <select id="ptxt" required>
+                        <select id="ptxt" name="phuongthucxettuyen" required>
                             <option value="">--Chọn--</option>
-                            <option value="Xét học bạ">Xét học bạ</option>
-                            <option value="Xét tuyển thẳng">Xét tuyển thẳng</option>
-                            <option value="Xét kết quả thi đánh giá năng lực">Xét kết quả thi đánh giá năng lực</option>
+                            <% @phuongthucxettuyens.each do |pt| %>
+                                <option value="<%= pt.TENPHUONGTHUC %>">
+                                    <%= pt.TENPHUONGTHUC %>
+                                </option>
+                            <% end %>
                         </select>
                     </th>
                 </tr>
@@ -357,7 +359,7 @@
                 <tr>
                     <th>Loại hình đào tạo: </th>
                     <th>
-                        <select id="ptxt" required>
+                        <select id="loaihinhdaotao" required>
                             <option value="">--Chọn--</option>
                             <option value="Chương trình đại trà">Chương trình đại trà</option>
                             <option value="Chương trình chất lượng cao">Chương trình chất lượng cao</option>
@@ -376,10 +378,11 @@
                                 <th>
                                     <select name="nguyenvong1">
                                         <option value="">--Chọn--</option>
-                                        <option>Công nghệ thông tin</option>
-                                        <option>Công nghệ thực phẩm</option>
-                                        <option>Thú y</option>
-                                        <option>Truyền thông đa phương tiện</option>
+                                        <% @nganhs.each do |nganh| %>
+                                            <option value="<%= nganh.IDNGANH %>">
+                                                <%= nganh.TENNGANH %>
+                                            </option>
+                                        <% end %>
                                     </select>
                                 </th>
                             </tr>
@@ -389,10 +392,11 @@
                                 <th>
                                     <select name="nguyenvong2">
                                         <option value="">--Chọn--</option>
-                                        <option>Công nghệ thông tin</option>
-                                        <option>Công nghệ thực phẩm</option>
-                                        <option>Thú y</option>
-                                        <option>Truyền thông đa phương tiện</option>
+                                        <% @nganhs.each do |nganh| %>
+                                            <option value="<%= nganh.IDNGANH %>">
+                                                <%= nganh.TENNGANH %>
+                                            </option>
+                                        <% end %>
                                     </select>
                                 </th>
                             </tr>
@@ -404,74 +408,76 @@
             </table>
         </div>
         <div class="form-menu">
-            <label><h3>Thông tin học tập</h3></label>
-            <%
-                #Danh sách khối lớp
-                ds_lop = [10,11,12]
+            <div id="tinhdiemhocba">
+                <label><h3>Thông tin học tập</h3></label>
+                <%
+                    #Danh sách khối lớp
+                    ds_lop = [10,11,12]
 
-                #Danh sách học kỳ 
-                ds_hk = [1, 2]
+                    #Danh sách học kỳ 
+                    ds_hk = [1, 2]
 
-                # Danh sách môn học
-                ds_mon = [
-                ["toan", "Toán"],
-                ["van", "Ngữ Văn"],
-                ["anh", "Tiếng Anh"],
-                ["ly", "Vật Lý"],
-                ["hoa", "Hóa"],
-                ["sinh", "Sinh Học"],
-                ["su", "Lịch Sử"],
-                ["dia", "Địa"],
-                ["tin", "Tin Học"],
-                ["gdkt", "GDKT và PL"],
-                ["gdcd", "GDCD"],
-                ["cn", "Công nghệ công nghiệp"],
-                ["cnn", "Công nghệ nông nghiệp"]
-                ]
-            %>
-            <!-- Tạo biến lớp, lấy từng phần tử lớp trong danh sách lớp -->
-            <% ds_lop.each do |lop| %>
+                    # Danh sách môn học
+                    ds_mon = [
+                    ["toan", "Toán"],
+                    ["van", "Ngữ Văn"],
+                    ["anh", "Tiếng Anh"],
+                    ["ly", "Vật Lý"],
+                    ["hoa", "Hóa"],
+                    ["sinh", "Sinh Học"],
+                    ["su", "Lịch Sử"],
+                    ["dia", "Địa"],
+                    ["tin", "Tin Học"],
+                    ["gdkt", "GDKT và PL"],
+                    ["gdcd", "GDCD"],
+                    ["cn", "Công nghệ công nghiệp"],
+                    ["cnn", "Công nghệ nông nghiệp"]
+                    ]
+                %>
+                <!-- Tạo biến lớp, lấy từng phần tử lớp trong danh sách lớp -->
+                <% ds_lop.each do |lop| %>
 
-            <div class="khoi-lop">
+                <div class="khoi-lop">
 
-                <h3 class="tieu-de-lop">
-                    Lớp <%= lop %>
-                </h3>
+                    <h3 class="tieu-de-lop">
+                        Lớp <%= lop %>
+                    </h3>
 
-                <% ds_hk.each do |hk| %>
+                    <% ds_hk.each do |hk| %>
 
-                    <h4 class="tieu-de-hocky">
-                        Học kì <%= hk %> lớp <%= lop %>
-                    </h4>
+                        <h4 class="tieu-de-hocky">
+                            Học kì <%= hk %> lớp <%= lop %>
+                        </h4>
 
-                    <div class="luoi-mon-hoc">
+                        <div class="luoi-mon-hoc">
 
-                        <% ds_mon.each do |ma_mon, ten_mon| %>
+                            <% ds_mon.each do |ma_mon, ten_mon| %>
 
-                            <div class="o-mon-hoc">
+                                <div class="o-mon-hoc">
 
-                                <label>
-                                    <%= ten_mon %>
-                                </label>
+                                    <label>
+                                        <%= ten_mon %>
+                                    </label>
 
-                                <input type="number"
-                                    id="l<%= lop %>hk<%= hk %>-<%= ma_mon %>"
-                                    min="0"
-                                    max="10"
-                                    step="0.1"
-                                    placeholder="Nhập điểm">
+                                    <input type="number"
+                                        id="l<%= lop %>hk<%= hk %>-<%= ma_mon %>"
+                                        min="0"
+                                        max="10"
+                                        step="0.1"
+                                        placeholder="Nhập điểm">
 
-                            </div>
+                                </div>
 
-                        <% end %>
+                            <% end %>
 
-                    </div>
+                        </div>
+
+                    <% end %>
+
+                </div>
 
                 <% end %>
-
             </div>
-
-            <% end %>
             <table>
                 <tr>
                     <th>Hạnh kiểm: </th>
@@ -566,7 +572,7 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/tesseract.js@2/dist/tesseract.min.js"></script>
+
 <script>
 
     let buocht = 0;
@@ -642,7 +648,8 @@
 
         return hopLe;
     }
-
+   
+   // hàm xác thực CCCD bằng ảnh mặt trước
    async function docCCCD() {
 
         const fileTruoc =
@@ -721,5 +728,27 @@
             return false;
         }
     }
+
+    // xử lý ẩn hiện phần nhập điểm
+    const ptxt = document.getElementById("ptxt");
+    const khoiNhapDiem = document.getElementById("tinhdiemhocba");
+
+    function capNhatNhapDiem() {
+
+        if (ptxt.value === "Xét học bạ") {
+
+            khoiNhapDiem.style.display = "block";
+
+        } else {
+
+            khoiNhapDiem.style.display = "none";
+        }
+    }
+
+    // khi đổi phương thức xét tuyển
+    ptxt.addEventListener("change", capNhatNhapDiem);
+
+    // chạy lần đầu
+    capNhatNhapDiem();
 
 </script>

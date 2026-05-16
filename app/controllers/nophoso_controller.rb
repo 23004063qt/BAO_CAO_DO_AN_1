@@ -1,6 +1,8 @@
 class NophosoController < ApplicationController
 
   def nophoso
+     @phuongthucxettuyens = Phuongthucxettuyen.all
+     @nganhs = Nganh.all
   end
 
   def xac_thuc_cccd
