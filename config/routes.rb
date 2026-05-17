@@ -63,4 +63,7 @@ Rails.application.routes.draw do
 
   post "/xac-thuc-cccd",
   to: "nophoso#xac_thuc_cccd"
+
+  get "/lay-tohop/:id",
+    to: "api#lay_tohop_theo_nganh"
 end

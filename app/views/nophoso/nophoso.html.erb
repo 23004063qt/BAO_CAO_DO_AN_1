@@ -478,6 +478,26 @@
 
                 <% end %>
             </div>
+            <div id="ketqua-tohop">
+                <h3>Kết quả xét học bạ</h3>
+                <div class="ketqua-nganh">
+                    <h4>Nguyện vọng 1</h4>
+                    <p id="kq-nganh1">
+                        Chưa tính điểm
+                    </p>
+                </div>
+                <div class="ketqua-nganh">
+                    <h4>Nguyện vọng 2</h4>
+                    <p id="kq-nganh2">
+                        Chưa tính điểm
+                    </p>
+                </div>
+            </div>
+            <div class="box-tinhdiem">
+                <button type="button" id="btn-tinhdiem" class="btn-tinhdiem">
+                    Tính điểm xét học bạ
+                </button>
+            </div>
             <table>
                 <tr>
                     <th>Hạnh kiểm: </th>
@@ -750,5 +770,300 @@
 
     // chạy lần đầu
     capNhatNhapDiem();
+
+    // =======================
+// DANH SÁCH MÔN
+// =======================
+
+const dsMon = [
+    "toan",
+    "van",
+    "anh",
+    "ly",
+    "hoa",
+    "sinh",
+    "su",
+    "dia",
+    "tin",
+    "gdkt",
+    "gdcd",
+    "cn",
+    "cnn"
+];
+
+
+// =======================
+// TÍNH ĐIỂM TRUNG BÌNH 1 MÔN
+// =======================
+
+function tinhDiemTrungBinhMon(maMon) {
+
+    let tong = 0;
+    let dem = 0;
+
+    [10,11,12].forEach(lop => {
+
+        [1,2].forEach(hk => {
+
+            const input = document.getElementById(
+                `l${lop}hk${hk}-${maMon}`
+            );
+
+            let diem = parseFloat(input.value);
+
+            if (!isNaN(diem)) {
+
+                tong += diem;
+                dem++;
+            }
+
+        });
+
+    });
+
+    if (dem === 0) return 0;
+
+    return tong / dem;
+}
+
+
+// =======================
+// TÍNH TOÀN BỘ ĐIỂM MÔN
+// =======================
+
+function layTatCaDiemMon() {
+
+    return {
+
+        toan: tinhDiemTrungBinhMon("toan"),
+        van: tinhDiemTrungBinhMon("van"),
+        anh: tinhDiemTrungBinhMon("anh"),
+        ly: tinhDiemTrungBinhMon("ly"),
+        hoa: tinhDiemTrungBinhMon("hoa"),
+        sinh: tinhDiemTrungBinhMon("sinh"),
+        su: tinhDiemTrungBinhMon("su"),
+        dia: tinhDiemTrungBinhMon("dia"),
+        tin: tinhDiemTrungBinhMon("tin"),
+        gdkt: tinhDiemTrungBinhMon("gdkt"),
+        gdcd: tinhDiemTrungBinhMon("gdcd"),
+        cn: tinhDiemTrungBinhMon("cn"),
+        cnn: tinhDiemTrungBinhMon("cnn")
+
+    };
+}
+
+
+// =======================
+// MAP TÊN MÔN
+// API -> INPUT
+// =======================
+
+const mapMonHoc = {
+
+    "Toán": "toan",
+
+    "Ngữ văn": "van",
+    "Ngữ Văn": "van",
+    "Văn": "van",
+
+    "Tiếng Anh": "anh",
+    "Anh": "anh",
+
+    "Vật lý": "ly",
+    "Vật Lý": "ly",
+    "Lý": "ly",
+
+    "Hóa học": "hoa",
+    "Hóa": "hoa",
+
+    "Sinh học": "sinh",
+    "Sinh Học": "sinh",
+    "Sinh": "sinh",
+
+    "Lịch sử": "su",
+    "Lịch Sử": "su",
+    "Sử": "su",
+
+    "Địa lý": "dia",
+    "Địa": "dia",
+
+    "Tin học": "tin",
+    "Tin Học": "tin",
+    "Tin": "tin",
+
+    "GDKTPL": "gdkt",
+    "GDKT và PL": "gdkt",
+
+    "GDCD": "gdcd",
+
+    "Công nghệ": "cn",
+    "Công nghệ công nghiệp": "cn",
+
+    "Công nghệ nông nghiệp": "cnn"
+};
+
+// =======================
+// TÍNH ĐIỂM 1 TỔ HỢP
+// =======================
+
+function tinhDiemToHop(tohop, diemMon) {
+
+    let tong = 0;
+
+    // lấy 3 môn trong tổ hợp
+    const dsMonHoc = [
+        tohop.MON1,
+        tohop.MON2,
+        tohop.MON3
+    ];
+
+    for (let mon of dsMonHoc) {
+
+        if (!mon) continue;
+
+        mon = mon.trim();
+
+        let maMon = mapMonHoc[mon];
+
+        if (!maMon) {
+
+            console.log("Không map được môn:", mon);
+
+            return 0;
+        }
+
+        tong += diemMon[maMon];
+    }
+
+    return tong;
+}
+
+// =======================
+// LẤY TỔ HỢP CAO NHẤT
+// =======================
+
+async function tinhToHopCaoNhat(idNganh, elementId) {
+
+    if (!idNganh) return;
+
+    try {
+
+        const response = await fetch(
+            `/lay-tohop/${idNganh}`
+        );
+
+        if (!response.ok) {
+            throw new Error("Không lấy được tổ hợp");
+        }
+
+        const data = await response.json();
+
+        const dsToHop = data.data || data;
+
+        const diemMon = layTatCaDiemMon();
+
+        let maxDiem = 0;
+
+        let tenToHop = "";
+
+        dsToHop.forEach(th => {
+            console.log("TO HOP:", th);
+
+            const diem = tinhDiemToHop(
+                th,
+                diemMon
+            );
+
+            if (diem > maxDiem) {
+
+                maxDiem = diem;
+
+                tenToHop = th.TENTOHOP;
+            }
+
+        });
+
+        document.getElementById(elementId).innerHTML = `
+            Tổ hợp cao nhất:
+            <b>${tenToHop}</b>
+            <br>
+            Điểm xét học bạ:
+            <b>${maxDiem.toFixed(2)}</b>
+        `;
+
+    } catch(error) {
+
+        console.error(error);
+
+    }
+}
+
+// =======================
+// TỰ ĐỘNG TÍNH
+// =======================
+
+const nv1 = document.querySelector(
+    'select[name="nguyenvong1"]'
+);
+
+const nv2 = document.querySelector(
+    'select[name="nguyenvong2"]'
+);
+
+
+// =======================
+// BUTTON TÍNH ĐIỂM
+// =======================
+
+const btnTinhDiem =
+    document.getElementById("btn-tinhdiem");
+
+btnTinhDiem.addEventListener("click", async () => {
+
+    if (!nv1.value && !nv2.value) {
+
+        alert("Vui lòng chọn ngành xét tuyển!");
+
+        return;
+    }
+
+    // tính nguyện vọng 1
+    if (nv1.value) {
+
+        await tinhToHopCaoNhat(
+            nv1.value,
+            "kq-nganh1"
+        );
+    }
+
+    // tính nguyện vọng 2
+    if (nv2.value) {
+
+        await tinhToHopCaoNhat(
+            nv2.value,
+            "kq-nganh2"
+        );
+    }
+});
+
+
+// khi đổi ngành
+nv1.addEventListener("change", () => {
+
+    tinhToHopCaoNhat(
+        nv1.value,
+        "kq-nganh1"
+    );
+
+});
+
+nv2.addEventListener("change", () => {
+
+    tinhToHopCaoNhat(
+        nv2.value,
+        "kq-nganh2"
+    );
+
+});
 
 </script>
