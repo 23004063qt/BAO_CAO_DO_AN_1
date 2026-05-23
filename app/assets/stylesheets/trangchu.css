@@ -58,6 +58,121 @@ nav {
     opacity: 0.8;
 }
 
+/* Nút đăng xuất */
+.logout-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    font-family: inherit;
+}
+
+/* Hover */
+.logout-btn:hover {
+    opacity: 0.8;
+}
+
+.dropdown {
+    position: relative;
+}
+
+/* Menu xổ xuống */
+.dropdown-menu {
+    position: absolute;
+
+    top: 130%;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(10px);
+
+    min-width: 240px;
+
+    background: rgba(15, 23, 42, 0.96);
+
+
+    padding: 10px 0;
+
+    list-style: none;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.25);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.25s ease;
+
+    z-index: 999;
+}
+
+/* Hiện menu */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Item */
+.dropdown-menu li {
+    width: 100%;
+}
+
+/* Link menu con */
+.dropdown-menu li a {
+    display: block;
+
+    padding: 14px 22px;
+
+    color: #f8fafc !important;
+
+    font-size: 0.95rem;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+}
+
+/* Hover item */
+.dropdown-menu li a:hover {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,0.95),
+            rgba(59,130,246,0.95)
+        );
+
+    color: white !important;
+
+    padding-left: 28px;
+}
+
+/* Mũi tên nhỏ */
+.dropdown-menu::before {
+    content: "";
+
+    position: absolute;
+
+    top: -8px;
+    left: 50%;
+
+    transform: translateX(-50%) rotate(45deg);
+
+    width: 16px;
+    height: 16px;
+
+    background: rgba(15, 23, 42, 0.96);
+
+    border-left: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
 .hero {
     position: relative;
     overflow: hidden;

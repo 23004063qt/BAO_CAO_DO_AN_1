@@ -16,7 +16,8 @@
     </nav>
 </header>
 <div class="login">
-    <form class="login_form">
+    <form class="login_form" method="POST" action="/dangnhap/login">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <label>ĐĂNG NHẬP</label>
         <table>
             <tr>
@@ -32,7 +33,7 @@
                 <th><%= link_to "Quên mật khẩu?", "#", class: "forgot" %></th>
             </tr>
             <tr>
-                <th></th>
+                <th><%= link_to "Đăng ký tài khoản", dangkytk_dangkytk_path %></th>
                 <th><button type ="submit">Đăng nhập</button></th>
             </tr>
         </table>

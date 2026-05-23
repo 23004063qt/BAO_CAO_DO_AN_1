@@ -66,4 +66,11 @@ Rails.application.routes.draw do
 
   get "/lay-tohop/:id",
     to: "api#lay_tohop_theo_nganh"
+
+  get  "dangnhap/dangnhap"
+  post "dangnhap/login"
+  delete "dangnhap/logout"
+
+  get  "dangkytk/dangkytk"
+  post "dangkytk/create"
 end
