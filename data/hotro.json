@@ -1,0 +1,20 @@
+[
+  {
+    "ma": "TT01",
+    "ten": "Tư vấn tâm lý",
+    "mo_ta": "Dịch vụ tư vấn tâm lý, hỗ trợ sinh viên vượt qua khó khăn trong học tập và cuộc sống.",
+    "dich_vu": ["Tư vấn cá nhân", "Hỗ trợ học tập", "Tư vấn hướng nghiệp"]
+  },
+  {
+    "ma": "YT01",
+    "ten": "Y tế học đường",
+    "mo_ta": "Chăm sóc sức khỏe, sơ cứu, phòng bệnh cho sinh viên trong trường.",
+    "dich_vu": ["Khám sức khỏe định kỳ", "Tư vấn dinh dưỡng", "Sơ cứu ban đầu"]
+  },
+  {
+    "ma": "HT01",
+    "ten": "Hỗ trợ học tập",
+    "mo_ta": "Các chương trình hỗ trợ học tập: gia sư, lớp phụ đạo, tài liệu tham khảo.",
+    "dich_vu": ["Lớp phụ đạo miễn phí", "Tư vấn học tập cá nhân", "Thư viện tài liệu"]
+  }
+]

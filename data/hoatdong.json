@@ -1,0 +1,20 @@
+[
+  {
+    "ma": "K01",
+    "ten": "Kỹ năng mềm",
+    "mo_ta": "Các kỹ năng mềm cần thiết cho sinh viên: giao tiếp, làm việc nhóm, thuyết trình, quản lý thời gian, giải quyết vấn đề.",
+    "hoat_dong": ["CLB kỹ năng sống", "Workshop thuyết trình", "Đào tạo teamwork"]
+  },
+  {
+    "ma": "TD01",
+    "ten": "Thể dục thể thao",
+    "mo_ta": "Các môn thể thao và hoạt động rèn luyện thể chất cho sinh viên: bóng đá, bơi lội, cầu lông, bóng chuyền, yoga.",
+    "hoat_dong": ["Giải bóng đá sinh viên", "Câu lạc bộ võ thuật", "CLB cầu lông", "CLB thực hành pháp luật"]
+  },
+  {
+    "ma": "NK01",
+    "ten": "Năng khiếu âm nhạc, đam mê hoạt động",
+    "mo_ta": "Các hoạt động nghệ thuật: ca hát, hoạt động cộng đồng, võ thuật, truyền thông,.",
+    "hoat_dong": ["Đội văn nghệ", "Đội âm thanh", "Đội tình nguyện", "Đội truyền thông","CLB võ thuật"]
+  }
+]
