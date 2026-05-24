@@ -49,6 +49,11 @@
         class: "form_dangkytk" do 
     %>
         <label>ĐĂNG KÝ TÀI KHOẢN</label>
+        <% if current_user && current_user.VAITRO == "ADMIN" %>
+            <p class="admin-note">
+                Tài khoản tạo mới sẽ có quyền ADMIN
+            </p>
+        <% end %>
         <table>
             <tr>
                 <th>Tên tài khoản: </th>

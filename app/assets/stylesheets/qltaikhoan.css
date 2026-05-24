@@ -132,19 +132,59 @@ main {
     background-color: #f1f1f1;
 }
 
-.btn-delete {
-    background-color: #ff4d4d;
-    color: white;
-    padding: 5px 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer; /*thay đổi con trỏ chuột */
-    transition: 0.3s;
-}
-.btn-delete:hover {
-    background-color: #cc0000;
+/* Ô chứa nút */
+.action-buttons{
+    text-align: center;
+    padding: 10px;
 }
 
+
+/* Nút sửa */
+.btn-edit{
+    background: #d1a105;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Hover nút sửa */
+.btn-edit:hover{
+    background: #9f6604;
+    transform: translateY(-2px);
+}
+
+
+/* Nút xóa */
+.btn-delete{
+    background: #dc2626;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hover nút xóa */
+.btn-delete:hover{
+    background: #b91c1c;
+    transform: translateY(-2px);
+}
+
+
+/* Hiệu ứng khi nhấn */
+.btn-edit:active,
+.btn-delete:active{
+    transform: scale(0.95);
+}
 
 .footer {
     background: var(--dark-color);

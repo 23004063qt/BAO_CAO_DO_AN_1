@@ -4,9 +4,12 @@ class Thisinh < ApplicationRecord
 
   has_many :diemhocbas,
            class_name: "Diemhocba",
-           foreign_key: "IDTHHISINH"
+           foreign_key: "IDTHISINH"
 
   has_many :hosodangkies,
            class_name: "Hosodangky",
            foreign_key: "IDTHISINH"
+
+  belongs_to :nguoidung,
+             foreign_key: "IDNGUOIDUNG"
 end

@@ -59,7 +59,7 @@
                 <tr>
                     <th>Họ và tên: </th>
                     <th>
-                        <input type="text" name="HOTENTS" placeholder="Nhập họ và tên">
+                        <input type="text" name="HOTENTS" placeholder="Nhập họ và tên" required>
                     </th>
                 </tr>
 
@@ -182,7 +182,7 @@
                 <tr>
                     <th>Ngày sinh: </th>
                     <th>
-                        <input type="date" name="NGAYSINH">
+                        <input type="date" name="NGAYSINH" required>
                     </th>
                 </tr>
 
@@ -190,14 +190,14 @@
                     <th>Giấy khai sinh: </th>
                     <th>
                         <label class="file" for="filegiayks"></label>
-                        <input type="file" id="filegiayks" accept=".pdf,.jpg,.jpeg,.png" multiple >
+                        <input type="file" id="filegiayks" accept=".pdf,.jpg,.jpeg,.png" multiple required>
                     </th>
                 </tr>
 
                 <tr>
                     <th>Số CCCD: </th>
                     <th>
-                        <input type="number" name="SOCCCD" placeholder="Nhập số căn cước công dân">
+                        <input type="number" name="SOCCCD" placeholder="Nhập số căn cước công dân" required>
                     </th>
                 </tr>
 
@@ -205,7 +205,7 @@
                     <th>CCCD mặt trước: </th>
                     <th>
                         <label class="file" for="filecccdt"> </label>
-                        <input type="file" id="filecccdt" accept=".pdf,.jpg,.jpeg,.png" multiple >
+                        <input type="file" id="filecccdt" accept=".pdf,.jpg,.jpeg,.png" multiple required>
                     </th>
                 </tr>
 
@@ -213,7 +213,7 @@
                     <th>CCCD mặt sau: </th>
                     <th>
                         <label class="file" for="filecccds"></label>
-                        <input type="file" id="filecccds" accept=".pdf,.jpg,.jpeg,.png" multiple >
+                        <input type="file" id="filecccds" accept=".pdf,.jpg,.jpeg,.png" multiple required>
                     </th>
                 </tr>
 
@@ -290,7 +290,7 @@
                 <tr>
                     <th>Năm tốt nghiệp: </th>
                     <th>
-                        <input type="number" name="NAMTN" placeholder="Nhập năm tốt nghiệp">
+                        <input type="number" name="NAMTN" placeholder="Nhập năm tốt nghiệp" required>
                     </th>
                 </tr>
 
@@ -340,28 +340,28 @@
                 <tr>
                     <th>Trường THPT: </th>
                     <th>
-                        <input type="text" name="THPT" placeholder="Nhập tên trường">
+                        <input type="text" name="THPT" placeholder="Nhập tên trường" required>
                     </th>
                 </tr>
 
                 <tr>
                     <th>Số điện thoại: </th>
                     <th>
-                        <input type="number" name="SDT" placeholder="Nhập số điện thoại">
+                        <input type="number" name="SDT" placeholder="Nhập số điện thoại" required>
                     </th>
                 </tr>
 
                 <tr>
                     <th>Email: </th>
                     <th>
-                        <input type="email" name="EMAIL" placeholder="Nhập địa chỉ email">
+                        <input type="email" name="EMAIL" placeholder="Nhập địa chỉ email" required>
                     </th>
                 </tr>
 
                 <tr>
                     <th>Địa chỉ: </th>
                     <th>
-                        <input type="text" name="DIACHI" placeholder="Nhập địa chỉ thường trú">
+                        <input type="text" name="DIACHI" placeholder="Nhập địa chỉ thường trú" required>
                     </th>
                 </tr>
                 
@@ -780,16 +780,18 @@
     // xử lý ẩn hiện phần nhập điểm
     const ptxt = document.getElementById("ptxt");
     const khoiNhapDiem = document.getElementById("tinhdiemhocba");
-
+    const ketquaTohop = document.getElementById("ketqua-tohop");
     function capNhatNhapDiem() {
 
         if (ptxt.value === "Xét học bạ") {
 
             khoiNhapDiem.style.display = "block";
+            ketquaTohop.style.display = "block";
 
         } else {
 
             khoiNhapDiem.style.display = "none";
+            ketquaTohop.style.display = "none";
         }
     }
 
@@ -800,298 +802,297 @@
     capNhatNhapDiem();
 
     // =======================
-// DANH SÁCH MÔN
-// =======================
+    // DANH SÁCH MÔN
+    // =======================
 
-const dsMon = [
-    "toan",
-    "van",
-    "anh",
-    "ly",
-    "hoa",
-    "sinh",
-    "su",
-    "dia",
-    "tin",
-    "gdkt",
-    "gdcd",
-    "cn",
-    "cnn"
-];
-
-
-// =======================
-// TÍNH ĐIỂM TRUNG BÌNH 1 MÔN
-// =======================
-
-function tinhDiemTrungBinhMon(maMon) {
-
-    let tong = 0;
-    let dem = 0;
-
-    [10,11,12].forEach(lop => {
-
-        [1,2].forEach(hk => {
-
-            const input = document.getElementById(
-                `l${lop}hk${hk}-${maMon}`
-            );
-
-            let diem = parseFloat(input.value);
-
-            if (!isNaN(diem)) {
-
-                tong += diem;
-                dem++;
-            }
-
-        });
-
-    });
-
-    if (dem === 0) return 0;
-
-    return tong / dem;
-}
-
-
-// =======================
-// TÍNH TOÀN BỘ ĐIỂM MÔN
-// =======================
-
-function layTatCaDiemMon() {
-
-    return {
-
-        toan: tinhDiemTrungBinhMon("toan"),
-        van: tinhDiemTrungBinhMon("van"),
-        anh: tinhDiemTrungBinhMon("anh"),
-        ly: tinhDiemTrungBinhMon("ly"),
-        hoa: tinhDiemTrungBinhMon("hoa"),
-        sinh: tinhDiemTrungBinhMon("sinh"),
-        su: tinhDiemTrungBinhMon("su"),
-        dia: tinhDiemTrungBinhMon("dia"),
-        tin: tinhDiemTrungBinhMon("tin"),
-        gdkt: tinhDiemTrungBinhMon("gdkt"),
-        gdcd: tinhDiemTrungBinhMon("gdcd"),
-        cn: tinhDiemTrungBinhMon("cn"),
-        cnn: tinhDiemTrungBinhMon("cnn")
-
-    };
-}
-
-
-// =======================
-// MAP TÊN MÔN
-// API -> INPUT
-// =======================
-
-const mapMonHoc = {
-
-    "Toán": "toan",
-
-    "Ngữ văn": "van",
-    "Ngữ Văn": "van",
-    "Văn": "van",
-
-    "Tiếng Anh": "anh",
-    "Anh": "anh",
-
-    "Vật lý": "ly",
-    "Vật Lý": "ly",
-    "Lý": "ly",
-
-    "Hóa học": "hoa",
-    "Hóa": "hoa",
-
-    "Sinh học": "sinh",
-    "Sinh Học": "sinh",
-    "Sinh": "sinh",
-
-    "Lịch sử": "su",
-    "Lịch Sử": "su",
-    "Sử": "su",
-
-    "Địa lý": "dia",
-    "Địa": "dia",
-
-    "Tin học": "tin",
-    "Tin Học": "tin",
-    "Tin": "tin",
-
-    "GDKTPL": "gdkt",
-    "GDKT và PL": "gdkt",
-
-    "GDCD": "gdcd",
-
-    "Công nghệ": "cn",
-    "Công nghệ công nghiệp": "cn",
-
-    "Công nghệ nông nghiệp": "cnn"
-};
-
-// =======================
-// TÍNH ĐIỂM 1 TỔ HỢP
-// =======================
-
-function tinhDiemToHop(tohop, diemMon) {
-
-    let tong = 0;
-
-    // lấy 3 môn trong tổ hợp
-    const dsMonHoc = [
-        tohop.MON1,
-        tohop.MON2,
-        tohop.MON3
+    const dsMon = [
+        "toan",
+        "van",
+        "anh",
+        "ly",
+        "hoa",
+        "sinh",
+        "su",
+        "dia",
+        "tin",
+        "gdkt",
+        "gdcd",
+        "cn",
+        "cnn"
     ];
 
-    for (let mon of dsMonHoc) {
 
-        if (!mon) continue;
+    // =======================
+    // TÍNH ĐIỂM TRUNG BÌNH 1 MÔN
+    // =======================
 
-        mon = mon.trim();
+    function tinhDiemTrungBinhMon(maMon) {
 
-        let maMon = mapMonHoc[mon];
+        let tong = 0;
+        let dem = 0;
 
-        if (!maMon) {
+        [10,11,12].forEach(lop => {
 
-            console.log("Không map được môn:", mon);
+            [1,2].forEach(hk => {
 
-            return 0;
-        }
+                const input = document.getElementById(
+                    `l${lop}hk${hk}-${maMon}`
+                );
 
-        tong += diemMon[maMon];
-    }
+                let diem = parseFloat(input.value);
 
-    return tong;
-}
+                if (!isNaN(diem)) {
 
-// =======================
-// LẤY TỔ HỢP CAO NHẤT
-// =======================
+                    tong += diem;
+                    dem++;
+                }
 
-async function tinhToHopCaoNhat(idNganh, elementId) {
-
-    if (!idNganh) return;
-
-    try {
-
-        const response = await fetch(
-            `/lay-tohop/${idNganh}`
-        );
-
-        if (!response.ok) {
-            throw new Error("Không lấy được tổ hợp");
-        }
-
-        const data = await response.json();
-
-        const dsToHop = data.data || data;
-
-        const diemMon = layTatCaDiemMon();
-
-        let maxDiem = 0;
-
-        let tenToHop = "";
-
-        dsToHop.forEach(th => {
-            console.log("TO HOP:", th);
-
-            const diem = tinhDiemToHop(
-                th,
-                diemMon
-            );
-
-            if (diem > maxDiem) {
-
-                maxDiem = diem;
-
-                tenToHop = th.TENTOHOP;
-            }
+            });
 
         });
 
-        document.getElementById(elementId).innerHTML = `
-            Tổ hợp cao nhất:
-            <b>${tenToHop}</b>
-            <br>
-            Điểm xét học bạ:
-            <b>${maxDiem.toFixed(2)}</b>
-        `;
+        if (dem === 0) return 0;
 
-    } catch(error) {
-
-        console.error(error);
-
-    }
-}
-
-// =======================
-// TỰ ĐỘNG TÍNH
-// =======================
-
-const nv1 = document.querySelector(
-    'select[name="nguyenvong1"]'
-);
-
-const nv2 = document.querySelector(
-    'select[name="nguyenvong2"]'
-);
-
-
-// =======================
-// BUTTON TÍNH ĐIỂM
-// =======================
-
-const btnTinhDiem =
-    document.getElementById("btn-tinhdiem");
-
-btnTinhDiem.addEventListener("click", async () => {
-
-    if (!nv1.value && !nv2.value) {
-
-        alert("Vui lòng chọn ngành xét tuyển!");
-
-        return;
+        return tong / dem; 
     }
 
-    // tính nguyện vọng 1
-    if (nv1.value) {
 
-        await tinhToHopCaoNhat(
+    // =======================
+    // TÍNH TOÀN BỘ ĐIỂM MÔN
+    // =======================
+
+    function layTatCaDiemMon() {
+
+        return {
+
+            toan: tinhDiemTrungBinhMon("toan"),
+            van: tinhDiemTrungBinhMon("van"),
+            anh: tinhDiemTrungBinhMon("anh"),
+            ly: tinhDiemTrungBinhMon("ly"),
+            hoa: tinhDiemTrungBinhMon("hoa"),
+            sinh: tinhDiemTrungBinhMon("sinh"),
+            su: tinhDiemTrungBinhMon("su"),
+            dia: tinhDiemTrungBinhMon("dia"),
+            tin: tinhDiemTrungBinhMon("tin"),
+            gdkt: tinhDiemTrungBinhMon("gdkt"),
+            gdcd: tinhDiemTrungBinhMon("gdcd"),
+            cn: tinhDiemTrungBinhMon("cn"),
+            cnn: tinhDiemTrungBinhMon("cnn")
+
+        };
+    }
+
+
+    // =======================
+    // MAP TÊN MÔN
+    // API -> INPUT
+    // =======================
+
+    const mapMonHoc = {
+
+        "Toán": "toan",
+
+        "Ngữ văn": "van",
+        "Ngữ Văn": "van",
+        "Văn": "van",
+
+        "Tiếng Anh": "anh",
+        "Anh": "anh",
+
+        "Vật lý": "ly",
+        "Vật Lý": "ly",
+        "Lý": "ly",
+
+        "Hóa học": "hoa",
+        "Hóa": "hoa",
+
+        "Sinh học": "sinh",
+        "Sinh Học": "sinh",
+        "Sinh": "sinh",
+
+        "Lịch sử": "su",
+        "Lịch Sử": "su",
+        "Sử": "su",
+
+        "Địa lý": "dia",
+        "Địa": "dia",
+
+        "Tin học": "tin",
+        "Tin Học": "tin",
+        "Tin": "tin",
+
+        "GDKTPL": "gdkt",
+        "GDKT và PL": "gdkt",
+
+        "GDCD": "gdcd",
+
+        "Công nghệ": "cn",
+        "Công nghệ công nghiệp": "cn",
+
+        "Công nghệ nông nghiệp": "cnn"
+    };
+
+    // =======================
+    // TÍNH ĐIỂM 1 TỔ HỢP
+    // =======================
+
+    function tinhDiemToHop(tohop, diemMon) {
+
+        let tong = 0;
+
+        // lấy 3 môn trong tổ hợp
+        const dsMonHoc = [
+            tohop.MON1,
+            tohop.MON2,
+            tohop.MON3
+        ];
+
+        for (let mon of dsMonHoc) {
+
+            if (!mon) continue;
+
+            mon = mon.trim();
+
+            let maMon = mapMonHoc[mon];
+
+            if (!maMon) {
+
+                console.log("Không map được môn:", mon);
+
+                return 0;
+            }
+
+            tong += diemMon[maMon];
+        }
+
+        return tong;
+    }
+
+    // =======================
+    // LẤY TỔ HỢP CAO NHẤT
+    // =======================
+
+    async function tinhToHopCaoNhat(idNganh, elementId) {
+
+        if (!idNganh) return;
+
+        try {
+
+            const response = await fetch(
+                `/lay-tohop/${idNganh}`
+            );
+
+            if (!response.ok) {
+                throw new Error("Không lấy được tổ hợp");
+            }
+
+            const data = await response.json();
+
+            const dsToHop = data.data || data;
+
+            const diemMon = layTatCaDiemMon();
+
+            let maxDiem = 0;
+
+            let tenToHop = "";
+
+            dsToHop.forEach(th => {
+                console.log("TO HOP:", th);
+
+                const diem = tinhDiemToHop(
+                    th,
+                    diemMon
+                );
+
+                if (diem > maxDiem) {
+
+                    maxDiem = diem;
+
+                    tenToHop = th.TENTOHOP;
+                }
+
+            });
+
+            document.getElementById(elementId).innerHTML = `
+                Tổ hợp cao nhất:
+                <b>${tenToHop}</b>
+                <br>
+                Điểm xét học bạ:
+                <b>${maxDiem.toFixed(2)}</b>
+            `;
+
+        } catch(error) {
+
+            console.error(error);
+
+        }
+    }
+
+    // =======================
+    // TỰ ĐỘNG TÍNH
+    // =======================
+
+    const nv1 = document.querySelector(
+        'select[name="nguyenvong1"]'
+    );
+
+    const nv2 = document.querySelector(
+        'select[name="nguyenvong2"]'
+    );
+
+
+    // =======================
+    // BUTTON TÍNH ĐIỂM
+    // =======================
+
+    const btnTinhDiem =
+        document.getElementById("btn-tinhdiem");
+
+    btnTinhDiem.addEventListener("click", async () => {
+
+        if (!nv1.value && !nv2.value) {
+
+            alert("Vui lòng chọn ngành xét tuyển!");
+
+            return;
+        }
+
+        // tính nguyện vọng 1
+        if (nv1.value) {
+
+            await tinhToHopCaoNhat(
+                nv1.value,
+                "kq-nganh1"
+            );
+        }
+
+        // tính nguyện vọng 2
+        if (nv2.value) {
+
+            await tinhToHopCaoNhat(
+                nv2.value,
+                "kq-nganh2"
+            );
+        }
+    });
+
+
+    // khi đổi ngành
+    nv1.addEventListener("change", () => {
+
+        tinhToHopCaoNhat(
             nv1.value,
             "kq-nganh1"
         );
-    }
 
-    // tính nguyện vọng 2
-    if (nv2.value) {
+    });
 
-        await tinhToHopCaoNhat(
+    nv2.addEventListener("change", () => {
+
+        tinhToHopCaoNhat(
             nv2.value,
             "kq-nganh2"
         );
-    }
-});
 
-
-// khi đổi ngành
-nv1.addEventListener("change", () => {
-
-    tinhToHopCaoNhat(
-        nv1.value,
-        "kq-nganh1"
-    );
-
-});
-
-nv2.addEventListener("change", () => {
-
-    tinhToHopCaoNhat(
-        nv2.value,
-        "kq-nganh2"
-    );
-
-});
-
+    });
 </script>

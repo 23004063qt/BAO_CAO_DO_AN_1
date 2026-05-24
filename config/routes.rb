@@ -73,4 +73,13 @@ Rails.application.routes.draw do
 
   get  "dangkytk/dangkytk"
   post "dangkytk/create"
+
+  delete "/qltaikhoan/delete/:id",
+  to: "qltaikhoan#delete"
+
+  get "/qltaikhoan/edit/:id",
+  to: "qltaikhoan#edit"
+
+  patch "/qltaikhoan/update/:id",
+  to: "qltaikhoan#update"
 end
