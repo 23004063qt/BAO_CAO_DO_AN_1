@@ -1,53 +1,130 @@
-.edit-container{
-    width: 500px;
-    margin: 50px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+/* ── Nền trang ── */
+.edit-container-wrap {
+  min-height: calc(100vh - 60px);
+  background: #f0f4f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
 }
 
-.edit-container h1{
-    text-align: center;
-    margin-bottom: 30px;
+/* ── Card ── */
+.edit-container {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2.5rem 2.5rem 2rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 2px 16px rgba(21, 101, 192, 0.08);
+  border: 1px solid #dce8f7;
 }
 
-.form-group{
-    margin-bottom: 20px;
+/* ── Tiêu đề ── */
+.edit-container h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #2563eb;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 0;
 }
 
-.form-group label{
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+.edit-container h1::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #1565c0;
+  border-radius: 2px;
+  margin: 8px auto 1.75rem;
 }
 
-.form-input{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+/* ── Mỗi field ── */
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
-.button-group{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
+.form-group label {
+  font-size: 14px;
+  color: #555;
+  min-width: 90px;
+  text-align: right;
+  padding-right: 14px;
+  flex-shrink: 0;
 }
 
-.btn-save{
-    background: green;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+/* ── Input & Select ── */
+.form-input {
+  flex: 1;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #d0dff0;
+  border-radius: 8px;
+  background: #f7faff;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s, background 0.15s;
+  width: 100%;
 }
 
-.btn-back{
-    background: gray;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
+.form-input:focus {
+  border-color: #1565c0;
+  background: #fff;
+}
+
+select.form-input {
+  cursor: pointer;
+}
+
+/* ── Nhóm nút ── */
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #eef2f8;
+}
+
+/* Nút Lưu */
+.btn-save {
+  height: 42px;
+  padding: 0 22px;
+  background: #1565c0;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-save:hover  { background: #1248a0; }
+.btn-save:active { transform: scale(0.98); }
+
+/* Nút Quay về */
+.btn-back {
+  height: 42px;
+  padding: 0 22px;
+  background: #fff;
+  color: #555;
+  border: 1px solid #d0dff0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-back:hover {
+  background: #f0f4f8;
+  border-color: #b0c8e8;
 }
