@@ -604,6 +604,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -662,10 +663,277 @@ function filterNganh(searchTerm) {
     document.getElementById('countLabel').textContent = `(${visibleCount} ngành)`;
 }
 
-// Initialize with 'all' filter
 document.addEventListener('DOMContentLoaded', function() {
     setFilter(document.querySelector('.tab-btn.active'), 'all');
 });
+</script>
+
+<%# ===== BẢNG TRA CỨU TẤT CẢ TỔ HỢP XÉT TUYỂN ===== %>
+<div class="all-tohop-section" id="allTohopSection">
+  <div class="all-tohop-inner">
+    <div class="all-tohop-header">
+      <div class="all-tohop-title-wrap">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1e6fb5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="16" rx="2"/>
+          <line x1="7" y1="9" x2="17" y2="9"/>
+          <line x1="7" y1="13" x2="14" y2="13"/>
+          <line x1="7" y1="17" x2="11" y2="17"/>
+        </svg>
+        <div>
+          <h2 class="all-tohop-title">Bảng Tra Cứu Tổ Hợp Xét Tuyển</h2>
+          <p class="all-tohop-subtitle">Toàn bộ 81 tổ hợp môn — nhấp vào mã để lọc nhanh</p>
+        </div>
+      </div>
+      <div class="all-tohop-search-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input id="allTohopSearch" type="text" placeholder="Tìm mã hoặc tên môn..." oninput="filterAllTohop(this.value)">
+        <span id="allTohopCount" class="all-tohop-count-badge">81 tổ hợp</span>
+      </div>
+    </div>
+
+    <div class="all-tohop-grid" id="allTohopGrid">
+      <%# Các hàng được render bằng JS bên dưới %>
+    </div>
+  </div>
+</div>
+
+<style>
+.all-tohop-section {
+  background: linear-gradient(180deg, #f0f6fd 0%, #fff 100%);
+  padding: 48px 0 56px;
+  border-top: 3px solid #1e6fb5;
+}
+.all-tohop-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.all-tohop-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.all-tohop-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.all-tohop-title {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0d2e55;
+  letter-spacing: -0.3px;
+}
+.all-tohop-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #5a7a9a;
+}
+.all-tohop-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1.5px solid #b5d4f4;
+  border-radius: 30px;
+  padding: 8px 16px;
+  min-width: 280px;
+  box-shadow: 0 2px 8px rgba(30,111,181,0.08);
+}
+.all-tohop-search-wrap input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  color: #1a2a3a;
+  background: transparent;
+  flex: 1;
+  min-width: 0;
+}
+.all-tohop-count-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: #1e6fb5;
+  border-radius: 12px;
+  padding: 2px 9px;
+  white-space: nowrap;
+}
+
+/* Grid 2 cột, mỗi cột là bảng */
+.all-tohop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 0;
+  border: 1.5px solid #c8ddf0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(30,111,181,0.1);
+}
+.atr {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #ddeaf7;
+  transition: background 0.15s;
+  cursor: default;
+}
+.atr:hover { background: #e4f0fb; }
+.atr.hidden { display: none; }
+.atr-code {
+  min-width: 68px;
+  width: 68px;
+  background: #1e6fb5;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  border-right: 2px solid #1660a0;
+}
+.atr:nth-child(even) .atr-code { background: #1660a0; }
+.atr-subjects {
+  padding: 9px 14px;
+  font-size: 13px;
+  color: #1a2a3a;
+  line-height: 1.45;
+  display: flex;
+  align-items: center;
+}
+.atr-tt {
+  font-size: 10px;
+  color: #7a9ab8;
+  margin-right: 8px;
+  min-width: 18px;
+}
+</style>
+
+<script>
+(function(){
+  var ALL_TH = [
+    ["A00","Toán, Lý, Hóa"],
+    ["A01","Toán, Lý, Tiếng Anh"],
+    ["A02","Toán, Lý, Sinh"],
+    ["A03","Toán, Lý, Sử"],
+    ["A04","Toán, Lý, Địa"],
+    ["A06","Toán, Hóa, Địa"],
+    ["A08","Toán, Sử, GDCD"],
+    ["A09","Toán, Địa, GDCD"],
+    ["A15","Toán, KHTN, GDCD"],
+    ["B00","Toán, Hóa, Sinh"],
+    ["B01","Toán, Sinh, Sử"],
+    ["B02","Toán, Sinh, Địa"],
+    ["B03","Toán, Sinh, Văn"],
+    ["B04","Toán, Sinh, GDCD"],
+    ["B08","Toán, Sinh, Tiếng Anh"],
+    ["C00","Văn, Sử, Địa"],
+    ["C01","Văn, Toán, Lý"],
+    ["C02","Văn, Toán, Hóa"],
+    ["C03","Văn, Toán, Sử"],
+    ["C04","Văn, Toán, Địa"],
+    ["C06","Văn, Hóa, Địa"],
+    ["C07","Văn, Lý, Sử"],
+    ["C08","Văn, Hóa, Sinh"],
+    ["C09","Văn, Lý, Địa"],
+    ["C12","Văn, Sinh, Sử"],
+    ["C13","Văn, Sinh, Địa"],
+    ["C14","Văn, Toán, GDCD"],
+    ["C15","Văn, Toán, KHXH"],
+    ["C18","Văn, Sinh, GDCD"],
+    ["C19","Văn, Sử, GDCD"],
+    ["C20","Văn, Địa, GDCD"],
+    ["C26","Văn, Hóa, GDCD"],
+    ["D01","Toán, Văn, Tiếng Anh"],
+    ["D07","Toán, Hóa, Tiếng Anh"],
+    ["D08","Toán, Sinh, Tiếng Anh"],
+    ["D09","Toán, Sử, Tiếng Anh"],
+    ["D10","Toán, Địa, Tiếng Anh"],
+    ["D11","Văn, Lý, Tiếng Anh"],
+    ["D14","Văn, Sử, Tiếng Anh"],
+    ["D15","Văn, Địa, Tiếng Anh"],
+    ["D66","Văn, GDCD, Tiếng Anh"],
+    ["D84","Toán, GDCD, Tiếng Anh"],
+    ["D96","Toán, KHXH, Tiếng Anh"],
+    ["X01","Toán, Văn, GDKT và PL"],
+    ["X02","Toán, Văn, Tin học"],
+    ["X03","Toán, Văn, CN nông nghiệp"],
+    ["X04","Toán, Văn, CN công nghiệp"],
+    ["X05","Toán, Lý, GDKT và PL"],
+    ["X06","Toán, Lý, Tin học"],
+    ["X07","Toán, Lý, CN công nghiệp"],
+    ["X08","Toán, Lý, CN nông nghiệp"],
+    ["X09","Toán, Hóa, GDKT và PL"],
+    ["X10","Toán, Hóa, Tin học"],
+    ["X12","Toán, Hóa, CN nông nghiệp"],
+    ["X13","Toán, Sinh, GDKT và PL"],
+    ["X14","Toán, Sinh, Tin học"],
+    ["X15","Toán, Sinh, CN công nghiệp"],
+    ["X16","Toán, Sinh, CN nông nghiệp"],
+    ["X17","Toán, Sử, GDKT và PL"],
+    ["X18","Toán, Sử, Tin học"],
+    ["X19","Toán, Sử, CN công nghiệp"],
+    ["X21","Toán, Địa, GDKT và PL"],
+    ["X22","Toán, Địa, Tin học"],
+    ["X23","Toán, Địa, CN công nghiệp"],
+    ["X24","Toán, Địa, CN nông nghiệp"],
+    ["X25","Toán, GDKT và PL, Tiếng Anh"],
+    ["X26","Toán, Tin học, Tiếng Anh"],
+    ["X27","Toán, CN công nghiệp, Tiếng Anh"],
+    ["X53","Toán, GDKT và PL, Tin học"],
+    ["X54","Toán, GDKT và PL, CN công nghiệp"],
+    ["X67","Văn, Sinh, Tin học"],
+    ["X69","Văn, Sinh, CN nông nghiệp"],
+    ["X70","Văn, Sử, GDKT và PL"],
+    ["X71","Văn, Sử, Tin học"],
+    ["X72","Văn, Sử, CN công nghiệp"],
+    ["X74","Văn, Địa, GDKT và PL"],
+    ["X75","Văn, Địa, Tin học"],
+    ["X76","Văn, Địa, CN công nghiệp"],
+    ["X78","Văn, GDKT và PL, Tiếng Anh"],
+    ["X79","Văn, Tin học, Tiếng Anh"],
+    ["X80","Văn, CN công nghiệp, Tiếng Anh"],
+    ["X81","Văn, CN nông nghiệp, Tiếng Anh"],
+    ["Y08","Văn, GDKT và PL, CN công nghiệp"],
+    ["Y10","Văn, Tin học, CN công nghiệp"]
+  ];
+
+  var grid = document.getElementById('allTohopGrid');
+  if (grid) {
+    ALL_TH.forEach(function(item, i) {
+      var row = document.createElement('div');
+      row.className = 'atr';
+      row.dataset.code = item[0].toLowerCase();
+      row.dataset.subjects = item[1].toLowerCase();
+      row.innerHTML =
+        '<div class="atr-code">' + item[0] + '</div>' +
+        '<div class="atr-subjects">' +
+          '<span class="atr-tt">' + (i+1) + '</span>' +
+          item[1] +
+        '</div>';
+      grid.appendChild(row);
+    });
+  }
+
+  window.filterAllTohop = function(val) {
+    var q = val.toLowerCase().trim();
+    var rows = document.querySelectorAll('.atr');
+    var count = 0;
+    rows.forEach(function(r) {
+      var match = !q || r.dataset.code.includes(q) || r.dataset.subjects.includes(q);
+      r.classList.toggle('hidden', !match);
+      if (match) count++;
+    });
+    var badge = document.getElementById('allTohopCount');
+    if (badge) badge.textContent = count + ' tổ hợp';
+  };
+})();
 </script>
 
 <footer>
@@ -699,3 +967,343 @@ document.addEventListener('DOMContentLoaded', function() {
         <p>&copy; 2026 Hệ Thống Tư Vấn Tuyển Sinh </p>
     </div>
 </footer>
+
+<%# =====================================================================
+    PHẦN BỔ SUNG: Bảng tổ hợp chi tiết + Nút FAB "Tổ hợp xét tuyển"
+    ===================================================================== %>
+
+<style>
+.tohop-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #1e6fb5;
+  background: #e8f1fb;
+  border: 1px solid #b5d4f4;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  user-select: none;
+}
+.tohop-toggle-btn:hover { background: #d0e6f7; }
+.tohop-toggle-btn svg { transition: transform 0.25s; }
+.tohop-toggle-btn.open svg { transform: rotate(180deg); }
+
+.tohop-table-wrap {
+  display: none;
+  margin-top: 10px;
+  overflow: hidden;
+  animation: slideDown 0.25s ease;
+}
+.tohop-table-wrap.open { display: block; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.tohop-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dde6f0;
+}
+.tohop-table thead tr {
+  background: #1e6fb5;
+  color: #fff;
+}
+.tohop-table thead th {
+  padding: 6px 10px;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.tohop-table tbody tr:nth-child(even) { background: #f0f6fd; }
+.tohop-table tbody tr:hover { background: #ddeaf8; }
+.tohop-table tbody td {
+  padding: 5px 10px;
+  border-bottom: 1px solid #e4ecf5;
+  color: #1a2a3a;
+}
+.tohop-table tbody td:first-child {
+  font-weight: 700;
+  color: #1e6fb5;
+  white-space: nowrap;
+  width: 72px;
+}
+
+/* ---- Floating Action Button ---- */
+.fab-tohop {
+  position: fixed;
+  bottom: 120px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+.fab-tohop-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e6fb5 0%, #0d4a82 100%);
+  box-shadow: 0 4px 18px rgba(30,111,181,0.45);
+  animation: fabPulse 2.4s ease-in-out infinite;
+  transition: transform 0.18s;
+}
+.fab-tohop:hover .fab-tohop-inner {
+  transform: scale(1.1);
+  animation-play-state: paused;
+}
+@keyframes fabPulse {
+  0%   { box-shadow: 0 4px 18px rgba(30,111,181,0.45); }
+  50%  { box-shadow: 0 4px 28px rgba(30,111,181,0.75), 0 0 0 8px rgba(30,111,181,0.12); }
+  100% { box-shadow: 0 4px 18px rgba(30,111,181,0.45); }
+}
+.fab-tohop-icon {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.fab-tohop-label {
+  margin-top: 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-align: center;
+  color: #1e6fb5;
+  line-height: 1.25;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.88);
+  border-radius: 10px;
+  padding: 2px 7px;
+  box-shadow: 0 1px 5px rgba(30,111,181,0.2);
+  white-space: nowrap;
+}
+.fab-tohop-tooltip {
+  position: absolute;
+  right: 70px;
+  bottom: 12px;
+  background: #0d4a82;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.fab-tohop-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: #0d4a82;
+}
+.fab-tohop:hover .fab-tohop-tooltip { opacity: 1; }
+
+#tohop-anchor {
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+</style>
+
+<a class="fab-tohop" href="#allTohopSection" id="fabTohop" title="Xem tổ hợp xét tuyển">
+  <span class="fab-tohop-tooltip">Xem tổ hợp xét tuyển</span>
+  <div class="fab-tohop-inner">
+    <svg class="fab-tohop-icon" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="16" rx="2"/>
+      <line x1="7" y1="9" x2="17" y2="9"/>
+      <line x1="7" y1="13" x2="14" y2="13"/>
+      <line x1="7" y1="17" x2="11" y2="17"/>
+      <polyline points="16 14 18 16 22 12" stroke-width="2"/>
+    </svg>
+  </div>
+  <span class="fab-tohop-label">Tổ hợp<br>xét tuyển</span>
+</a>
+
+<script>
+(function() {
+  var TH = {
+    "A00":"Toán, Lý, Hóa",
+    "A01":"Toán, Lý, Tiếng Anh",
+    "A02":"Toán, Lý, Sinh",
+    "A03":"Toán, Lý, Sử",
+    "A04":"Toán, Lý, Địa",
+    "A06":"Toán, Hóa, Địa",
+    "A08":"Toán, Sử, GDCD",
+    "A09":"Toán, Địa, GDCD",
+    "A15":"Toán, KHTN, GDCD",
+    "B00":"Toán, Hóa, Sinh",
+    "B01":"Toán, Sinh, Sử",
+    "B02":"Toán, Sinh, Địa",
+    "B03":"Toán, Sinh, Văn",
+    "B04":"Toán, Sinh, GDCD",
+    "B08":"Toán, Sinh, Tiếng Anh",
+    "C00":"Văn, Sử, Địa",
+    "C01":"Văn, Toán, Lý",
+    "C02":"Văn, Toán, Hóa",
+    "C03":"Văn, Toán, Sử",
+    "C04":"Văn, Toán, Địa",
+    "C06":"Văn, Hóa, Địa",
+    "C07":"Văn, Lý, Sử",
+    "C08":"Văn, Hóa, Sinh",
+    "C09":"Văn, Lý, Địa",
+    "C12":"Văn, Sinh, Sử",
+    "C13":"Văn, Sinh, Địa",
+    "C14":"Văn, Toán, GDCD",
+    "C15":"Văn, Toán, KHXH",
+    "C18":"Văn, Sinh, GDCD",
+    "C19":"Văn, Sử, GDCD",
+    "C20":"Văn, Địa, GDCD",
+    "C26":"Văn, Hóa, GDCD",
+    "D01":"Toán, Văn, Tiếng Anh",
+    "D07":"Toán, Hóa, Tiếng Anh",
+    "D08":"Toán, Sinh, Tiếng Anh",
+    "D09":"Toán, Sử, Tiếng Anh",
+    "D10":"Toán, Địa, Tiếng Anh",
+    "D11":"Văn, Lý, Tiếng Anh",
+    "D14":"Văn, Sử, Tiếng Anh",
+    "D15":"Văn, Địa, Tiếng Anh",
+    "D66":"Văn, GDCD, Tiếng Anh",
+    "D84":"Toán, GDCD, Tiếng Anh",
+    "D96":"Toán, KHXH, Tiếng Anh",
+    "X01":"Toán, Văn, GDKT và PL",
+    "X02":"Toán, Văn, Tin học",
+    "X03":"Toán, Văn, CN nông nghiệp",
+    "X04":"Toán, Văn, CN công nghiệp",
+    "X05":"Toán, Lý, GDKT và PL",
+    "X06":"Toán, Lý, Tin học",
+    "X07":"Toán, Lý, CN công nghiệp",
+    "X08":"Toán, Lý, CN nông nghiệp",
+    "X09":"Toán, Hóa, GDKT và PL",
+    "X10":"Toán, Hóa, Tin học",
+    "X12":"Toán, Hóa, CN nông nghiệp",
+    "X13":"Toán, Sinh, GDKT và PL",
+    "X14":"Toán, Sinh, Tin học",
+    "X15":"Toán, Sinh, CN công nghiệp",
+    "X16":"Toán, Sinh, CN nông nghiệp",
+    "X17":"Toán, Sử, GDKT và PL",
+    "X18":"Toán, Sử, Tin học",
+    "X19":"Toán, Sử, CN công nghiệp",
+    "X21":"Toán, Địa, GDKT và PL",
+    "X22":"Toán, Địa, Tin học",
+    "X23":"Toán, Địa, CN công nghiệp",
+    "X24":"Toán, Địa, CN nông nghiệp",
+    "X25":"Toán, GDKT và PL, Tiếng Anh",
+    "X26":"Toán, Tin học, Tiếng Anh",
+    "X27":"Toán, CN công nghiệp, Tiếng Anh",
+    "X53":"Toán, GDKT và PL, Tin học",
+    "X54":"Toán, GDKT và PL, CN công nghiệp",
+    "X67":"Văn, Sinh, Tin học",
+    "X69":"Văn, Sinh, CN nông nghiệp",
+    "X70":"Văn, Sử, GDKT và PL",
+    "X71":"Văn, Sử, Tin học",
+    "X72":"Văn, Sử, CN công nghiệp",
+    "X74":"Văn, Địa, GDKT và PL",
+    "X75":"Văn, Địa, Tin học",
+    "X76":"Văn, Địa, CN công nghiệp",
+    "X78":"Văn, GDKT và PL, Tiếng Anh",
+    "X79":"Văn, Tin học, Tiếng Anh",
+    "X80":"Văn, CN công nghiệp, Tiếng Anh",
+    "X81":"Văn, CN nông nghiệp, Tiếng Anh",
+    "Y08":"Văn, GDKT và PL, CN công nghiệp",
+    "Y10":"Văn, Tin học, CN công nghiệp"
+  };
+
+  function parseCodes(text) {
+    var clean = text.replace(/\(.*?\)/g, '').replace(/Tổ hợp\s*:/i, '');
+    var parts  = clean.split(/[\s,]+/);
+    var codes  = [];
+    parts.forEach(function(p) {
+      p = p.trim();
+      if (p && TH[p]) codes.push(p);
+    });
+    return codes;
+  }
+
+  var grid = document.getElementById('nganhGrid');
+  if (grid) {
+    var anchor = document.createElement('span');
+    anchor.id = 'tohop-anchor';
+    grid.parentNode.insertBefore(anchor, grid);
+  }
+
+  document.querySelectorAll('.nganh-card').forEach(function(card) {
+    var infoEl = null;
+    card.querySelectorAll('.nganh-info').forEach(function(el) {
+      if (!infoEl && el.textContent.includes('Tổ hợp')) infoEl = el;
+    });
+    if (!infoEl) return;
+
+    var codes = parseCodes(infoEl.textContent);
+    if (!codes.length) return;
+
+    var rows = codes.map(function(c) {
+      return '<tr><td>' + c + '</td><td>' + TH[c] + '</td></tr>';
+    }).join('');
+
+    var tableHtml =
+      '<table class="tohop-table">' +
+        '<thead><tr><th>Mã TH</th><th>Môn xét tuyển</th></tr></thead>' +
+        '<tbody>' + rows + '</tbody>' +
+      '</table>';
+
+    var btn = document.createElement('button');
+    btn.className = 'tohop-toggle-btn';
+    btn.innerHTML =
+      '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>' +
+      'Chi tiết tổ hợp (' + codes.length + ')';
+
+    var wrap = document.createElement('div');
+    wrap.className = 'tohop-table-wrap';
+    wrap.innerHTML = tableHtml;
+
+    btn.addEventListener('click', function() {
+      var isOpen = wrap.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+    });
+
+    var actions = card.querySelector('.nganh-actions');
+    if (actions) {
+      actions.appendChild(btn);
+      actions.appendChild(wrap);
+    } else {
+      var body = card.querySelector('.nganh-body');
+      if (body) { body.appendChild(btn); body.appendChild(wrap); }
+    }
+  });
+
+  var fab = document.getElementById('fabTohop');
+  if (fab) {
+    fab.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.getElementById('allTohopSection');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
+})();
+</script>
