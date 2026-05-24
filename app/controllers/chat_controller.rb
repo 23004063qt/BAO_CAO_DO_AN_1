@@ -5,7 +5,7 @@ require 'json'
 class ChatController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
- GROQ_API_KEY = "////"  # paste key của bạn vào đây
+ GROQ_API_KEY = "///"  # paste key của bạn vào đây
   GROQ_URL     = "https://api.groq.com/openai/v1/chat/completions"
   GROQ_MODEL   = "llama-3.3-70b-versatile"
 
@@ -81,49 +81,27 @@ class ChatController < ApplicationController
   # ─── System Prompt ───────────────────────────────────────────────────────────
 
   def build_system_prompt(nganh, tohop, hint)
+
     nganh_text = nganh.map.with_index(1) do |n, i|
-      ten      = n["ten"] || n["name"] || n.values.first
-      ma       = n["ma"]  || n["code"] || ""
-      chi_tieu = n["chi_tieu"] || n["chỉ tiêu"] || ""
-      diem     = n["diem_chuan"] || n["điểm chuẩn"] || ""
-      "#{i}. #{ten}#{ma.empty? ? '' : " (#{ma})"}#{chi_tieu.empty? ? '' : " – Chỉ tiêu: #{chi_tieu}"}#{diem.empty? ? '' : " – Điểm chuẩn: #{diem}"}"
-    end.join("\n")
+      ten = n["ten_nganh"] || n["ten"] || n["name"] || n.values.first
+      ma  = n["ma_nganh"] || n["ma"]  || n["code"] || ""
+      th = n["to_hop"]&.join(", ") || ""
+      "#{i}. #{ten} (#{ma}) | Tổ hợp: #{th}"
+    end.join("; ")
 
     tohop_text = tohop.map do |t|
-      ma  = t["ma"]  || t["code"] || ""
-      mon = t["mon"] || t["môn"]  || t.values.join(", ")
+      ma = t["ma"] || t["code"] || ""
+      mon = t["mon"] || t["môn"] || t.values.join(", ")
       "#{ma}: #{mon}"
-    end.join("\n")
+    end.join(", ")
 
-    hint_section = hint.present? ? "\nGỢI Ý THÊM DỰA TRÊN CÂU HỎI:\n#{hint}\n" : ""
+    hint_section = hint.present? ? "\nGợi ý: #{hint}" : ""
 
     <<~PROMPT
-      Bạn là chuyên gia tư vấn tuyển sinh của Trường Đại học Kỹ thuật – Công nghệ Cần Thơ (VLUTE).
-      Nhiệm vụ của bạn là tư vấn thí sinh lựa chọn ngành học phù hợp một cách CHI TIẾT, THỰC TẾ và NHIỆT TÌNH.
-
-      ═══ QUY TẮC TRẢ LỜI ═══
-      1. Luôn trả lời bằng tiếng Việt, thân thiện, dễ hiểu.
-      2. Độ dài tối thiểu 150 từ – đủ để thí sinh hiểu rõ.
-      3. Luôn gợi ý từ 3–5 ngành phù hợp với mô tả của thí sinh.
-      4. Với mỗi ngành gợi ý, cần nêu rõ:
-         - Tên ngành và mã ngành
-         - Tổ hợp môn xét tuyển áp dụng
-         - Cơ hội nghề nghiệp sau khi ra trường (ít nhất 3 vị trí công việc cụ thể)
-         - Mức lương tham khảo ngoài thị trường (nếu có thể ước tính)
-      5. Cuối câu trả lời, hỏi thêm 1 câu để hiểu rõ hơn về sở thích hoặc năng lực của thí sinh.
-      6. Không bịa thông tin, không đề cập đến trường khác nếu không được hỏi.
-      7. Nếu câu hỏi không liên quan tuyển sinh, nhẹ nhàng hướng về chủ đề tư vấn ngành học.
+      Bạn là AI tư vấn tuyển sinh VLUTE. Trả lời cực ngắn, chỉ liệt kê 1–2 ngành phù hợp nhất với sở thích, mỗi ngành chỉ nêu: tên, mã ngành, tổ hợp xét tuyển, 1–2 nghề nghiệp tiêu biểu. Nếu sở thích không trùng ngành, gợi ý ngành gần nhất hoặc có học phần liên quan. Không giải thích dài dòng, không lặp lại thông tin, không bịa.
       #{hint_section}
-      ═══ DANH SÁCH NGÀNH TUYỂN SINH ═══
-      #{nganh_text}
-
-      ═══ TỔ HỢP MÔN XÉT TUYỂN ═══
-      #{tohop_text}
-
-      ═══ THÔNG TIN BỔ SUNG ═══
-      - Trường VLUTE đào tạo thiên về kỹ thuật, công nghệ và kinh tế ứng dụng.
-      - Học phí hợp lý, nhiều học bổng cho sinh viên xuất sắc.
-      - Sinh viên được thực hành tại xưởng, phòng lab hiện đại và doanh nghiệp đối tác.
+      Ngành: #{nganh_text}
+      Tổ hợp: #{tohop_text}
     PROMPT
   end
 
@@ -209,7 +187,7 @@ class ChatController < ApplicationController
 
     else
       <<~TEXT
-        Xin chào! Mình là AI tư vấn tuyển sinh của **Trường Đại học Kỹ thuật – Công nghệ Cần Thơ (VLUTE)** 🎓
+        Xin chào! Mình là AI tư vấn tuyển sinh của **Trường Đại học Sư Phạm Kỹ Thuật Vĩnh Long(VLUTE)** 🎓
 
         VLUTE có nhiều nhóm ngành đào tạo chất lượng:
         - 💻 **Công nghệ thông tin & AI** – Lập trình, Trí tuệ nhân tạo, An toàn thông tin
@@ -226,10 +204,9 @@ class ChatController < ApplicationController
     end
   end
 
-  # ─── Helpers ─────────────────────────────────────────────────────────────────
-
   def load_json(path)
     full = Rails.root.join(path)
+  # ─── Helpers ────────────────────────────────────────
     return [] unless File.exist?(full)
     JSON.parse(File.read(full, encoding: "UTF-8"))
   rescue JSON::ParserError => e

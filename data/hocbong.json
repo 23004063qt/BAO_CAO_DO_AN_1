@@ -1,0 +1,23 @@
+[
+  {
+    "ma": "HB01",
+    "ten": "Học bổng xuất sắc",
+    "mo_ta": "Dành cho sinh viên có thành tích học tập xuất sắc toàn diện.",
+    "gia_tri": "10.000.000 VNĐ/năm",
+    "dieu_kien": ["Điểm trung bình >= 8.5", "Tham gia hoạt động ngoại khóa"]
+  },
+  {
+    "ma": "HB02",
+    "ten": "Học bổng vượt khó",
+    "mo_ta": "Dành cho sinh viên có hoàn cảnh khó khăn vươn lên trong học tập.",
+    "gia_tri": "5.000.000 VNĐ/năm",
+    "dieu_kien": ["Có xác nhận hoàn cảnh khó khăn", "Điểm trung bình >= 7.0"]
+  },
+  {
+    "ma": "HB03",
+    "ten": "Học bổng tài năng",
+    "mo_ta": "Dành cho sinh viên đạt giải thưởng, thành tích đặc biệt trong các lĩnh vực khoa học, nghệ thuật, thể thao.",
+    "gia_tri": "7.000.000 VNĐ/năm",
+    "dieu_kien": ["Đạt giải thưởng cấp tỉnh trở lên", "Có thành tích nổi bật"]
+  }
+]

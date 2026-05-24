@@ -1,0 +1,20 @@
+[
+  {
+    "ma": "DN01",
+    "ten": "Doanh nghiệp đối tác",
+    "mo_ta": "Danh sách các doanh nghiệp hợp tác với trường trong đào tạo, thực tập, tuyển dụng.",
+    "doanh_nghiep": ["FPT Software", "Viettel", "VinGroup", "Toyota", "BIDV"]
+  },
+  {
+    "ma": "TT02",
+    "ten": "Thực tập doanh nghiệp",
+    "mo_ta": "Chương trình thực tập tại doanh nghiệp cho sinh viên năm cuối.",
+    "quy_trinh": ["Đăng ký thực tập", "Phỏng vấn doanh nghiệp", "Báo cáo kết quả"]
+  },
+  {
+    "ma": "HT02",
+    "ten": "Hỗ trợ việc làm",
+    "mo_ta": "Trung tâm hỗ trợ việc làm, kết nối sinh viên với nhà tuyển dụng.",
+    "dich_vu": ["Tư vấn nghề nghiệp", "Giới thiệu việc làm", "Kỹ năng phỏng vấn"]
+  }
+]
