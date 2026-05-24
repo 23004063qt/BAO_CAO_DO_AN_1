@@ -54,7 +54,7 @@
                         <th>Pass</th>
                         <th>Email</th>
                         <th>Vai trò</th>
-                        <th></th>
+                        <th colspan="2">Hành động</th>
                     </tr>
                     
                     <% @nguoidungs.each_with_index do |user, index| %>
@@ -65,12 +65,24 @@
                             <td><%= user.MATKHAU %></td>
                             <td><%= user.EMAIL %></td>
                             <td><%= user.VAITRO %></td>
-                            <td>
-                                <button class="btn-delete">🗑️ Xóa</button>
-                                <button class="btn-up">✎ Sửa</button>
+                            <td class="action-buttons">
+                                <%= button_to "🗑️ Xóa",
+                                    "/qltaikhoan/delete/#{user.IDNGUOIDUNG}",
+                                    method: :delete,
+                                    class: "btn-delete",
+                                    form: {
+                                        onsubmit: "return confirm('Bạn có chắc muốn xóa tài khoản này?');",
+                                        style: "display:inline;"
+                                } %>
+                            </td>
+                            <td class="action-buttons">
+                                <%= link_to "✎ Sửa",
+                                    "/qltaikhoan/edit/#{user.IDNGUOIDUNG}",
+                                    class: "btn-edit" 
+                                %>
                             </td>
                         </tr>
-                    <% end %>
+                    <% end %>   
             </table>
 </main>
 

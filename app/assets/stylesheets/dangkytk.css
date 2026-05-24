@@ -150,6 +150,13 @@ body {
     background: #0353f1;
 }
 
+.admin-note{
+    color: #dc2626;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
 .footer {
     background: var(--dark-color);
     color: white;

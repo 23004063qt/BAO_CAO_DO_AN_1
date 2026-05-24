@@ -1,0 +1,50 @@
+<div class="edit-container">
+
+    <h1>Sửa tài khoản</h1>
+
+    <%= form_with url: "/qltaikhoan/update/#{@user.IDNGUOIDUNG}",
+        method: :patch,
+        local: true do %>
+
+        <div class="form-group">
+            <label>UserName</label>
+
+            <%= text_field_tag :USERNAME,
+                @user.USERNAME,
+                class: "form-input" %>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+
+            <%= text_field_tag :EMAIL,
+                @user.EMAIL,
+                class: "form-input" %>
+        </div>
+
+        <div class="form-group">
+            <label>Vai trò</label>
+
+            <%= select_tag :VAITRO,
+                options_for_select(
+                    ["ADMIN", "THISINH"],
+                    @user.VAITRO
+                ),
+                class: "form-input" %>
+        </div>
+
+        <div class="button-group">
+
+            <%= submit_tag "💾 Lưu",
+                class: "btn-save",
+                onclick: "return confirm('Bạn có chắc muốn lưu thay đổi?')" %>
+
+            <%= link_to "⬅ Quay về",
+                qltaikhoan_qltaikhoan_path,
+                class: "btn-back" %>
+
+        </div>
+
+    <% end %>
+
+</div>
