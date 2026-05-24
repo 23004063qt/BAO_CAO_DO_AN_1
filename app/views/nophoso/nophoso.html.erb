@@ -780,18 +780,18 @@
     // xử lý ẩn hiện phần nhập điểm
     const ptxt = document.getElementById("ptxt");
     const khoiNhapDiem = document.getElementById("tinhdiemhocba");
-    const ketqua-tohop = document.getElementById("ketqua-tohop");
+    const ketquaTohop = document.getElementById("ketqua-tohop");
     function capNhatNhapDiem() {
 
         if (ptxt.value === "Xét học bạ") {
 
             khoiNhapDiem.style.display = "block";
-            ketqua-tohop.style.display = "block";
+            ketquaTohop.style.display = "block";
 
         } else {
 
             khoiNhapDiem.style.display = "none";
-            ketqua-tohop.style.display = "none";
+            ketquaTohop.style.display = "none";
         }
     }
 
@@ -853,7 +853,7 @@
 
         if (dem === 0) return 0;
 
-        return tong / dem;
+        return tong / dem; 
     }
 
 
