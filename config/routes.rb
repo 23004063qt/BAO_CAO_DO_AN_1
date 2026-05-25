@@ -82,4 +82,7 @@ Rails.application.routes.draw do
 
   patch "/qltaikhoan/update/:id",
   to: "qltaikhoan#update"
+
+  post "/nophoso/create", 
+  to: "nophoso#create"
 end

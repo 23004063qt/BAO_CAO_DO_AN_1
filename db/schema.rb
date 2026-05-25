@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_16_014810) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_25_004330) do
   create_table "DIEMCHUAN", primary_key: "IDDIEMCHUAN", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.float "DIEM"
     t.integer "IDDOT", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_16_014810) do
     t.integer "IDNGANH", null: false
     t.integer "IDTHISINH", null: false
     t.date "NGAYNOP", default: -> { "(curdate())" }
+    t.integer "THUTU"
     t.string "TRANGTHAI", limit: 50, default: "Cho xu ly"
     t.index ["IDDOT"], name: "IDDOT"
     t.index ["IDNGANH"], name: "IDNGANH"
@@ -70,6 +71,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_16_014810) do
     t.index ["IDKHOA"], name: "IDKHOA"
   end
 
+  create_table "NGANH_TOHOP", primary_key: "ID", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.integer "IDNGANH"
+    t.integer "IDTOHOP"
+    t.index ["IDNGANH"], name: "IDNGANH"
+    t.index ["IDTOHOP"], name: "IDTOHOP"
+  end
+
   create_table "NGUOIDUNG", primary_key: "IDNGUOIDUNG", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "EMAIL", limit: 120
     t.string "MATKHAU", null: false
@@ -88,15 +96,20 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_16_014810) do
   create_table "THISINH", primary_key: "IDTHISINH", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "ANHCCCDS", limit: 50
     t.string "ANHCCCDT", limit: 50
+    t.string "ANHGIAYTOKHAC", limit: 50
+    t.string "ANHHOCBA", limit: 50
     t.string "DANTOC", limit: 50
     t.string "DIACHI", limit: 250
     t.string "DTUT", limit: 70
     t.string "EMAIL", limit: 120
     t.string "GIAYKHAISINH", limit: 50
     t.string "GIOITINH", limit: 4
+    t.string "HANHKIEM", limit: 50
     t.string "HOTENTS", limit: 70
     t.integer "IDNGUOIDUNG", null: false
+    t.string "KQHT12", limit: 50
     t.string "KVUT", limit: 70
+    t.string "LOAIDAOTAO", limit: 100
     t.integer "NAMTN"
     t.date "NGAYSINH"
     t.string "NOIHOC12", limit: 70
@@ -131,6 +144,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_16_014810) do
     t.string "TENTOHOP", limit: 50
   end
 
+  create_table "dottuyensinhs", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "nganhs", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "tennganh"
@@ -162,6 +180,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_16_014810) do
   add_foreign_key "HOSODANGKY", "THISINH", column: "IDTHISINH", primary_key: "IDTHISINH", name: "HOSODANGKY_ibfk_1"
   add_foreign_key "LICHSUCHATBOT", "THISINH", column: "IDTHISINH", primary_key: "IDTHISINH", name: "LICHSUCHATBOT_ibfk_1"
   add_foreign_key "NGANHDAOTAO", "KHOA", column: "IDKHOA", primary_key: "IDKHOA", name: "NGANHDAOTAO_ibfk_1"
+  add_foreign_key "NGANH_TOHOP", "NGANHDAOTAO", column: "IDNGANH", primary_key: "IDNGANH", name: "NGANH_TOHOP_ibfk_1"
+  add_foreign_key "NGANH_TOHOP", "TOHOPMON", column: "IDTOHOP", primary_key: "IDTOHOP", name: "NGANH_TOHOP_ibfk_2"
   add_foreign_key "THISINH", "NGUOIDUNG", column: "IDNGUOIDUNG", primary_key: "IDNGUOIDUNG", name: "THISINH_ibfk_1"
   add_foreign_key "TIEUCHITUYENSINH", "NGANHDAOTAO", column: "IDNGANH", primary_key: "IDNGANH", name: "TIEUCHITUYENSINH_ibfk_1"
   add_foreign_key "TIEUCHITUYENSINH", "PHUONGTHUCXETTUYEN", column: "IDPHUONGTHUC", primary_key: "IDPHUONGTHUC", name: "TIEUCHITUYENSINH_ibfk_2"

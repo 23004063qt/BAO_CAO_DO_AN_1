@@ -52,7 +52,14 @@
         <div class="menu2">Bước 3</div>
         <div class="menu2">Bước 4</div>
     </div>
-    <form class="form_thisinh">
+    <form
+        class="form_thisinh"
+        action="/nophoso/create"
+        method="POST"
+        enctype="multipart/form-data">
+
+        <%= hidden_field_tag :authenticity_token,
+        form_authenticity_token %>
         <div class="form-menu active">
             <label><h3>Thông tin cá nhân</h3></label>
             <table>
@@ -190,14 +197,14 @@
                     <th>Giấy khai sinh: </th>
                     <th>
                         <label class="file" for="filegiayks"></label>
-                        <input type="file" id="filegiayks" accept=".pdf,.jpg,.jpeg,.png" multiple required>
+                        <input type="file" id="filegiayks" name="GIAYKHAISINH" accept=".pdf,.jpg,.jpeg,.png" multiple required>
                     </th>
                 </tr>
 
                 <tr>
                     <th>Số CCCD: </th>
                     <th>
-                        <input type="number" name="SOCCCD" placeholder="Nhập số căn cước công dân" required>
+                        <input type="text" name="SOCCCD"  placeholder="Nhập số căn cước công dân" required>
                     </th>
                 </tr>
 
@@ -205,7 +212,7 @@
                     <th>CCCD mặt trước: </th>
                     <th>
                         <label class="file" for="filecccdt"> </label>
-                        <input type="file" id="filecccdt" accept=".pdf,.jpg,.jpeg,.png" multiple required>
+                        <input type="file" id="filecccdt" name="ANHCCCDT" accept=".pdf,.jpg,.jpeg,.png" multiple required>
                     </th>
                 </tr>
 
@@ -213,7 +220,7 @@
                     <th>CCCD mặt sau: </th>
                     <th>
                         <label class="file" for="filecccds"></label>
-                        <input type="file" id="filecccds" accept=".pdf,.jpg,.jpeg,.png" multiple required>
+                        <input type="file" id="filecccds" name="ANHCCCDS" accept=".pdf,.jpg,.jpeg,.png" multiple required>
                     </th>
                 </tr>
 
@@ -347,7 +354,7 @@
                 <tr>
                     <th>Số điện thoại: </th>
                     <th>
-                        <input type="number" name="SDT" placeholder="Nhập số điện thoại" required>
+                        <input type="text" name="SDT" placeholder="Nhập số điện thoại" required>
                     </th>
                 </tr>
 
@@ -387,7 +394,7 @@
                 <tr>
                     <th>Loại hình đào tạo: </th>
                     <th>
-                        <select id="loaihinhdaotao" required>
+                        <select id="loaihinhdaotao" name="LOAIDAOTAO" required>
                             <option value="">--Chọn--</option>
                             <option value="Chương trình đại trà">Chương trình đại trà</option>
                             <option value="Chương trình chất lượng cao">Chương trình chất lượng cao</option>
@@ -522,6 +529,9 @@
                 </div>
             </div>
             <div class="box-tinhdiem">
+                <input type="hidden" name="DIEM_MON" id="diem_mon_hidden">
+                <input type="hidden" name="TOHOP_NV1" id="tohop_nv1">
+                <input type="hidden" name="TOHOP_NV2" id="tohop_nv2">
                 <button type="button" id="btn-tinhdiem" class="btn-tinhdiem">
                     Tính điểm xét học bạ
                 </button>
@@ -530,7 +540,7 @@
                 <tr>
                     <th>Hạnh kiểm: </th>
                     <th>
-                        <select id="hanhkiem" required>
+                        <select id="hanhkiem" name="HANHKIEM" required>
                             <option value="">-- Chọn  --</option>
                             <option value="Tốt">Tốt</option>
                             <option value="Khá">Khá</option>
@@ -543,7 +553,7 @@
                 <tr>
                     <th>Kết quả học tập năm 12: </th>
                     <th>
-                        <select id="kqht" required>
+                        <select id="kqht" name="KQHT12" required>
                             <option value="">-- Chọn  --</option>
                             <option value="Tốt">Tốt</option>
                             <option value="Khá">Khá</option>
@@ -556,7 +566,7 @@
                     <h3>Tải lên ảnh chụp học bạ</h3>
                 </label>
                 <div class="file-upload" onclick="document.getElementById('filehocba').click()">
-                <input type="file" id="filehocba" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                <input type="file" id="filehocba" name="ANHHOCBA" accept=".pdf,.jpg,.jpeg,.png" multiple>
                 <span>
                     <p>📎 Click để chọn file hoặc kéo thả vào đây </p>
                     <p> (PDF, JPG, PNG - Tối đa 5MB) </p>
@@ -571,7 +581,7 @@
                 (Không bắt buộc với xét học bạ)
             </label>
             <div class="file-upload" onclick="document.getElementById('filehoso').click()">
-                <input type="file" id="filehoso" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                <input type="file" id="filehoso" name="ANHGIAYTOKHAC" accept=".pdf,.jpg,.jpeg,.png" multiple>
                 <span>
                     <p>📎 Click để chọn file hoặc kéo thả vào đây </p>
                     <p> (PDF, JPG, PNG - Tối đa 5MB) </p>
@@ -586,7 +596,6 @@
             <button type="button" onclick="buocTiepTheo()" class="btn-dh">Tiếp theo →</button>
         </div>
     </form>
-</div>
 </div>
 <div class="footer">
     <div class="footer-content">
@@ -647,6 +656,7 @@
 
     // tiếp tục
     async function buocTiepTheo(){
+        if (!kiemTraBuoc()) return;
 
         // nếu đang ở bước 1 thì kiểm tra CCCD
         if (buocht === 0) {
@@ -679,10 +689,12 @@
 
         // Lấy các input trong bước 
         const formHienTai = danhSachForm[buocht];
-        const inputs = formHienTai.querySelectorAll("input, select");
+        const inputs = formHienTai.querySelectorAll(
+            'input:not([type="hidden"]), select'
+        );
 
         inputs.forEach(input => {
-            if (input.value.trim() === "") {
+            if (input.value === "") {
                 hopLe = false;
                 input.style.border = "2px solid red"; // tô đỏ nếu thiếu
             } else {
@@ -1009,6 +1021,14 @@
                     maxDiem = diem;
 
                     tenToHop = th.TENTOHOP;
+
+                    if(elementId === "kq-nganh1"){
+                        document.getElementById("tohop_nv1").value = tenToHop;
+                    }
+
+                    if(elementId === "kq-nganh2"){
+                        document.getElementById("tohop_nv2").value = tenToHop;
+                    }
                 }
 
             });
@@ -1074,6 +1094,10 @@
                 "kq-nganh2"
             );
         }
+
+        const diemMon = layTatCaDiemMon();
+
+        document.getElementById("diem_mon_hidden").value = JSON.stringify(diemMon);
     });
 
 
