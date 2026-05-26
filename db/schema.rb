@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_25_004330) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_26_064755) do
   create_table "DIEMCHUAN", primary_key: "IDDIEMCHUAN", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.float "DIEM"
     t.integer "IDDOT", null: false
@@ -145,6 +145,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_25_004330) do
   end
 
   create_table "dottuyensinhs", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "khoas", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

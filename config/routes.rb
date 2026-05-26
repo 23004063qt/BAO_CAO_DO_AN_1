@@ -85,4 +85,17 @@ Rails.application.routes.draw do
 
   post "/nophoso/create", 
   to: "nophoso#create"
+
+  get "qlkhoa_dv/qlkhoa_dv"
+  get "qlkhoa_dv/new"
+  post "qlkhoa_dv/create"
+
+  get "qlkhoa_dv/edit/:id",
+  to: "qlkhoa_dv#edit"
+
+  patch "qlkhoa_dv/update/:id",
+  to: "qlkhoa_dv#update"
+
+  delete "qlkhoa_dv/delete/:id",
+  to: "qlkhoa_dv#delete"
 end

@@ -41,51 +41,32 @@
             <% end %>
         </ul>
 </div>
-<main>
-    <div class="actions">
-        <button class="btn-add">
-            <%= link_to "+Thêm", qlkhoa_dv_new_path %>
-        </button>
-    </div>
+<div class="edit-container-wrap">
+    <div class="edit-container">
+        <h2>Sửa khoa</h2>
+        <%= form_with model: @khoa,
+        url: "/qlkhoa_dv/update/#{@khoa.IDKHOA}",
+        method: :patch,
+        local: true do |f| %>
 
-    <table class="bang">
-        <tr class="head">
-            <th>STT</th>
-            <th>Mã khoa</th>
-            <th>Tên khoa</th>
-            <th>Mô tả</th>
-            <th colspan="2">Hành động</th>
-        </tr>
+            <div>
+                <%= f.label :TENKHOA, "Tên khoa" %><br>
+                <%= f.text_field :TENKHOA %>
+            </div>
 
-        <% @khoas.each_with_index do |khoa, index| %>
-            <tr>
-                <td><%= index + 1 %></td>
-                <td><%= khoa.IDKHOA %></td>
-                <td><%= khoa.TENKHOA %></td>
-                <td><%= khoa.MOTA %></td>
+            <div>
+                <%= f.label :MOTA, "Mô tả" %><br>
+                <%= f.text_area :MOTA %>
+            </div>
 
-                <td class="action-buttons">
-                    <%= button_to "🗑️ Xóa",
-                        "/qlkhoa_dv/delete/#{khoa.IDKHOA}",
-                        method: :delete,
-                        class: "btn-delete",
-                        form: {
-                            onsubmit: "return confirm('Bạn có chắc muốn xóa khoa này?');",
-                            style: "display:inline;"
-                    } %>
-                </td>
+            <br>
 
-                <td class="action-buttons">
-                    <%= link_to "✎ Sửa",
-                        "/qlkhoa_dv/edit/#{khoa.IDKHOA}",
-                        class: "btn-edit"
-                    %>
-                </td>
-            </tr>
+            <%= f.submit "Cập nhật" %>
+
         <% end %>
-    </table>
-</main>
 
+    </div>
+</div>
 <div class="footer">
     <div class="footer-content">
         <div class="footer1">
@@ -97,7 +78,7 @@
         <div class="footer1">
             <h3>Liên Kết Nhanh</h3>
             <ul>
-                <li>Ngành học<</li>
+                <li>Ngành học</li>
                 <li>Lịch tuyển sinh</li>
                 <li>Nộp hồ sơ</li>
                 <li>Câu hỏi thường gặp</li>
@@ -117,4 +98,3 @@
         <p>&copy; 2026 Hệ Thống Tư Vấn Tuyển Sinh </p>
     </div>
 </div>
-
