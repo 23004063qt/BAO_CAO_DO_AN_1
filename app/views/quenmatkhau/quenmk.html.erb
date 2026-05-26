@@ -1,0 +1,84 @@
+<div class="forgot-container">
+
+    <% if flash[:error] %>
+        <p class="error"><%= flash[:error] %></p>
+    <% end %>
+
+    <% if flash[:success] %>
+        <p class="success"><%= flash[:success] %></p>
+    <% end %>
+
+    <% if params[:step].nil? %>
+
+        <form action="/quen-mat-khau/gui-otp" method="POST">
+
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+            <h2>Quên mật khẩu</h2>
+
+            <input type="email"
+                   name="email"
+                   placeholder="Nhập email">
+
+            <button type="submit">
+                Gửi OTP
+            </button>
+
+        </form>
+
+    <% end %>
+
+    <% if params[:step] == "otp" %>
+
+        <form action="/quen-mat-khau/xac-nhan-otp" method="POST">
+
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+            <h2>Nhập mã OTP</h2>
+
+            <div class="otp-box">
+
+                <% 6.times do %>
+
+                    <input type="text"
+                           name="otp[]"
+                           maxlength="1"
+                           class="otp-input">
+
+                <% end %>
+
+            </div>
+
+            <button type="submit">
+                Xác nhận OTP
+            </button>
+
+        </form>
+
+    <% end %>
+
+    <% if params[:step] == "reset" %>
+
+        <form action="/quen-mat-khau/dat-lai" method="POST">
+
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+            <h2>Đặt lại mật khẩu</h2>
+
+            <input type="text"
+                   name="username"
+                   placeholder="Tên tài khoản mới">
+
+            <input type="password"
+                   name="password"
+                   placeholder="Mật khẩu mới">
+
+            <button type="submit">
+                Đổi mật khẩu
+            </button>
+
+        </form>
+
+    <% end %>
+
+</div>

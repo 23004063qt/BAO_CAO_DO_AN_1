@@ -98,4 +98,12 @@ Rails.application.routes.draw do
 
   delete "qlkhoa_dv/delete/:id",
   to: "qlkhoa_dv#delete"
+
+  get  "quen-mat-khau", to: "quenmatkhau#quenmk", as: "quenmatkhau"
+
+  post "quen-mat-khau/gui-otp", to: "quenmatkhau#gui_otp"
+
+  post "quen-mat-khau/xac-nhan-otp", to: "quenmatkhau#xac_nhan_otp"
+
+  post "quen-mat-khau/dat-lai", to: "quenmatkhau#dat_lai_mat_khau"
 end

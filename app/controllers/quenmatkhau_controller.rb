@@ -1,0 +1,79 @@
+class QuenmatkhauController < ApplicationController
+
+    def quenmk
+    end
+
+    # ===== GỬI OTP =====
+    def gui_otp
+
+        email = params[:email]
+
+        user = Nguoidung.find_by(email: email)
+
+        if user.nil?
+            flash[:error] = "Email không tồn tại!"
+            redirect_to quenmatkhau_path
+            return
+        end
+
+        otp = rand(100000..999999)
+
+        session[:otp] = otp
+        session[:reset_email] = email
+
+        OtpMailer.gui_otp(email, otp).deliver_now
+
+        flash[:success] = "Đã gửi mã OTP về email"
+
+        redirect_to quenmatkhau_path(step: "otp")
+    end
+
+    # ===== KIỂM TRA OTP =====
+    def xac_nhan_otp
+
+        otp = params[:otp].join
+
+        if otp == session[:otp].to_s
+
+            session[:otp_verified] = true
+
+            redirect_to quenmatkhau_path(step: "reset")
+
+        else
+            flash[:error] = "Mã OTP không đúng!"
+            redirect_to quenmatkhau_path(step: "otp")
+        end
+    end
+
+    # ===== ĐẶT LẠI MẬT KHẨU =====
+    def dat_lai_mat_khau
+
+        unless session[:otp_verified]
+            redirect_to quenmatkhau_path
+            return
+        end
+
+        username = params[:username]
+        password = params[:password]
+
+        user = Nguoidung.find_by(email: session[:reset_email])
+
+        user.USERNAME = username
+        user.MATKHAU = password
+
+        if user.save
+
+            session.delete(:otp)
+            session.delete(:reset_email)
+            session.delete(:otp_verified)
+
+            flash[:success] = "Đổi mật khẩu thành công"
+
+            redirect_to dangnhap_dangnhap_path
+
+        else
+            flash[:error] = "Có lỗi xảy ra"
+            redirect_to quenmatkhau_path(step: "reset")
+        end
+    end
+end
