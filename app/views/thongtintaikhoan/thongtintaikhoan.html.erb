@@ -60,80 +60,33 @@
         </ul>
     </nav>
 </header>
-<main>
-    <div class="actions">
-        <button class="btn-add">
-            <%= link_to "+Thêm", qlkhoa_dv_new_path %>
-        </button>
+<div class="cthoso-container">
+
+    <div class="cthoso-card">
+
+      
+
+        <h2 class="cthoso-title">Thông tin tài khoản</h2>
+
+        <div class="cthoso-info">
+
+            <div class="cthoso-row">
+                <span class="cthoso-label">Tên tài khoản</span>
+                <span class="cthoso-value"><%= current_user.USERNAME %></span>
+            </div>
+
+            <div class="cthoso-row">
+                <span class="cthoso-label">Email</span>
+                <span class="cthoso-value"><%= current_user.EMAIL %></span>
+            </div>
+
+            <div class="cthoso-row">
+                <span class="cthoso-label">Vai trò</span>
+                <span class="cthoso-value cthoso-role"><%= current_user.VAITRO %></span>
+            </div>
+
+        </div>
+
     </div>
 
-    <table class="bang">
-        <tr class="head">
-            <th>STT</th>
-            <th>Mã khoa</th>
-            <th>Tên khoa</th>
-            <th>Mô tả</th>
-            <th colspan="2">Hành động</th>
-        </tr>
-
-        <% @khoas.each_with_index do |khoa, index| %>
-            <tr>
-                <td><%= index + 1 %></td>
-                <td><%= khoa.IDKHOA %></td>
-                <td><%= khoa.TENKHOA %></td>
-                <td><%= khoa.MOTA %></td>
-
-                <td class="action-buttons">
-                    <%= button_to "🗑️ Xóa",
-                        "/qlkhoa_dv/delete/#{khoa.IDKHOA}",
-                        method: :delete,
-                        class: "btn-delete",
-                        form: {
-                            onsubmit: "return confirm('Bạn có chắc muốn xóa khoa này?');",
-                            style: "display:inline;"
-                    } %>
-                </td>
-
-                <td class="action-buttons">
-                    <%= link_to "✎ Sửa",
-                        "/qlkhoa_dv/edit/#{khoa.IDKHOA}",
-                        class: "btn-edit"
-                    %>
-                </td>
-            </tr>
-        <% end %>
-    </table>
-</main>
-
-<div class="footer">
-    <div class="footer-content">
-        <div class="footer1">
-            <h3>Về Chúng Tôi</h3>
-            <p style="color: #94a3b8; line-height: 1.8;">
-                Hệ thống tư vấn tuyển sinh.
-            </p>
-        </div>
-        <div class="footer1">
-            <h3>Liên Kết Nhanh</h3>
-            <ul>
-                <li>Ngành học<</li>
-                <li>Lịch tuyển sinh</li>
-                <li>Nộp hồ sơ</li>
-                <li>Câu hỏi thường gặp</li>
-            </ul>
-        </div>
-        <div class="footer1">
-            <h3>Liên Hệ</h3>
-            <ul>
-                <li>Hotline: 123</li>
-                <li>Email: tuyensinh@vlute.edu.vn</li>
-                <li>Địa chỉ: Vĩnh Long</li>
-                <li>Giờ làm việc: 8:00 - 17:00</li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer2">
-        <p>&copy; 2026 Hệ Thống Tư Vấn Tuyển Sinh </p>
-    </div>
 </div>
-

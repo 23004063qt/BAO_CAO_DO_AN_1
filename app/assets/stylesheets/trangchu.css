@@ -553,4 +553,138 @@ footer {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
- 
+ /* ── User dropdown ── */
+.user-dropdown {
+  position: relative;
+}
+
+.user-dropdown .user-name {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.user-dropdown-menu {
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  min-width: 180px;
+  background: rgba(15, 23, 42, 0.96);
+  padding: 10px 0;
+  list-style: none;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 999;
+}
+
+.user-dropdown:hover .user-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.user-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 16px;
+  height: 16px;
+  background: rgba(15, 23, 42, 0.96);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.user-dropdown-menu li {
+  width: 100%;
+}
+
+.user-dropdown-menu li a {
+  display: block;
+  padding: 14px 22px;
+  color: #f8fafc !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.user-dropdown-menu li a:hover {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(59, 130, 246, 0.95));
+  color: white !important;
+  padding-left: 28px;
+}
+
+.user-dropdown-menu .logout-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 22px;
+  font-size: 0.95rem;
+  color: #fca5a5;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.25s;
+}
+
+.user-dropdown-menu .logout-btn:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(239, 68, 68, 0.2));
+  color: #fecaca;
+  padding-left: 28px;
+}
+/* ── Đường kẻ phân cách menu ── */
+.menu > li {
+  position: relative;
+}
+
+.menu > li + li::before {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+/* ── Gạch chân animation khi hover ── */
+.menu > li > a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.menu > li > a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.menu > li > a:hover::after {
+  width: 100%;
+}
+
+/* ── Chữ phóng to nhẹ khi hover ── */
+.menu > li > a {
+  display: inline-block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu > li > a:hover {
+  transform: scale(1.12);
+  opacity: 1;
+}

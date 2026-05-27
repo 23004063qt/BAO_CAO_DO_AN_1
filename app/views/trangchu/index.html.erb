@@ -37,20 +37,26 @@
                 </li>
             <% end %>
             <% if current_user %>
-                <li>
-                    <%= button_to "Đăng xuất",
-                    "/dangnhap/logout",
-                    method: :delete,
-                    class: "logout-btn",
-                    form: {
-                        style: "display:inline;"
-                    } %>
-                </li>
-            <% else %>
-                <li>
-                    <%= link_to "Đăng nhập", dangnhap_dangnhap_path %>
-                </li>
-            <% end %>
+    <li class="user-dropdown">
+        <a href="#" class="user-name">
+             <%= current_user.USERNAME %>
+        </a>
+        <ul class="user-dropdown-menu">
+            <li><%= link_to "Thông tin tài khoản", thongtintaikhoan_thongtintaikhoan_path %></li>
+            <li>
+                <%= button_to "Đăng xuất",
+                "/dangnhap/logout",
+                method: :delete,
+                class: "logout-btn",
+                form: { style: "display:inline;" } %>
+            </li>
+        </ul>
+    </li>
+<% else %>
+    <li>
+        <%= link_to "Đăng nhập", dangnhap_dangnhap_path %>
+    </li>
+<% end %>
         </ul>
     </nav>
 </header>

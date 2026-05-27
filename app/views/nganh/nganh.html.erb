@@ -1,7 +1,18 @@
+<% if notice %>
+    <script>
+        alert("<%= notice %>");
+    </script>
+<% end %>
+
+<% if alert %>
+    <script>
+        alert("<%= alert %>");
+    </script>
+<% end %>
 <header>
     <nav>
         <div class="logo">
-            <%= image_tag "logovlute.png", width: 50 %>
+            <%= image_tag "logovlute.png",  width: 50 %>
             Hệ Thống Tư Vấn Tuyển Sinh
         </div>
         <ul class="menu">
@@ -11,7 +22,41 @@
             <li><%= link_to "Ngành Học", nganh_nganh_path %></li>
             <li><%= link_to "Lịch Tuyển Sinh", lichtuyensinh_lichtuyensinh_path %></li>
             <li><%= link_to "Nộp hồ sơ", nophoso_nophoso_path %></li>
-            <li><%= link_to "Đăng nhập", dangnhap_dangnhap_path %></li>
+
+            <% if current_user &&
+                current_user.VAITRO == "ADMIN" %>
+                <li class="dropdown">
+                    <%= link_to "Quản trị viên", "#" %>
+                    <ul class="dropdown-menu">
+                        <li><%= link_to "Quản lý tài khoản", qltaikhoan_qltaikhoan_path %></li>
+                        <li><%= link_to "Quản lý tin tức", qltintuc_qltintuc_path %></li>
+                        <li><%= link_to "Quản lý khoa - đơn vị", qlkhoa_dv_qlkhoa_dv_path %></li>
+                        <li><%= link_to "Quản lý hồ sơ", xlhoso_xlhoso_path %></li>
+                        <li><%= link_to "Thống kê báo cáo", thongkebaocao_thongkebaocao_path %></li>
+                    </ul>
+                </li>
+            <% end %>
+            <% if current_user %>
+    <li class="user-dropdown">
+        <a href="#" class="user-name">
+             <%= current_user.USERNAME %>
+        </a>
+        <ul class="user-dropdown-menu">
+            <li><%= link_to "Thông tin tài khoản", thongtintaikhoan_thongtintaikhoan_path %></li>
+            <li>
+                <%= button_to "Đăng xuất",
+                "/dangnhap/logout",
+                method: :delete,
+                class: "logout-btn",
+                form: { style: "display:inline;" } %>
+            </li>
+        </ul>
+    </li>
+<% else %>
+    <li>
+        <%= link_to "Đăng nhập", dangnhap_dangnhap_path %>
+    </li>
+<% end %>
         </ul>
     </nav>
 </header>
@@ -818,90 +863,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 (function(){
   var ALL_TH = [
-    ["A00","Toán, Lý, Hóa"],
-    ["A01","Toán, Lý, Tiếng Anh"],
-    ["A02","Toán, Lý, Sinh"],
-    ["A03","Toán, Lý, Sử"],
-    ["A04","Toán, Lý, Địa"],
-    ["A06","Toán, Hóa, Địa"],
-    ["A08","Toán, Sử, GDCD"],
-    ["A09","Toán, Địa, GDCD"],
-    ["A15","Toán, KHTN, GDCD"],
-    ["B00","Toán, Hóa, Sinh"],
-    ["B01","Toán, Sinh, Sử"],
-    ["B02","Toán, Sinh, Địa"],
-    ["B03","Toán, Sinh, Văn"],
-    ["B04","Toán, Sinh, GDCD"],
-    ["B08","Toán, Sinh, Tiếng Anh"],
-    ["C00","Văn, Sử, Địa"],
-    ["C01","Văn, Toán, Lý"],
-    ["C02","Văn, Toán, Hóa"],
-    ["C03","Văn, Toán, Sử"],
-    ["C04","Văn, Toán, Địa"],
-    ["C06","Văn, Hóa, Địa"],
-    ["C07","Văn, Lý, Sử"],
-    ["C08","Văn, Hóa, Sinh"],
-    ["C09","Văn, Lý, Địa"],
-    ["C12","Văn, Sinh, Sử"],
-    ["C13","Văn, Sinh, Địa"],
-    ["C14","Văn, Toán, GDCD"],
-    ["C15","Văn, Toán, KHXH"],
-    ["C18","Văn, Sinh, GDCD"],
-    ["C19","Văn, Sử, GDCD"],
-    ["C20","Văn, Địa, GDCD"],
-    ["C26","Văn, Hóa, GDCD"],
-    ["D01","Toán, Văn, Tiếng Anh"],
-    ["D07","Toán, Hóa, Tiếng Anh"],
-    ["D08","Toán, Sinh, Tiếng Anh"],
-    ["D09","Toán, Sử, Tiếng Anh"],
-    ["D10","Toán, Địa, Tiếng Anh"],
-    ["D11","Văn, Lý, Tiếng Anh"],
-    ["D14","Văn, Sử, Tiếng Anh"],
-    ["D15","Văn, Địa, Tiếng Anh"],
-    ["D66","Văn, GDCD, Tiếng Anh"],
-    ["D84","Toán, GDCD, Tiếng Anh"],
-    ["D96","Toán, KHXH, Tiếng Anh"],
-    ["X01","Toán, Văn, GDKT và PL"],
-    ["X02","Toán, Văn, Tin học"],
-    ["X03","Toán, Văn, CN nông nghiệp"],
-    ["X04","Toán, Văn, CN công nghiệp"],
-    ["X05","Toán, Lý, GDKT và PL"],
-    ["X06","Toán, Lý, Tin học"],
-    ["X07","Toán, Lý, CN công nghiệp"],
-    ["X08","Toán, Lý, CN nông nghiệp"],
-    ["X09","Toán, Hóa, GDKT và PL"],
-    ["X10","Toán, Hóa, Tin học"],
-    ["X12","Toán, Hóa, CN nông nghiệp"],
-    ["X13","Toán, Sinh, GDKT và PL"],
-    ["X14","Toán, Sinh, Tin học"],
-    ["X15","Toán, Sinh, CN công nghiệp"],
-    ["X16","Toán, Sinh, CN nông nghiệp"],
-    ["X17","Toán, Sử, GDKT và PL"],
-    ["X18","Toán, Sử, Tin học"],
-    ["X19","Toán, Sử, CN công nghiệp"],
-    ["X21","Toán, Địa, GDKT và PL"],
-    ["X22","Toán, Địa, Tin học"],
-    ["X23","Toán, Địa, CN công nghiệp"],
-    ["X24","Toán, Địa, CN nông nghiệp"],
-    ["X25","Toán, GDKT và PL, Tiếng Anh"],
-    ["X26","Toán, Tin học, Tiếng Anh"],
-    ["X27","Toán, CN công nghiệp, Tiếng Anh"],
-    ["X53","Toán, GDKT và PL, Tin học"],
-    ["X54","Toán, GDKT và PL, CN công nghiệp"],
-    ["X67","Văn, Sinh, Tin học"],
-    ["X69","Văn, Sinh, CN nông nghiệp"],
-    ["X70","Văn, Sử, GDKT và PL"],
-    ["X71","Văn, Sử, Tin học"],
-    ["X72","Văn, Sử, CN công nghiệp"],
-    ["X74","Văn, Địa, GDKT và PL"],
-    ["X75","Văn, Địa, Tin học"],
-    ["X76","Văn, Địa, CN công nghiệp"],
-    ["X78","Văn, GDKT và PL, Tiếng Anh"],
-    ["X79","Văn, Tin học, Tiếng Anh"],
-    ["X80","Văn, CN công nghiệp, Tiếng Anh"],
-    ["X81","Văn, CN nông nghiệp, Tiếng Anh"],
-    ["Y08","Văn, GDKT và PL, CN công nghiệp"],
-    ["Y10","Văn, Tin học, CN công nghiệp"]
+    <% Tohopmon.all.each_with_index do |th, i| %>
+      ["<%= th.TENTOHOP %>", "<%= th.MON1 %>, <%= th.MON2 %>, <%= th.MON3 %>"]<%= i < Tohopmon.count - 1 ? ',' : '' %>
+    <% end %>
   ];
 
   var grid = document.getElementById('allTohopGrid');

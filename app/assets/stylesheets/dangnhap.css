@@ -1,7 +1,7 @@
 /* ── Login page background ── */
 .login {
   min-height: calc(100vh - 60px);
-  background: #f0f4f8;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: center;

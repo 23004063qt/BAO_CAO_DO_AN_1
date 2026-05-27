@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "thongtintaikhoan/thongtintaikhoan"
   get "nganh/nganh"
   get "nganh/motanganh"
   get "nganh/thuongmai"

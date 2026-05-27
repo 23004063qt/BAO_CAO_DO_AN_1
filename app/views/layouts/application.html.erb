@@ -17,6 +17,17 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+    <div class="toast toast-success" id="toast">
+        ✅ <%= flash[:notice] %>
+    </div>
+<% end %>
+
+<% if flash[:alert] %>
+    <div class="toast toast-error" id="toast">
+        ❌ <%= flash[:alert] %>
+    </div>
+<% end %>
     <%= yield %>
 
     <!-- ═══ CHATBOT HTML ═══ -->
