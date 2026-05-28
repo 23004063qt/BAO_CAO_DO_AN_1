@@ -120,4 +120,19 @@ Rails.application.routes.draw do
   to: 'cthoso#tuchoi',
   as: 'tuchoi_hoso'
 
+  get "/quanlydot", to: "quanlydot#dottuyensinh"
+  get  "/quanlydot/them", to: "quanlydot#new"
+  post "/quanlydot/them", to: "quanlydot#create"
+  get "/quanlydot/:id/sua",
+    to: "quanlydot#edit",
+    as: "sua_dot"
+
+  patch "/quanlydot/:id",
+        to: "quanlydot#update",
+        as: "capnhat_dot"
+
+  delete "/quanlydot/:id",
+        to: "quanlydot#destroy",
+        as: "xoa_dot"
+
 end

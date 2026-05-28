@@ -1,0 +1,44 @@
+<main>
+
+    <h1 class="page-title">
+        Cập nhật đợt tuyển sinh
+    </h1>
+
+    <%= form_with model: @dot,
+                  url: "/quanlydot/#{@dot.IDDOT}",
+                  method: :patch,
+                  local: true do |f| %>
+
+        <div class="form-group">
+
+            <label>Tên đợt</label>
+
+            <%= f.text_field :TENDOT,
+                             class: "form-control" %>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Ngày bắt đầu</label>
+
+            <%= f.date_field :NGAYBATDAU,
+                             class: "form-control" %>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Ngày kết thúc</label>
+
+            <%= f.date_field :NGAYKETTHUC,
+                             class: "form-control" %>
+
+        </div>
+
+        <%= f.submit "Cập nhật",
+                     class: "btn-save" %>
+
+    <% end %>
+
+</main>
