@@ -1,4 +1,16 @@
-<div class="header">
+<% if notice %>
+    <script>
+        alert("<%= notice %>");
+    </script>
+<% end %>
+
+<% if alert %>
+    <script>
+        alert("<%= alert %>");
+    </script>
+<% end %>
+<header>
+    <nav>
         <div class="logo">
             <%= image_tag "logovlute.png",  width: 50 %>
             Hệ Thống Tư Vấn Tuyển Sinh
@@ -27,73 +39,84 @@
                 </li>
             <% end %>
             <% if current_user %>
-                <li>
-                    <%= button_to "Đăng xuất",
-                    "/dangnhap/logout",
-                    method: :delete,
-                    class: "logout-btn",
-                    form: {
-                        style: "display:inline;"
-                    } %>
-                </li>
-            <% else %>
-                <li>
-                    <%= link_to "Đăng nhập", dangnhap_dangnhap_path %>
-                </li>
-            <% end %>
+    <li class="user-dropdown">
+        <a href="#" class="user-name">
+             <%= current_user.USERNAME %>
+        </a>
+        <ul class="user-dropdown-menu">
+            <li><%= link_to "Thông tin tài khoản", thongtintaikhoan_thongtintaikhoan_path %></li>
+            <li>
+                <%= button_to "Đăng xuất",
+                "/dangnhap/logout",
+                method: :delete,
+                class: "logout-btn",
+                form: { style: "display:inline;" } %>
+            </li>
         </ul>
-</div>
-<main>
-            <table class="bang">
-                    <tr class="head">
-                        <th>STT</th>
-                        <th>Mã thí sinh</th>
-                        <th>Tên thí sinh</th>
-                        <th>CCCD</th>
-                        <th>Tỉnh thường trú</th>
-                        <th>Trường THPT</th>
-                        <th>Phương thức xét tuyển</th>
-                        <th>Hạnh kiểm</th>
-                        <th>Trạng thái</th>
-                        <th></th>
-                    </tr>
-                    <% @thisinhs.each_with_index do |ts, index| %>
-                    <tr>
+    </li>
+<% else %>
+    <li>
+        <%= link_to "Đăng nhập", dangnhap_dangnhap_path %>
+    </li>
+<% end %>
+        </ul>
+    </nav>
+</header>
+<main class="qldiemchuan-page">
+    <h1>Quản lý điểm chuẩn</h1>
+    <%= form_with url: "/qldiemchuan/import_excel", multipart: true do %>
 
-                        <td><%= index + 1 %></td>
+    <div>
+        <label>Đợt tuyển sinh</label>
+        <select name="iddot">
+        <% @dots.each do |dot| %>
+            <option value="<%= dot.IDDOT %>"><%= dot.TENDOT %></option>
+        <% end %>
+        </select>
+    </div>
 
-                        <td><%= ts.IDTHISINH %></td>
+    <br>
+        <div>
+        <label>File học bạ</label>
+            <input type="file" name="file_hocba">
+        </div>
 
-                        <td><%= ts.HOTENTS %></td>
+        <div>
+            <label>File THPT</label>
+            <input type="file" name="file_thpt">
+        </div>
 
-                        <td><%= ts.SOCCCD %></td>
+        <div>
+            <label>File ĐGNL</label>
+            <input type="file" name="file_dgnl">
+        </div>
+    <br>
 
-                        <td><%= ts.TINHTT %></td>
+    <button type="submit">Cập nhật điểm chuẩn</button>
 
-                        <td><%= ts.THPT %></td>
+    <% end %>
 
-                        <td>
-                            <%= ts.hosodangkies.first
-                                &.phuongthucxettuyen
-                                &.TENPHUONGTHUC %>
-                        </td>
+    <hr>
 
-                        <td><%= ts.HANHKIEM %></td>
+    <h2>Danh sách điểm chuẩn</h2>
 
-                        <td>
-                            <%= ts.hosodangkies.first
-                                &.TRANGTHAI %>
-                        </td>
+    <table border="1">
+    <tr>
+        <th>Ngành</th>
+        <th>Đợt</th>
+        <th>Phương thức</th>
+        <th>Điểm</th>
+    </tr>
 
-                        <td>
-                            <%= link_to "Chi tiết",
-                                cthoso_path(ts.IDTHISINH),
-                                class: "btn-chitiet" %>
-                        </td>
-
-                    </tr>
-                    <% end %>
-            </table>
+    <% @diemchuans.each do |dc| %>
+        <tr>
+        <td><%= dc.nganh.TENNGANH %></td>
+        <td><%= dc.dot.TENDOT %></td>
+        <td><%= dc.phuongthuc.TENPHUONGTHUC %></td>
+        <td><%= dc.DIEM %></td>
+        </tr>
+    <% end %>
+    </table>
 </main>
 
 <div class="footer">

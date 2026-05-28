@@ -135,4 +135,9 @@ Rails.application.routes.draw do
         to: "quanlydot#destroy",
         as: "xoa_dot"
 
+  get  "qldiemchuan",          to: "qldiemchuan#qldiemchuan"
+  post "qldiemchuan/them",     to: "qldiemchuan#luu"
+  get  "/qldiemchuan/them", to: "qldiemchuan#them"
+  post "/qldiemchuan/import_excel", to: "qldiemchuan#import_excel"
+  post "/qldiemchuan/save", to: "qldiemchuan#save"
 end
