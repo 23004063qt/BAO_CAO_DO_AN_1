@@ -5,4 +5,14 @@ class Hosodangky < ApplicationRecord
   belongs_to :thisinh,
              class_name: "Thisinh",
              foreign_key: "IDTHISINH"
+
+  belongs_to :phuongthucxettuyen,
+             class_name: "Phuongthucxettuyen",
+             foreign_key: "IDPHUONGTHUC",
+             optional: true
+
+  belongs_to :nganh,
+             class_name: "Nganh",
+             foreign_key: "IDNGANH",
+             optional: true
 end

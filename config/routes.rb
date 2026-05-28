@@ -107,4 +107,17 @@ Rails.application.routes.draw do
   post "quen-mat-khau/xac-nhan-otp", to: "quenmatkhau#xac_nhan_otp"
 
   post "quen-mat-khau/dat-lai", to: "quenmatkhau#dat_lai_mat_khau"
+
+  get "cthoso/:id",
+  to: "cthoso#cthoso",
+  as: "cthoso"
+
+  patch 'cthoso/:id/duyet',
+  to: 'cthoso#duyet',
+  as: 'duyet_hoso'
+
+  patch 'cthoso/:id/tuchoi',
+  to: 'cthoso#tuchoi',
+  as: 'tuchoi_hoso'
+
 end

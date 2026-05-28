@@ -319,6 +319,13 @@ class NophosoController < ApplicationController
       return
     end
 
+    phuong_thuc = Phuongthucxettuyen.find_by(
+  TENPHUONGTHUC: params[:phuongthucxettuyen]
+  )
+
+  id_phuong_thuc =
+    phuong_thuc&.IDPHUONGTHUC
+
     # =========================
     # LƯU HỒ SƠ NV1
     # =========================
@@ -337,9 +344,11 @@ class NophosoController < ApplicationController
           dot.IDDOT,
 
         THUTU:
-          1
-      )
+          1,
 
+        IDPHUONGTHUC:
+          id_phuong_thuc
+      )
     end
 
     # =========================
@@ -350,18 +359,21 @@ class NophosoController < ApplicationController
 
       Hosodangky.create(
 
-        IDTHISINH:
-          thisinh.IDTHISINH,
+      IDTHISINH:
+        thisinh.IDTHISINH,
 
-        IDNGANH:
-          params[:nguyenvong2],
+      IDNGANH:
+        params[:nguyenvong2],
 
-        IDDOT:
-          dot.IDDOT,
+      IDDOT:
+        dot.IDDOT,
 
-        THUTU:
-          2
-      )
+      THUTU:
+        2,
+
+      IDPHUONGTHUC:
+        id_phuong_thuc
+    )
 
     end
 

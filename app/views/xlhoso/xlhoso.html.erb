@@ -45,7 +45,7 @@
             <table class="bang">
                     <tr class="head">
                         <th>STT</th>
-                        <th>Mã hồ sơ</th>
+                        <th>Mã thí sinh</th>
                         <th>Tên thí sinh</th>
                         <th>CCCD</th>
                         <th>Tỉnh thường trú</th>
@@ -55,18 +55,42 @@
                         <th>Trạng thái</th>
                         <th></th>
                     </tr>
+                    <% @thisinhs.each_with_index do |ts, index| %>
                     <tr>
-                        <th>01</th>
-                        <th>001</th>
-                        <th>Nguyễn Văn A</th>
-                        <th>0123456789</th>
-                        <th>Vĩnh Long</th>
-                        <th>Nguyễn Thông</th>
-                        <th>Xét học bạ</th>
-                        <th>Tốt</th>
-                        <th>Chưa duyệt</th>
-                        <th><button class="btn-chitiet"><%=link_to "Chi tiết", cthoso_cthoso_path %></button></th>
+
+                        <td><%= index + 1 %></td>
+
+                        <td><%= ts.IDTHISINH %></td>
+
+                        <td><%= ts.HOTENTS %></td>
+
+                        <td><%= ts.SOCCCD %></td>
+
+                        <td><%= ts.TINHTT %></td>
+
+                        <td><%= ts.THPT %></td>
+
+                        <td>
+                            <%= ts.hosodangkies.first
+                                &.phuongthucxettuyen
+                                &.TENPHUONGTHUC %>
+                        </td>
+
+                        <td><%= ts.HANHKIEM %></td>
+
+                        <td>
+                            <%= ts.hosodangkies.first
+                                &.TRANGTHAI %>
+                        </td>
+
+                        <td>
+                            <%= link_to "Chi tiết",
+                                cthoso_path(ts.IDTHISINH),
+                                class: "btn-chitiet" %>
+                        </td>
+
                     </tr>
+                    <% end %>
             </table>
 </main>
 
