@@ -9,22 +9,21 @@ class QuanlydotController < ApplicationController
   end
 
   def create
+  @dot = Dottuyensinh.new(
+    TENDOT: params[:dottuyensinh][:TENDOT],
+    NGAYBATDAU: params[:dottuyensinh][:NGAYBATDAU],
+    NGAYKETTHUC: params[:dottuyensinh][:NGAYKETTHUC],
+    NOIDUNG: params[:dottuyensinh][:NOIDUNG]
+  )
 
-    @dot = Dottuyensinh.new(
-      TENDOT: params[:dottuyensinh][:TENDOT],
-      NGAYBATDAU: params[:dottuyensinh][:NGAYBATDAU],
-      NGAYKETTHUC: params[:dottuyensinh][:NGAYKETTHUC]
-    )
-
-    if @dot.save
-      redirect_to "/quanlydot",
-      notice: "Thêm đợt tuyển sinh thành công"
-    else
-      render :new,
-      status: :unprocessable_entity
-    end
-
+  if @dot.save
+    redirect_to "/quanlydot",
+    notice: "Thêm đợt tuyển sinh thành công"
+  else
+    render :new,
+    status: :unprocessable_entity
   end
+end
 
    def edit
     @dot = Dottuyensinh.find(params[:id])
@@ -53,11 +52,12 @@ class QuanlydotController < ApplicationController
   private
 
   def dot_params
-    params.require(:dottuyensinh).permit(
-      :TENDOT,
-      :NGAYBATDAU,
-      :NGAYKETTHUC
-    )
-  end
+  params.require(:dottuyensinh).permit(
+    :TENDOT,
+    :NGAYBATDAU,
+    :NGAYKETTHUC,
+    :NOIDUNG
+  )
+end
 
 end

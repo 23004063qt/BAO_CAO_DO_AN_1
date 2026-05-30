@@ -121,3 +121,22 @@
 .edit-container textarea {
   min-height: 150px;
 }
+/* ── date field trong edit-container ── */
+.edit-container input[type="date"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d0dff0;
+  border-radius: 8px;
+  background: #f7faff;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.edit-container input[type="date"]:focus {
+  border-color: #1565c0;
+  background: white;
+}

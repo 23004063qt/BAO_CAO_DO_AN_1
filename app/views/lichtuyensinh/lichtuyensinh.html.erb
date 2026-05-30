@@ -64,45 +64,44 @@
 </header>
 
 <section class="schedule" id="schedule">
-    <h2 class="section-title">Lịch Tuyển Sinh 2026</h2>
-    <p class="section-subtitle">Theo dõi các mốc thời gian quan trọng</p>
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-content">
-                <span class="timeline-date">01/03 - 31/03/2026</span>
-                <h3>Đăng Ký Xét Tuyển</h3>
-                <p>Thí sinh đăng ký nguyện vọng trực tuyến và nộp hồ sơ minh chứng.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-content">
-                <span class="timeline-date">01/04 - 15/04/2026</span>
-                <h3>Xét Duyệt Hồ Sơ</h3>
-                <p>Nhà trường kiểm tra và xác nhận hồ sơ đăng ký của thí sinh.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-content">
-                <span class="timeline-date">27/06 - 29/06/2026</span>
-                <h3>Kỳ Thi THPT Quốc Gia</h3>
-                <p>Thí sinh tham dự kỳ thi THPT để lấy điểm xét tuyển đại học.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-content">
-                <span class="timeline-date">15/07/2026</span>
-                <h3>Công Bố Điểm Thi</h3>
-                <p>Bộ Giáo dục công bố kết quả thi THPT quốc gia.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-content">
-                <span class="timeline-date">01/08/2026</span>
-                <h3>Công Bố Kết Quả Trúng Tuyển</h3>
-                <p>Nhà trường công bố danh sách thí sinh trúng tuyển và hướng dẫn nhập học.</p>
-            </div>
-        </div>
+  <h2 class="section-title">Lịch Tuyển Sinh 2026</h2>
+  <p class="section-subtitle">Theo dõi các mốc thời gian quan trọng</p>
+  <div class="timeline">
+    <% @dot_tuyen_sinh.each do |dot| %>
+
+  <% if Date.today < dot.NGAYBATDAU %>
+    <% item_class = 'pending' %>
+  <% elsif Date.today <= (dot.NGAYKETTHUC || dot.NGAYBATDAU) %>
+    <% item_class = 'active' %>
+  <% else %>
+    <% item_class = 'expired' %>
+  <% end %>
+
+  <div class="timeline-item <%= item_class %>">
+    <div class="timeline-content">
+      <div class="timeline-meta">
+        <% if item_class == 'active' %>
+          <span class="status-active">Đang diễn ra</span>
+        <% elsif item_class == 'pending' %>
+          <span class="status-pending">Chưa diễn ra</span>
+        <% else %>
+          <span class="status-expired">Hết hạn</span>
+        <% end %>
+        <span class="timeline-date">
+          <% if dot.NGAYKETTHUC.present? && dot.NGAYKETTHUC != dot.NGAYBATDAU %>
+            <%= dot.NGAYBATDAU.strftime("%d/%m") %> – <%= dot.NGAYKETTHUC.strftime("%d/%m/%Y") %>
+          <% else %>
+            <%= dot.NGAYBATDAU.strftime("%d/%m/%Y") %>
+          <% end %>
+        </span>
+      </div>
+      <h3><%= dot.TENDOT %></h3>
+      <p><%= dot.NOIDUNG %></p>
     </div>
+  </div>
+
+<% end %>
+  </div>
 </section>
 
 <footer>
