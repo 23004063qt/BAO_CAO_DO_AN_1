@@ -140,4 +140,7 @@ Rails.application.routes.draw do
   get  "/qldiemchuan/them", to: "qldiemchuan#them"
   post "/qldiemchuan/import_excel", to: "qldiemchuan#import_excel"
   post "/qldiemchuan/save", to: "qldiemchuan#save"
+
+  post "/qldiemchuan/cong_bo",
+ to: "qldiemchuan#cong_bo"
 end

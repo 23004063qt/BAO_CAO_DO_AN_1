@@ -95,6 +95,13 @@
     <button type="submit">Cập nhật điểm chuẩn</button>
 
     <% end %>
+    <%= button_to "Công bố điểm chuẩn",
+      "/qldiemchuan/cong_bo",
+      method: :post,
+      class: "btn-congbo",
+      data: {
+        confirm: "Bạn có chắc muốn công bố điểm chuẩn?"
+      } %>
 
     <hr>
 

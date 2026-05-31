@@ -263,22 +263,20 @@ class NophosoController < ApplicationController
 
     # map tên môn DB -> input js
     map_mon = {
-
-      "Toán" => "toan",
-      "Ngữ Văn" => "van",
-      "Tiếng Anh" => "anh",
-      "Vật Lý" => "ly",
-      "Hóa" => "hoa",
-      "Sinh Học" => "sinh",
-      "Lịch Sử" => "su",
-      "Địa" => "dia",
-      "Tin Học" => "tin",
-      "GDKT và PL" => "gdkt",
-      "GDCD" => "gdcd",
-      "Công nghệ công nghiệp" => "cn",
-      "Công nghệ nông nghiệp" => "cnn"
-
-    }
+    "Toán" => "toan",
+    "Văn" => "van",
+    "Tiếng Anh" => "anh",
+    "Lý" => "ly",
+    "Hóa" => "hoa",
+    "Sinh" => "sinh",
+    "Sử" => "su",
+    "Địa" => "dia",
+    "Tin học" => "tin",
+    "GDKT và PL" => "gdkt",
+    "GDCD" => "gdcd",
+    "Công nghệ công nghiệp" => "cn",
+    "Công nghệ nông nghiệp" => "cnn"
+  }
 
     # lưu điểm
     ds_mon_can_luu.each do |ten_mon|
