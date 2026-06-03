@@ -144,3 +144,7 @@ Rails.application.routes.draw do
   post "/qldiemchuan/cong_bo",
  to: "qldiemchuan#cong_bo"
 end
+Rails.application.routes.draw do
+  get  'themtintuc/themtintuc', to: 'themtintuc#new'
+  post 'themtintuc/themtintuc', to: 'themtintuc#create'
+end

@@ -62,54 +62,103 @@
         </ul>
     </nav>
 </header>
+<%= form_with url: themtintuc_themtintuc_path, method: :post, multipart: true, local: true do |f| %>
+
 <main class="container">
+  <h1 class="tieude">THÊM BÀI ĐĂNG MỚI</h1>
 
-    <h1 class="tieude">THÊM MỚI BÀI ĐĂNG</h1>
+  <div class="noidung">
 
-    <div class="noidung">
+    <!-- CỘT TRÁI -->
+    <div class="trai">
 
-        <!-- CỘT TRÁI -->
-        <div class="trai">
+      <label>Tiêu đề</label>
+      <%= f.text_field :TIEUDE, placeholder: "Nhập tiêu đề bài đăng" %>
 
-            <label>Tiêu đề</label>
-            <input type="text" placeholder="Nhập tiêu đề bài đăng">
+      <label>Tóm tắt nội dung</label>
+      <%= f.text_area :TOM_TAT, rows: 3, placeholder: "Nhập tóm tắt" %>
 
-            <label>Tóm tắt nội dung</label>
-            <textarea rows="3" placeholder="Nhập tóm tắt"></textarea>
+      <label>Nội dung chi tiết của bài đăng</label>
+      <%= f.text_area :NOIDUNG, rows: 6, placeholder: "Nhập nội dung" %>
 
-            <label>Nội dung chi tiết của bài đăng</label>
-            <textarea rows="6" placeholder="Nhập nội dung"></textarea>
-
-            <div class="image">
-                <p>Hình ảnh bài viết</p>
-                <div class="anhbaiviet" onclick="document.getElementById('fileanhbaiviet').click()">
-                    <input type="file" id="fileanhbaiviet" accept=".pdf,.jpg,.jpeg,.png" multiple>
-                    <span>📎 Click để chọn file ảnh</span>
-                </div>
-            </div>
-
-            <textarea rows="4" placeholder="Nhập nội dung thêm"></textarea>
-
+      <div class="image">
+        <p>Hình ảnh bài viết</p>
+        <div class="anhbaiviet" onclick="document.getElementById('fileanhbaiviet').click()">
+        <input type="file" id="fileanhbaiviet" name="ANH_BAI_VIET[]"
+                accept=".jpg,.jpeg,.png" multiple
+                onchange="previewAnhBaiViet(event)">
+        <span id="label-anhbaiviet">📎 Click để chọn file ảnh</span>
+        <div id="preview-anhbaiviet" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;"></div>
         </div>
+      </div>
 
-        <!-- CỘT PHẢI -->
-        <div class="phai">
-
-            <label>Ảnh đại diện</label>
-            <div class="anhdaidien" onclick="document.getElementById('fileanhdaidien').click()">
-                <input type="file" id="fileanhdaidien" accept=".pdf,.jpg,.jpeg,.png" multiple>
-                <span>📎 Click để chọn file ảnh</span>
-            </div>
-            <div class="nut">
-                <button class="btn-submit">Đăng tải</button>
-                <button class="btn-cancel">Hủy bỏ</button>
-            </div>
-
-        </div>
+      <label>Nội dung thêm</label>
+      <%= f.text_area :NOI_DUNG_THEM, rows: 4, placeholder: "Nhập nội dung thêm" %>
 
     </div>
 
-</main>  
+    <!-- CỘT PHẢI -->
+    <div class="phai">
+
+      <label>Danh mục</label>
+      <%= f.text_field :DANHMUC, placeholder: "Nhập danh mục" %>
+
+      <label>Ảnh đại diện</label>
+      <label>Ảnh đại diện</label>
+        <div class="anhdaidien" onclick="document.getElementById('fileanhdaidien').click()">
+        <input type="file" id="fileanhdaidien" name="ANH_DAI_DIEN"
+                accept=".jpg,.jpeg,.png"
+                onchange="previewAnhDaiDien(event)">
+        <span id="label-anhdaidien">📎 Click để chọn file ảnh</span>
+        <img id="preview-anhdaidien" src="" style="display:none; max-width:100%; margin-top:8px; border-radius:8px;">
+        </div>
+
+      <div class="nut">
+        <%= f.submit "Đăng tải", class: "btn-submit" %>
+        <%= link_to "Hủy bỏ", root_path, class: "btn-cancel" %>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+<script>
+  // Preview ảnh đại diện (1 ảnh)
+  function previewAnhDaiDien(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const img = document.getElementById('preview-anhdaidien');
+    const label = document.getElementById('label-anhdaidien');
+
+    img.src = URL.createObjectURL(file);
+    img.style.display = 'block';
+    label.style.display = 'none';
+  }
+
+  // Preview ảnh bài viết (nhiều ảnh)
+  function previewAnhBaiViet(event) {
+    const files = event.target.files;
+    if (!files.length) return;
+
+    const container = document.getElementById('preview-anhbaiviet');
+    const label = document.getElementById('label-anhbaiviet');
+
+    container.innerHTML = ''; // xóa preview cũ
+    label.style.display = 'none';
+
+    Array.from(files).forEach(file => {
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.style.cssText = 'width:100px; height:100px; object-fit:cover; border-radius:6px;';
+      container.appendChild(img);
+    });
+
+    container.style.display = 'flex';
+  }
+</script>
+
+<% end %>
 
 <div class="footer">
     <div class="footer-content">

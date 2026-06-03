@@ -63,63 +63,42 @@
     </nav>
 </header>
 <main>
-        <div class="actions">
-            <button class="btn-add"><%=link_to "+Thêm", themtintuc_themtintuc_path %></button>
-        </div>
-            <table class="bang">
-                    <tr class="head">
-                        <th>STT</th>
-                        <th>Mã tin tức</th>
-                        <th>Ảnh đại diện</th>
-                        <th>Tiêu đề</th>
-                        <th>Ngày đăng</th>
-                        <th>Ngày sửa</th>
-                        <th>Người đăng</th>
-                        <th></th>
-                    </tr>
-                    
-                    <tr>
-                        <th>1</th>
-                        <th>001</th>
-                        <th><%= image_tag "logovlute.png",  width: 50 %></th>
-                        <th>Thông báo nghỉ Tết</th>
-                        <th>24/02/2026</th>
-                        <th>25/02/2026</th>
-                        <th>Admin</th>
-                        <th>
-                            <button class="btn-delete">🗑️ Xóa</button>
-                            <button class="btn-up">✎ Sửa</button>
-                        </th>
-                    </tr>
-                    
-                    <tr>
-                        <th>2</th>
-                        <th>002</th>
-                        <th><%= image_tag "logovlute.png",  width: 50 %></th>
-                        <th>Thông báo nghỉ Lễ</th>
-                        <th>25/02/2026</th>
-                        <th>27/02/2026</th>
-                        <th>Admin</th>
-                        <th>
-                            <button class="btn-delete">🗑️ Xóa</button>
-                            <button class="btn-up">✎ Sửa</button>
-                        </th>
-                    </tr>
+  <div class="actions">
+    <button class="btn-add"><%= link_to "+ Thêm", themtintuc_themtintuc_path %></button>
+  </div>
 
-                    <tr>
-                        <th>3</th>
-                        <th>003</th>
-                        <th><%= image_tag "logovlute.png",  width: 50 %></th>
-                        <th>Lịch nhập học</th>
-                        <th>28/02/2026</th>
-                        <th>29/02/2026</th>
-                        <th>Admin</th>
-                        <th>
-                            <button class="btn-delete">🗑️ Xóa</button>
-                            <button class="btn-up">✎ Sửa</button>
-                        </th>
-                    </tr>
-            </table>
+  <table class="bang">
+    <tr class="head">
+      <th>STT</th>
+      <th>Tiêu đề</th>
+      <th>Ảnh đại diện</th>
+      <th>Tóm tắt</th>
+      <th>Danh mục</th>
+      <th>Ngày đăng</th>
+      <th>Thao tác</th>
+    </tr>
+
+    <% @tintuc_list.each_with_index do |tin, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= tin.TIEUDE %></td>
+        <td>
+          <% if tin.ANH_DAI_DIEN.present? %>
+            <%= image_tag tin.ANH_DAI_DIEN, width: 50 %>
+          <% else %>
+            Chưa có ảnh
+          <% end %>
+        </td>
+        <td><%= truncate(tin.TOM_TAT, length: 80) %></td>
+        <td><%= tin.DANHMUC %></td>
+        <td><%= tin.NGAYDANG&.strftime("%d/%m/%Y") %></td>
+        <td>
+          <button class="btn-delete">🗑️ Xóa</button>
+          <button class="btn-up">✎ Sửa</button>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </main>
 
 <div class="footer">
