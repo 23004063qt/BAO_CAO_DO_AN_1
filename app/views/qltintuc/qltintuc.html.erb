@@ -94,7 +94,7 @@
         <td><%= tin.NGAYDANG&.strftime("%d/%m/%Y") %></td>
         <td>
           <button class="btn-delete">🗑️ Xóa</button>
-          <button class="btn-up">✎ Sửa</button>
+          <button class="btn-up"><%= link_to "✎ Sửa", edittintuc_edittintuc_path %></button>
         </td>
       </tr>
     <% end %>

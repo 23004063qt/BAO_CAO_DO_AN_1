@@ -14,7 +14,7 @@
     gap: 0.6rem;
     margin-bottom: 1.5rem;
     flex-wrap: wrap;
-}
+}   
 .filter-label { font-size: 1rem; font-weight: 600; color: #475569; margin-right: 0.2rem; }
 .filter-btn {
     padding: 0.4rem 1rem;
@@ -61,12 +61,14 @@
 
 .featured-img {
     height: 320px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5rem;
+    overflow: hidden;
 }
 
+.featured-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .featured-body {
     padding: 1.8rem;
     display: flex;
@@ -157,11 +159,14 @@
 
 .card-img {
     height: 170px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3.5rem;
+    overflow: hidden;
     position: relative;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .card-tag {

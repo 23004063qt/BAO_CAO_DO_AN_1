@@ -1,0 +1,2 @@
+module EdittintucHelper
+end

@@ -64,57 +64,84 @@
 </header>
 
 <div class="page-wrapper">
-    <main>
-        <div class="filter-bar">
-            <span class="filter-label">Lọc theo:</span>
-            <button class="filter-btn active" onclick="setFilter(this)">Tất cả</button>
-            <button class="filter-btn" onclick="setFilter(this)">Tin tức</button>
-            <button class="filter-btn" onclick="setFilter(this)">Tuyển sinh</button>
-            <button class="filter-btn" onclick="setFilter(this)">Hợp tác</button>
-            <button class="filter-btn" onclick="setFilter(this)">Hướng nghiệp</button>
-        </div>
-        <div class="news-featured" onclick="window.location.href='<%= noidungtin_noidungtin_path %>'">
-            <div class="news-featured-main">
-                <div class="featured-img"><%= image_tag "vfast.jpg",  width: 600 %></div>
-                <div class="featured-body">
-                    <h2>VLUTE "Tiếp nhận thiết bị tài trợ đào tạo lĩnh vực ô tô điện" từ VinFast</h2>
-                    <p>Sáng 19/3/2026, tại Nhà thi đấu đa năng, Trường Đại học Sư phạm Kỹ thuật Vĩnh Long (VLUTE) đã tổ chức chương trình tiếp nhận tài trợ với sự tham gia của nhiều doanh nghiệp và đông đảo giảng viên, sinh viên.</p>
-                    <span class="featured-date">19/03/2026</span>
-                </div>
-            </div>
-        </div>
-        <div class="news-divider">
-            <span class="news-divider-title">Tin Mới Nhất</span>
-            <div class="news-divider-line"></div>
-        </div>
- 
-        <div class="news-grid">
- 
-            <div class="news-card">
-                <div class="card-img">
-                    <%= image_tag "ts.jpg",  width: 400 %>
-                    <span class="card-tag">Tuyển sinh</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-date">14/03/2026</div>
-                    <div class="card-title">Tư vấn tuyển sinh năm 2026, đợt 3 – Ngày hội kết nối và trải nghiệm VLUTE OPEN DAY</div>
-                    <div class="card-excerpt">Chiều ngày 14/03/2026 Trường Đại học Sư phạm Kỹ thuật Vĩnh Long tổ chức chương trình tư vấn tuyển sinh đợt 3...</div>
-                </div>
-            </div>
-        </div>
+  <main>
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <span class="filter-label">Lọc theo:</span>
+      <button class="filter-btn active" onclick="setFilter(this, 'all')">Tất cả</button>
+      <% Tintuc.distinct.pluck(:DANHMUC).compact.each do |danhmuc| %>
+        <button class="filter-btn" onclick="setFilter(this, '<%= danhmuc %>')" data-danhmuc="<%= danhmuc %>">
+          <%= danhmuc %>
+        </button>
+      <% end %>
+    </div>
 
-         <div class="pagination">
-            <button class="page-btn arrow">‹</button>
-            <button class="page-btn">1</button>
-            <button class="page-btn">2</button>
-            <button class="page-btn">3</button>
-            <button class="page-btn">4</button>
-            <button class="page-btn">5</button>
-            <button class="page-btn arrow">›</button>
+    <!-- Tin nổi bật -->
+    <% if @tin_noi_bat %>
+      <div class="news-featured" onclick="window.location.href='<%= noidungtin_noidungtin_path(id: @tin_noi_bat.id) %>'">
+        <div class="news-featured-main">
+          <div class="featured-img">
+            <%= image_tag @tin_noi_bat.ANH_DAI_DIEN.presence || "placeholder.jpg", width: 600 %>
+          </div>
+          <div class="featured-body">
+            <h2><%= @tin_noi_bat.TIEUDE %></h2>
+            <p><%= @tin_noi_bat.TOM_TAT %></p>
+            <span class="featured-date">
+              <%= @tin_noi_bat.NGAYDANG&.strftime("%d/%m/%Y") %>
+            </span>
+          </div>
         </div>
+      </div>
+    <% end %>
 
-    </main>
+    <!-- Divider -->
+    <div class="news-divider">
+      <span class="news-divider-title">Tin Mới Nhất</span>
+      <div class="news-divider-line"></div>
+    </div>
+
+   <!-- News grid -->
+<div class="news-grid">
+  <% @tin_moi.each do |tin| %>
+    <div class="news-card" data-danhmuc="<%= tin.DANHMUC %>">
+      <div class="card-img">
+        <img src="/<%= tin.ANH_DAI_DIEN %>" width="400" alt="<%= tin.TIEUDE %>">
+        <span class="card-tag"><%= tin.DANHMUC %></span>
+      </div>
+      <div class="card-body">
+        <div class="card-date"><%= tin.NGAYDANG&.strftime("%d/%m/%Y") %></div>
+        <div class="card-title"><%= tin.TIEUDE %></div>
+        <div class="card-excerpt"><%= tin.TOM_TAT %></div>
+      </div>
+    </div>
+  <% end %>
 </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button class="page-btn arrow">‹</button>
+      <button class="page-btn">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn arrow">›</button>
+    </div>
+  </main>
+</div>
+
+<script>
+  function setFilter(btn, danhmuc) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.news-card').forEach(card => {
+      if (danhmuc === 'all' || card.dataset.danhmuc === danhmuc) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
 
 <footer>
     <div class="footer-content">
