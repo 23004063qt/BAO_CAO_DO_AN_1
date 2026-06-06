@@ -57,7 +57,7 @@
     <div class="filter-bar">
       <span class="filter-label">Lọc theo:</span>
       <button class="filter-btn active" onclick="setFilter(this, 'all')">Tất cả</button>
-      <% Tintuc.distinct.pluck(:DANHMUC).compact.each do |danhmuc| %>
+      <% @danhmuc_list.each do |danhmuc| %>
         <button class="filter-btn" onclick="setFilter(this, '<%= danhmuc %>')" data-danhmuc="<%= danhmuc %>">
           <%= danhmuc %>
         </button>
@@ -67,10 +67,10 @@
     <% if @tin_noi_bat %>
       <div class="news-featured" onclick="window.location.href='<%= noidungtin_noidungtin_path(id: @tin_noi_bat.IDTINTUC) %>'">
         <div class="featured-img">
-          <%= image_tag @tin_noi_bat.ANH_DAI_DIEN.presence || "placeholder.jpg" %>
+          <%= image_tag @tin_noi_bat.anh_dai_dien_hien_thi %>
         </div>
         <div class="featured-body">
-          <span class="news-card-category"><%= @tin_noi_bat.DANHMUC %></span>
+          <span class="news-card-category"><%= @tin_noi_bat.danh_muc_hien_thi %></span>
           <h2><%= @tin_noi_bat.TIEUDE %></h2>
           <p><%= @tin_noi_bat.TOM_TAT %></p>
           <span class="featured-date"><%= @tin_noi_bat.NGAYDANG&.strftime("%d/%m/%Y") %></span>
@@ -82,13 +82,11 @@
 
     <div class="news-list">
       <% @tintuc_list.each do |tin| %>
-        <div class="news-card" data-danhmuc="<%= tin.DANHMUC %>"
+        <div class="news-card" data-danhmuc="<%= tin.danh_muc_hien_thi %>"
              onclick="window.location.href='<%= noidungtin_noidungtin_path(id: tin.IDTINTUC) %>'">
-          <% if tin.ANH_DAI_DIEN.present? %>
-            <%= image_tag tin.ANH_DAI_DIEN, class: "news-card-img" %>
-          <% end %>
+          <%= image_tag tin.anh_dai_dien_hien_thi, class: "news-card-img" %>
           <div class="news-card-body">
-            <span class="news-card-category"><%= tin.DANHMUC %></span>
+            <span class="news-card-category"><%= tin.danh_muc_hien_thi %></span>
             <h3><%= tin.TIEUDE %></h3>
             <p><%= truncate(tin.TOM_TAT, length: 120) %></p>
             <span class="news-card-date"><%= tin.NGAYDANG&.strftime("%d/%m/%Y") %></span>

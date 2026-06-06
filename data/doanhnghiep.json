@@ -3,7 +3,7 @@
     "ma": "DN01",
     "ten": "Doanh nghiệp đối tác",
     "mo_ta": "Danh sách các doanh nghiệp hợp tác với trường trong đào tạo, thực tập, tuyển dụng.",
-    "doanh_nghiep": ["FPT Software", "Viettel", "VinGroup", "Toyota", "BIDV"]
+    "doanh_nghiep": ["FPT Software", "Viettel", "VinGroup", "Toyota", "BIDV","Esuhai","Mobifone","VNPT"]
   },
   {
     "ma": "TT02",

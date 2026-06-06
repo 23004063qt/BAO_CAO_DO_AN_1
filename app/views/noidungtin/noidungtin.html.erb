@@ -57,7 +57,7 @@
  
 <main class="article-main">
   <div class="article-meta">
-    <span class="article-tag"><%= @tin.DANHMUC %></span>
+    <span class="article-tag"><%= @tin.danh_muc_hien_thi %></span>
     <span class="article-date"><%= @tin.NGAYDANG&.strftime("%d/%m/%Y") %></span>
   </div>
 
@@ -65,11 +65,9 @@
 
   <hr class="article-divider">
 
-  <% if @tin.ANH_DAI_DIEN.present? %>
-    <div class="article-img">
-      <%= image_tag @tin.ANH_DAI_DIEN, class: "article-thumbnail" %>
-    </div>
-  <% end %>
+  <div class="article-img">
+    <%= image_tag @tin.anh_dai_dien_hien_thi, class: "article-thumbnail" %>
+  </div>
 
   <p class="article-lead"><%= @tin.TOM_TAT %></p>
 
