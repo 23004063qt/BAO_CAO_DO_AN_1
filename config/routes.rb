@@ -35,7 +35,6 @@ Rails.application.routes.draw do
   get "tintuc/tintuc"
   get "noidungtin/noidungtin"
   get "qlkhoa_dv/qlkhoa_dv"
-  get "thongkebaocao/thongkebaocao"
   get "thongtintruong/thongtintruong"
   get "cthoso/cthoso"
   get "xlhoso/xlhoso"
@@ -144,6 +143,10 @@ Rails.application.routes.draw do
 
   post "/qldiemchuan/cong_bo",
  to: "qldiemchuan#cong_bo"
+ # Thêm route này
+delete "xoatintuc/:id", to: "qltintuc#xoa", as: "xoatintuc"
+get "thongkebaocao/thongkebaocao", to: "thongkebaocao#thongkebaocao", as: "thongkebaocao_thongkebaocao"
+get "thongkebaocao/xuat_excel", to: "thongkebaocao#xuat_excel", as: "xuat_excel"
 end
 Rails.application.routes.draw do
   get  'themtintuc/themtintuc', to: 'themtintuc#new'

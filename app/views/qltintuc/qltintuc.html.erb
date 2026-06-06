@@ -1,14 +1,4 @@
-<% if notice %>
-    <script>
-        alert("<%= notice %>");
-    </script>
-<% end %>
 
-<% if alert %>
-    <script>
-        alert("<%= alert %>");
-    </script>
-<% end %>
 <header>
     <nav>
         <div class="logo">
@@ -93,7 +83,11 @@
         <td><%= tin.DANHMUC %></td>
         <td><%= tin.NGAYDANG&.strftime("%d/%m/%Y") %></td>
         <td>
-          <button class="btn-delete">🗑️ Xóa</button>
+          <%# <button class="btn-delete">🗑️ Xóa</button> %>
+          <%= button_to "🗑️ Xóa", xoatintuc_path(tin.IDTINTUC),
+            method: :delete,
+            data: { turbo_confirm: "Bạn có chắc muốn xóa?" },
+            class: "btn-delete" %>
           <button class="btn-up"><%= link_to "✎ Sửa", edittintuc_edittintuc_path %></button>
         </td>
       </tr>

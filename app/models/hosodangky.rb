@@ -15,4 +15,9 @@ class Hosodangky < ApplicationRecord
              class_name: "Nganh",
              foreign_key: "IDNGANH",
              optional: true
+
+  self.table_name = "HOSODANGKY"
+  self.primary_key = "IDHOSO"
+  belongs_to :thisinh, foreign_key: "IDTHISINH"
+
 end

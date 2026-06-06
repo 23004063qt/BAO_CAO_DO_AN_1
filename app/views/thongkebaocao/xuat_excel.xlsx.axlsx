@@ -1,0 +1,16 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Danh sách đậu") do |sheet|
+  sheet.add_row ["STT", "Họ tên", "Ngày sinh", "CCCD", "SĐT", "Email", "Ngày nộp"]
+  @ds_dau.each_with_index do |hoso, i|
+    ts = hoso.thisinh
+    sheet.add_row [
+      i + 1,
+      ts&.HOTENTS,
+      ts&.NGAYSINH&.strftime("%d/%m/%Y"),
+      ts&.SOCCCD,
+      ts&.SDT,
+      ts&.EMAIL,
+      hoso.NGAYNOP&.strftime("%d/%m/%Y")
+    ]
+  end
+end

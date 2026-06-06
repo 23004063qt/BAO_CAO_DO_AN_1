@@ -160,3 +160,28 @@ body {
     border-top: 1px solid #334155;
     color: #94a3b8;
 }
+.btn-excel {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    padding: .45rem 1rem;
+    font-size: .82rem;
+    font-weight: 500;
+    background: white;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all .2s;
+}
+
+.btn-excel:hover {
+    background: #dcfce7;
+    border-color: #4ade80;
+}
+
+div.xuat-nhom {
+    display: flex;
+    gap: .5rem;
+    margin-bottom: 1rem;
+}

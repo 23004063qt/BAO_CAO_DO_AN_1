@@ -1,14 +1,4 @@
-<% if notice %>
-    <script>
-        alert("<%= notice %>");
-    </script>
-<% end %>
 
-<% if alert %>
-    <script>
-        alert("<%= alert %>");
-    </script>
-<% end %>
 <header>
     <nav>
         <div class="logo">
@@ -66,28 +56,27 @@
 <div class="page-wrapper">
  
 <main class="article-main">
-    <div class="article-meta">
-        <span class="article-tag">Tin tức</span>
-        <span class="article-date">19/03/2026</span>
-    </div>
-    <h1 class="article-title">
-        VLUTE "Tiếp nhận thiết bị tài trợ đào tạo lĩnh vực ô tô điện"
-    </h1>
+  <div class="article-meta">
+    <span class="article-tag"><%= @tin.DANHMUC %></span>
+    <span class="article-date"><%= @tin.NGAYDANG&.strftime("%d/%m/%Y") %></span>
+  </div>
 
-    <hr class="article-divider">
-    <p class="article-lead">
-        Sáng 19/3/2026, tại Nhà thi đấu đa năng, Trường Đại học Sư phạm Kỹ thuật Vĩnh Long (VLUTE) đã tổ chức chương trình "Tiếp nhận thiết bị tài trợ đào tạo lĩnh vực ô tô điện" với sự tham gia của nhiều doanh nghiệp, cơ sở giáo dục và đông đảo giảng viên, sinh viên.
-    </p>
-    <div class="article-body">
-        <p>
-            Tham dự chương trình có ông Lý Văn Tân, Trưởng phòng Vận hành Hậu mãi Ô tô Miền Nam 3; Ông Nguyễn Hữu Long và Ông Nguyễn Thế Hùng – Quản lý vùng, các lãnh đạo đến từ các công ty chi nhánh của VinFast thuộc khu vực Tây Nam Bộ, cùng lãnh đạo các cơ sở giáo dục.
-        </p>
-        <p>
-            Về phía VLUTE có PGS.TS. Nguyễn Thanh Tùng – Hiệu trưởng, PGS.TS. Phan Anh Cang – Phó hiệu trưởng, PGS.TS. Phùng Thế Tuấn – Phó hiệu trưởng, cùng quý thầy cô là trưởng các đơn vị, giảng viên và sinh viên Khoa Cơ khí động lực.
-        </p>
+  <h1 class="article-title"><%= @tin.TIEUDE %></h1>
+
+  <hr class="article-divider">
+
+  <% if @tin.ANH_DAI_DIEN.present? %>
+    <div class="article-img">
+      <%= image_tag @tin.ANH_DAI_DIEN, class: "article-thumbnail" %>
     </div>
+  <% end %>
+
+  <p class="article-lead"><%= @tin.TOM_TAT %></p>
+
+  <div class="article-body">
+    <%= simple_format(@tin.NOIDUNG.to_s) %>
+  </div>
 </main>
-</div>
 <footer>
     <div class="footer-content">
         <div class="footer1">
