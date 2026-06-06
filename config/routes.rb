@@ -157,4 +157,6 @@ Rails.application.routes.draw do
   get "tracuuhs/tracuuhs"
   get  'themtintuc/themtintuc', to: 'themtintuc#new'
   post 'themtintuc/themtintuc', to: 'themtintuc#create'
+  post "/tinh",
+ to: "tinhdiem#tinh"
 end

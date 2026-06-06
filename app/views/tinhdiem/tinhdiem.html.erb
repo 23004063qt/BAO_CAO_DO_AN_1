@@ -66,434 +66,88 @@
 <section class="score-calculator" id="transcript-calculator" style="background: white;">
     <h2 class="section-title">Tính Điểm Xét Học Bạ</h2>
     <p class="section-subtitle">Nhập điểm các môn học theo từng học kỳ lớp 10, 11, 12</p>
-    <div class="calculator-container">
-        <div class="form-row">
-            <div class="form-group">
-                <label for="transcript-combination">Chọn Tổ Hợp Xét Tuyển</label>
-                <select id="transcript-combination">
-                    <option value="">-- Chọn tổ hợp --</option>
-                    <option value="A00">A00: Toán - Lý - Hóa</option>
-                    <option value="A01">A01: Toán - Lý - Anh</option>
-                    <option value="B00">B00: Toán - Hóa - Sinh</option>
-                    <option value="C00">C00: Văn - Sử - Địa</option>
-                    <option value="D01">D01: Toán - Văn - Anh</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="transcript-major">Chọn Ngành Xét Tuyển</label>
-                <select id="transcript-major">
-                    <option value="">-- Chọn ngành --</option>
-                    <option value="CNTT">Công Nghệ Thông Tin</option>
-                    <option value="QTKD">Quản Trị Kinh Doanh</option>
-                    <option value="KTCK">Kỹ Thuật Cơ Khí</option>
-                    <option value="KTDT">Kỹ Thuật Điện - Điện Tử</option>
-                    <option value="KTXD">Kỹ Thuật Xây Dựng</option>
-                    <option value="TKDH">Thiết Kế Đồ Họa</option>
-                    <option value="KTCN">Kế Toán</option>
-                    <option value="MKT">Marketing</option>
-                </select>
-            </div>
-        </div>
-        <div style="margin-top: 2rem;">
-            <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; font-size: 1.5rem;">📘 Lớp 10</h3>
-            
-            <!-- Học kỳ 1 lớp 10 -->
-            <h4 style="color: var(--dark-color); margin-bottom: 1rem;">Học kì 1 lớp 10</h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
-                <div class="subject-input">
-                    <label for="g10s1-toan">Toán</label>
-                    <input type="number" id="g10s1-toan" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s1-van">Ngữ Văn</label>
-                    <input type="number" id="g10s1-van" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s1-anh">Tiếng Anh</label>
-                    <input type="number" id="g10s1-anh" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s1-ly">Vật Lý</label>
-                    <input type="number" id="g10s1-ly" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s1-hoa">Hóa</label>
-                    <input type="number" id="g10s1-hoa" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s1-sinh">Sinh Học</label>
-                    <input type="number" id="g10s1-sinh" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s1-su">Lịch Sử</label>
-                    <input type="number" id="g10s1-su" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s1-dia">Địa</label>
-                    <input type="number" id="g10s1-dia" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s1-tin">Tin Học</label>
-                    <input type="number" id="g10s1-tin" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s1-gdkt">GDKT và PL</label>
-                    <input type="number" id="g10s1-gdkt" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s1-gdcd">GDCD</label>
-                    <input type="number" id="g10s1-gdcd" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s1-cn">Công nghệ công nghiệp</label>
-                    <input type="number" id="g10s1-cn" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s1-cnn">Công nghệ nông nghiệp</label>
-                    <input type="number" id="g10s1-cnn" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-            </div>
+    <div id="tinhdiemhocba">
+                <label><h3>Thông tin học tập</h3></label>
+                <%
+                    #Danh sách khối lớp
+                    ds_lop = [10,11,12]
 
-            <!-- Học kỳ 2 lớp 10 -->
-            <h4 style="color: var(--dark-color); margin-bottom: 1rem;">Học kì 2 lớp 10</h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
-                <div class="subject-input">
-                    <label for="g10s2-toan">Toán</label>
-                    <input type="number" id="g10s2-toan" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s2-van">Ngữ Văn</label>
-                    <input type="number" id="g10s2-van" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s2-anh">Tiếng Anh</label>
-                    <input type="number" id="g10s2-anh" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s2-ly">Vật Lý</label>
-                    <input type="number" id="g10s2-ly" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s2-hoa">Hóa</label>
-                    <input type="number" id="g10s2-hoa" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s2-sinh">Sinh Học</label>
-                    <input type="number" id="g10s2-sinh" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s2-su">Lịch Sử</label>
-                    <input type="number" id="g10s2-su" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s2-dia">Địa</label>
-                    <input type="number" id="g10s2-dia" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s2-tin">Tin Học</label>
-                    <input type="number" id="g10s2-tin" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s2-gdkt">GDKT và PL</label>
-                    <input type="number" id="g10s2-gdkt" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s2-gdcd">GDCD</label>
-                    <input type="number" id="g10s2-gdcd" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s2-cn">Công nghệ công nghiệp</label>
-                    <input type="number" id="g10s2-cn" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g10s2-cnn">Công nghệ nông nghiệp</label>
-                    <input type="number" id="g10s2-cnn" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-            </div>
-        </div>
+                    #Danh sách học kỳ 
+                    ds_hk = [1, 2]
 
-        <div style="margin-top: 3rem;">
-            <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; font-size: 1.5rem;">📗 Lớp 11</h3>
-            
-            <!-- Học kỳ 1 lớp 11 -->
-            <h4 style="color: var(--dark-color); margin-bottom: 1rem;">Học kì 1 lớp 11</h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
-                <div class="subject-input">
-                    <label for="g11s1-toan">Toán</label>
-                    <input type="number" id="g11s1-toan" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s1-van">Ngữ Văn</label>
-                    <input type="number" id="g11s1-van" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s1-anh">Tiếng Anh</label>
-                    <input type="number" id="g11s1-anh" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s1-ly">Vật Lý</label>
-                    <input type="number" id="g11s1-ly" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s1-hoa">Hóa</label>
-                    <input type="number" id="g11s1-hoa" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s1-sinh">Sinh Học</label>
-                    <input type="number" id="g11s1-sinh" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s1-su">Lịch Sử</label>
-                    <input type="number" id="g11s1-su" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s1-dia">Địa</label>
-                    <input type="number" id="g11s1-dia" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s1-tin">Tin Học</label>
-                    <input type="number" id="g11s1-tin" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s1-gdkt">GDKT và PL</label>
-                    <input type="number" id="g11s1-gdkt" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s1-gdcd">GDCD</label>
-                    <input type="number" id="g11s1-gdcd" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s1-cn">Công nghệ công nghiệp</label>
-                    <input type="number" id="g11s1-cn" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s1-cnn">Công nghệ nông nghiệp</label>
-                    <input type="number" id="g11s1-cnn" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-            </div>
+                    # Danh sách môn học
+                    ds_mon = [
+                    ["toan", "Toán"],
+                    ["van", "Ngữ Văn"],
+                    ["anh", "Tiếng Anh"],
+                    ["ly", "Vật Lý"],
+                    ["hoa", "Hóa"],
+                    ["sinh", "Sinh Học"],
+                    ["su", "Lịch Sử"],
+                    ["dia", "Địa"],
+                    ["tin", "Tin Học"],
+                    ["gdkt", "GDKT và PL"],
+                    ["gdcd", "GDCD"],
+                    ["cn", "Công nghệ công nghiệp"],
+                    ["cnn", "Công nghệ nông nghiệp"]
+                    ]
+                %>
+                <!-- Tạo biến lớp, lấy từng phần tử lớp trong danh sách lớp -->
+                <% ds_lop.each do |lop| %>
 
-            <!-- Học kỳ 2 lớp 11 -->
-            <h4 style="color: var(--dark-color); margin-bottom: 1rem;">Học kì 2 lớp 11</h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
-                <div class="subject-input">
-                    <label for="g11s2-toan">Toán</label>
-                    <input type="number" id="g11s2-toan" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s2-van">Ngữ Văn</label>
-                    <input type="number" id="g11s2-van" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s2-anh">Tiếng Anh</label>
-                    <input type="number" id="g11s2-anh" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s2-ly">Vật Lý</label>
-                    <input type="number" id="g11s2-ly" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s2-hoa">Hóa</label>
-                    <input type="number" id="g11s2-hoa" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s2-sinh">Sinh Học</label>
-                    <input type="number" id="g11s2-sinh" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s2-su">Lịch Sử</label>
-                    <input type="number" id="g11s2-su" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s2-dia">Địa</label>
-                    <input type="number" id="g11s2-dia" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s2-tin">Tin Học</label>
-                    <input type="number" id="g11s2-tin" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s2-gdkt">GDKT và PL</label>
-                    <input type="number" id="g11s2-gdkt" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s2-gdcd">GDCD</label>
-                    <input type="number" id="g11s2-gdcd" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s2-cn">Công nghệ công nghiệp</label>
-                    <input type="number" id="g11s2-cn" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g11s2-cnn">Công nghệ nông nghiệp</label>
-                    <input type="number" id="g11s2-cnn" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-            </div>
-        </div>
+                <div class="khoi-lop">
 
-        <div style="margin-top: 3rem;">
-            <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; font-size: 1.5rem;">📕 Lớp 12</h3>
-            
-            <!-- Học kỳ 1 lớp 12 -->
-            <h4 style="color: var(--dark-color); margin-bottom: 1rem;">Học kì 1 lớp 12</h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
-                <div class="subject-input">
-                    <label for="g12s1-toan">Toán</label>
-                    <input type="number" id="g12s1-toan" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s1-van">Ngữ Văn</label>
-                    <input type="number" id="g12s1-van" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s1-anh">Tiếng Anh</label>
-                    <input type="number" id="g12s1-anh" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s1-ly">Vật Lý</label>
-                    <input type="number" id="g12s1-ly" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s1-hoa">Hóa</label>
-                    <input type="number" id="g12s1-hoa" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s1-sinh">Sinh Học</label>
-                    <input type="number" id="g12s1-sinh" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s1-su">Lịch Sử</label>
-                    <input type="number" id="g12s1-su" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s1-dia">Địa</label>
-                    <input type="number" id="g12s1-dia" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s1-tin">Tin Học</label>
-                    <input type="number" id="g12s1-tin" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s1-gdkt">GDKT và PL</label>
-                    <input type="number" id="g12s1-gdkt" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s1-gdcd">GDCD</label>
-                    <input type="number" id="g12s1-gdcd" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s1-cn">Công nghệ công nghiệp</label>
-                    <input type="number" id="g12s1-cn" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s1-cnn">Công nghệ nông nghiệp</label>
-                    <input type="number" id="g12s1-cnn" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-            </div>
+                    <h3 class="tieu-de-lop">
+                        Lớp <%= lop %>
+                    </h3>
 
-            <!-- Học kỳ 2 lớp 12 -->
-            <h4 style="color: var(--dark-color); margin-bottom: 1rem;">Học kì 2 lớp 12</h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
-                <div class="subject-input">
-                    <label for="g12s2-toan">Toán</label>
-                    <input type="number" id="g12s2-toan" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s2-van">Ngữ Văn</label>
-                    <input type="number" id="g12s2-van" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s2-anh">Tiếng Anh</label>
-                    <input type="number" id="g12s2-anh" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s2-ly">Vật Lý</label>
-                    <input type="number" id="g12s2-ly" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s2-hoa">Hóa</label>
-                    <input type="number" id="g12s2-hoa" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s2-sinh">Sinh Học</label>
-                    <input type="number" id="g12s2-sinh" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s2-su">Lịch Sử</label>
-                    <input type="number" id="g12s2-su" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s2-dia">Địa</label>
-                    <input type="number" id="g12s2-dia" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s2-tin">Tin Học</label>
-                    <input type="number" id="g12s2-tin" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s2-gdkt">GDKT và PL</label>
-                    <input type="number" id="g12s2-gdkt" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s2-gdcd">GDCD</label>
-                    <input type="number" id="g12s2-gdcd" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s2-cn">Công nghệ công nghiệp</label>
-                    <input type="number" id="g12s2-cn" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-                <div class="subject-input">
-                    <label for="g12s2-cnn">Công nghệ nông nghiệp</label>
-                    <input type="number" id="g12s2-cnn" min="0" max="10" step="0.1" placeholder="Nhập điểm">
-                </div>
-            </div>
-        </div>
+                    <% ds_hk.each do |hk| %>
 
-        <button class="btn-calculate" onclick="calculateTranscriptScore()" style="margin-top: 2rem;">Tính Điểm Học Bạ</button>
-        
-        <div class="result-box" id="transcriptResultBox">
-            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Kết Quả Điểm Xét Học Bạ</h3>
-            
-            <div id="majorInfoCard" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; padding: 1.5rem; border-radius: 15px; margin-bottom: 1.5rem; display: none;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                    <div>
-                        <div style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 0.3rem;">Ngành xét tuyển</div>
-                        <div style="font-size: 1.3rem; font-weight: bold;" id="selectedMajorName"></div>
-                    </div>
-                    <div style="text-align: right;">
-                        <div style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 0.3rem;">Điểm chuẩn học bạ 2025</div>
-                        <div style="font-size: 1.8rem; font-weight: bold;" id="majorBenchmark"></div>
-                    </div>
-                </div>
-            </div>
+                        <h4 class="tieu-de-hocky">
+                            Học kì <%= hk %> lớp <%= lop %>
+                        </h4>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-                <div style="background: white; padding: 1rem; border-radius: 10px;">
-                    <div style="font-size: 0.9rem; color: #64748b; margin-bottom: 0.5rem;">Điểm TB Lớp 10</div>
-                    <div style="font-size: 1.8rem; font-weight: bold; color: var(--primary-color);" id="grade10Avg">0.00</div>
+                        <div class="luoi-mon-hoc">
+
+                            <% ds_mon.each do |ma_mon, ten_mon| %>
+
+                                <div class="o-mon-hoc">
+
+                                    <label>
+                                        <%= ten_mon %>
+                                    </label>
+
+                                    <input type="number"
+                                        id="l<%= lop %>hk<%= hk %>-<%= ma_mon %>"
+                                        min="0"
+                                        max="10"
+                                        step="0.1"
+                                        placeholder="Nhập điểm">
+
+                                </div>
+
+                            <% end %>
+
+                        </div>
+
+                    <% end %>
                 </div>
-                <div style="background: white; padding: 1rem; border-radius: 10px;">
-                    <div style="font-size: 0.9rem; color: #64748b; margin-bottom: 0.5rem;">Điểm TB Lớp 11</div>
-                    <div style="font-size: 1.8rem; font-weight: bold; color: var(--primary-color);" id="grade11Avg">0.00</div>
-                </div>
-                <div style="background: white; padding: 1rem; border-radius: 10px;">
-                    <div style="font-size: 0.9rem; color: #64748b; margin-bottom: 0.5rem;">Điểm TB Lớp 12</div>
-                    <div style="font-size: 1.8rem; font-weight: bold; color: var(--primary-color);" id="grade12Avg">0.00</div>
-                </div>
-            </div>
-            
-            <div style="background: white; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
-                <div style="font-size: 0.9rem; color: #64748b; margin-bottom: 0.5rem;">Điểm Xét Tuyển Học Bạ</div>
-                <div class="result-score" id="transcriptResultScore" style="margin: 0;">0.00</div>
-            </div>
-            
-            <div class="result-status" id="transcriptResultStatus">Nhập điểm để xem kết quả</div>
-            
-            <div id="benchmarkComparison" style="margin-top: 1rem; padding: 1rem; background: white; border-radius: 10px; display: none;">
-                <div style="font-weight: 600; margin-bottom: 0.5rem; color: var(--dark-color);" id="comparisonTitle"></div>
-                <div style="color: #64748b;" id="comparisonDetail"></div>
-            </div>
-        </div>
+        <% end %>
     </div>
+    <div class="tinhdiem-action">
+        <button type="button" id="btnTinhDiem" class="btn-tinhdiem">
+            Tính điểm
+        </button>
+    </div>
+
+    <div id="ketquaTinhDiem" class="ketqua" style="display:none;">
+
+        <h3>Kết quả xét học bạ theo tổ hợp</h3>
+
+        <div id="bangKetQua"></div>
+
+    </div>
+        
 </section>
 
 <footer>
@@ -527,3 +181,131 @@
         <p>&copy; 2026 Hệ Thống Tư Vấn Tuyển Sinh </p>
     </div>
 </footer>
+
+<script>
+
+document
+.getElementById("btnTinhDiem")
+.addEventListener("click", async function() {
+
+    const diem = {};
+
+    document
+    .querySelectorAll("#tinhdiemhocba input")
+    .forEach(input => {
+
+        diem[input.id] = input.value || 0;
+
+    });
+
+    try {
+
+        const response = await fetch("/tinh", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-Token":
+                    document.querySelector(
+                        "meta[name='csrf-token']"
+                    ).content
+            },
+
+            body: JSON.stringify({
+                diem: diem
+            })
+
+        });
+
+        if (!response.ok) {
+            throw new Error(
+                `HTTP ${response.status}`
+            );
+        }
+
+        const json = await response.json();
+
+        const data = json.data || json;
+
+        data.sort((a,b) => b.tong - a.tong);
+
+        let html = `
+            <table class="bang-diem-tohop">
+                <thead>
+                    <tr>
+                        <th>Tổ hợp</th>
+                        <th>Môn 1</th>
+                        <th>Môn 2</th>
+                        <th>Môn 3</th>
+                        <th>Tổng điểm</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        data.forEach(item => {
+
+            html += `
+                <tr>
+                    <td>${item.tohop}</td>
+
+                    <td>
+                        ${item.mon1}
+                        <br>
+                        <strong>${item.diem1}</strong>
+                    </td>
+
+                    <td>
+                        ${item.mon2}
+                        <br>
+                        <strong>${item.diem2}</strong>
+                    </td>
+
+                    <td>
+                        ${item.mon3}
+                        <br>
+                        <strong>${item.diem3}</strong>
+                    </td>
+
+                    <td class="tong-diem">
+                        ${item.tong}
+                    </td>
+                </tr>
+            `;
+
+        });
+
+        html += `
+                </tbody>
+            </table>
+        `;
+
+        document.getElementById(
+            "bangKetQua"
+        ).innerHTML = html;
+
+        document.getElementById(
+            "ketquaTinhDiem"
+        ).style.display = "block";
+
+        document.getElementById(
+            "ketquaTinhDiem"
+        ).scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Có lỗi khi tính điểm."
+        );
+
+    }
+
+});
+
+</script>

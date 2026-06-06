@@ -257,3 +257,241 @@ footer {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
+/* =========================
+   PHẦN TÍNH ĐIỂM HỌC BẠ
+========================= */
+
+.score-calculator {
+    padding: 60px 20px;
+    background: #f8fafc !important;
+}
+
+#tinhdiemhocba {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.section-title {
+    text-align: center;
+    color: #2563eb;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+#tinhdiemhocba > label h3 {
+    color: #2563eb;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #dbeafe;
+    padding-bottom: 10px;
+}
+
+/* Card từng khối lớp */
+.khoi-lop {
+    margin-top: 40px;
+    padding: 25px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #fafcff;
+}
+
+.tieu-de-lop {
+    color: #2563eb;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.tieu-de-hocky {
+    color: #1e293b;
+    font-size: 18px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    padding-left: 10px;
+    border-left: 4px solid #2563eb;
+}
+
+.luoi-mon-hoc {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.o-mon-hoc {
+    display: flex;
+    flex-direction: column;
+}
+
+.o-mon-hoc label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.o-mon-hoc input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.o-mon-hoc input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.o-mon-hoc input:hover {
+    border-color: #60a5fa;
+}
+
+/* Nút tính điểm */
+.btn-tinhdiem {
+    margin-top: 25px;
+    padding: 12px 24px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-tinhdiem:hover {
+    background: #1d4ed8;
+}
+
+/* Kết quả */
+.ketqua {
+    margin-top: 30px;
+    padding: 20px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+}
+
+.ketqua h3 {
+    color: #1d4ed8;
+    margin-bottom: 10px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    #tinhdiemhocba {
+        padding: 20px;
+    }
+
+    .luoi-mon-hoc {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .tieu-de-lop {
+        font-size: 20px;
+    }
+}
+
+.tinhdiem-action{
+    text-align:center;
+    margin-top:30px;
+}
+
+.btn-tinhdiem{
+    padding:12px 30px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-tinhdiem:hover{
+    background:#1d4ed8;
+}
+
+.ketqua{
+    margin-top:25px;
+    padding:20px;
+    background:#eff6ff;
+    border:1px solid #bfdbfe;
+    border-radius:10px;
+    text-align:center;
+}
+
+.ketqua h3{
+    color:#1d4ed8;
+    margin-bottom:10px;
+}
+
+#diemTrungBinh{
+    font-size:20px;
+    font-weight:bold;
+    color:#2563eb;
+}
+.ketqua{
+    margin-top:30px;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:20px;
+}
+
+.bang-diem-tohop{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+.bang-diem-tohop thead th{
+    background:#2563eb;
+    color:white;
+    padding:12px;
+    text-align:center;
+}
+
+.bang-diem-tohop td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+.bang-diem-tohop tr:nth-child(even){
+    background:#f8fafc;
+}
+
+.bang-diem-tohop tr:hover{
+    background:#eaf2ff;
+}
+
+.tong-diem{
+    font-weight:bold;
+    color:#2563eb;
+    font-size:16px;
+}
+
+#bangKetQua{
+    overflow-x:auto;
+}
