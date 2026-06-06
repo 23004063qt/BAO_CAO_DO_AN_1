@@ -17,6 +17,7 @@ ENV RAILS_ENV="production" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development:test" \
     LD_PRELOAD="/usr/local/lib/libjemalloc.so"
+    
 FROM base AS build
 
 # Thay default-libmysqlclient-dev bằng libpq-dev (PostgreSQL build)
