@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "tracuuhs/tracuuhs"
   get "edittintuc/edittintuc"
   get "thongtintaikhoan/thongtintaikhoan"
   get "nganh/nganh"
@@ -147,8 +148,13 @@ Rails.application.routes.draw do
 delete "xoatintuc/:id", to: "qltintuc#xoa", as: "xoatintuc"
 get "thongkebaocao/thongkebaocao", to: "thongkebaocao#thongkebaocao", as: "thongkebaocao_thongkebaocao"
 get "thongkebaocao/xuat_excel", to: "thongkebaocao#xuat_excel", as: "xuat_excel"
+get  "tracuuhs/tracuuhs", to: "tracuuhs#tracuuhs"
+post "tracuuhs/ketqua",   to: "tracuuhs#ketqua", as: "tracuuhs_ketqua"
+get  "edittintuc/:id", to: "qltintuc#edit",   as: "edittintuc"
+patch "edittintuc/:id", to: "qltintuc#update", as: "updatetintuc"
 end
 Rails.application.routes.draw do
+  get "tracuuhs/tracuuhs"
   get  'themtintuc/themtintuc', to: 'themtintuc#new'
   post 'themtintuc/themtintuc', to: 'themtintuc#create'
 end

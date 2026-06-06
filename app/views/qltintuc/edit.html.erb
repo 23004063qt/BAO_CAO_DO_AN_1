@@ -1,0 +1,172 @@
+
+<header>
+    <nav>
+        <div class="logo">
+            <%= image_tag "logovlute.png",  width: 50 %>
+            Hệ Thống Tư Vấn Tuyển Sinh
+        </div>
+        <ul class="menu">
+            <li><%= link_to "Trang chủ", trangchu_index_path %></li>
+            <li><%= link_to "Thông Tin Trường", thongtintruong_thongtintruong_path %></li>
+            <li><%= link_to "Tin Tức", tintuc_tintuc_path %></li>
+            <li><%= link_to "Ngành Học", nganh_nganh_path %></li>
+            <li><%= link_to "Lịch Tuyển Sinh", lichtuyensinh_lichtuyensinh_path %></li>
+            <li><%= link_to "Nộp hồ sơ", nophoso_nophoso_path %></li>
+
+            <% if current_user &&
+                current_user.VAITRO == "ADMIN" %>
+                <li class="dropdown">
+                    <%= link_to "Quản trị viên", "#" %>
+                    <ul class="dropdown-menu">
+                        <li><%= link_to "Quản lý tài khoản", qltaikhoan_qltaikhoan_path %></li>
+                        <li><%= link_to "Quản lý tin tức", qltintuc_qltintuc_path %></li>
+                        <li><%= link_to "Quản lý khoa - đơn vị", qlkhoa_dv_qlkhoa_dv_path %></li>
+                        <li><%= link_to "Quản lý hồ sơ", xlhoso_xlhoso_path %></li>
+                        <li><%= link_to "Quản lý đợt tuyển sinh","/quanlydot" %></li>
+                        <li><%= link_to "Quản lý điểm chuẩn","/qldiemchuan" %></li>
+                        <li><%= link_to "Thống kê báo cáo", thongkebaocao_thongkebaocao_path %></li>
+                    </ul>
+                </li>
+            <% end %>
+            <% if current_user %>
+    <li class="user-dropdown">
+        <a href="#" class="user-name">
+             <%= current_user.USERNAME %>
+        </a>
+        <ul class="user-dropdown-menu">
+            <li><%= link_to "Thông tin tài khoản", thongtintaikhoan_thongtintaikhoan_path %></li>
+            <li>
+                <%= button_to "Đăng xuất",
+                "/dangnhap/logout",
+                method: :delete,
+                class: "logout-btn",
+                form: { style: "display:inline;" } %>
+            </li>
+        </ul>
+    </li>
+<% else %>
+    <li>
+        <%= link_to "Đăng nhập", dangnhap_dangnhap_path %>
+    </li>
+<% end %>
+        </ul>
+    </nav>
+</header>
+<div class="sua-container">
+  <h2 class="sua-tieude">CHỈNH SỬA TIN TỨC</h2>
+
+  <%= form_with model: @tin, url: updatetintuc_path(@tin.IDTINTUC), method: :patch, local: true, multipart: true do |f| %>
+    <div class="sua-noidung">
+
+      <div class="sua-trai">
+        <label>Tiêu đề</label>
+        <%= f.text_field :TIEUDE, placeholder: "Nhập tiêu đề bài đăng" %>
+
+        <label>Tóm tắt nội dung</label>
+        <%= f.text_area :TOM_TAT, rows: 3, placeholder: "Nhập tóm tắt" %>
+
+        <label>Nội dung chi tiết</label>
+        <%= f.text_area :NOIDUNG, rows: 6, placeholder: "Nhập nội dung" %>
+
+        <div class="sua-image">
+          <p>Hình ảnh bài viết</p>
+          <% if @tin.ANH_BAI_VIET.present? %>
+            <img src="<%= @tin.ANH_BAI_VIET %>" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:8px">
+          <% end %>
+          <div class="sua-anhbaiviet" onclick="document.getElementById('file-anhbaiviet').click()">
+            <input type="file" id="file-anhbaiviet" name="anh_bai_viet_file" accept=".jpg,.jpeg,.png" onchange="previewAnhBaiViet(event)">
+            <span id="label-anhbaiviet">📎 Click để chọn file ảnh mới</span>
+            <div id="preview-anhbaiviet" style="margin-top:8px"></div>
+          </div>
+          <input type="text" name="tintuc[ANH_BAI_VIET]" value="<%= @tin.ANH_BAI_VIET %>" placeholder="Hoặc nhập URL ảnh..." class="sua-url-input">
+        </div>
+
+        <label>Nội dung thêm</label>
+        <%= f.text_area :NOI_DUNG_THEM, rows: 4, placeholder: "Nhập nội dung thêm" %>
+      </div>
+
+      <div class="sua-phai">
+        <label>Danh mục</label>
+        <%= f.text_field :DANHMUC, placeholder: "Nhập danh mục" %>
+
+        <label>Ngày đăng</label>
+        <%= f.date_field :NGAYDANG %>
+
+        <label>Ảnh đại diện</label>
+        <% if @tin.ANH_DAI_DIEN.present? %>
+          <img src="<%= @tin.ANH_DAI_DIEN %>" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:8px">
+        <% end %>
+        <div class="sua-anhdaidien" onclick="document.getElementById('file-anhdaidien').click()">
+          <input type="file" id="file-anhdaidien" name="anh_dai_dien_file" accept=".jpg,.jpeg,.png" onchange="previewAnhDaiDien(event)">
+          <span id="label-anhdaidien">📎 Click để chọn file ảnh mới</span>
+          <img id="preview-anhdaidien" src="" style="display:none;width:100%;margin-top:8px;border-radius:8px">
+        </div>
+        <input type="text" name="tintuc[ANH_DAI_DIEN]" value="<%= @tin.ANH_DAI_DIEN %>" placeholder="Hoặc nhập URL ảnh..." class="sua-url-input">
+
+        <div class="sua-nut">
+          <%= f.submit "💾 Lưu", class: "sua-btn-submit" %>
+          <%= link_to "Hủy bỏ", qltintuc_qltintuc_path, class: "sua-btn-cancel" %>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+</div>
+
+<script>
+  function previewAnhDaiDien(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = document.getElementById('preview-anhdaidien');
+      img.src = e.target.result;
+      img.style.display = 'block';
+      document.getElementById('label-anhdaidien').style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function previewAnhBaiViet(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      document.getElementById('preview-anhbaiviet').innerHTML =
+        `<img src="${e.target.result}" style="width:100%;height:120px;object-fit:cover;border-radius:8px">`;
+      document.getElementById('label-anhbaiviet').style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  }
+</script>
+<div class="footer">
+    <div class="footer-content">
+        <div class="footer1">
+            <h3>Về Chúng Tôi</h3>
+            <p style="color: #94a3b8; line-height: 1.8;">
+                Hệ thống tư vấn tuyển sinh.
+            </p>
+        </div>
+        <div class="footer1">
+            <h3>Liên Kết Nhanh</h3>
+            <ul>
+                <li>Ngành học</li>
+                <li>Lịch tuyển sinh</li>
+                <li>Nộp hồ sơ</li>
+                <li>Câu hỏi thường gặp</li>
+            </ul>
+        </div>
+        <div class="footer1">
+            <h3>Liên Hệ</h3>
+            <ul>
+                <li>Hotline: 123</li>
+                <li>Email: tuyensinh@vlute.edu.vn</li>
+                <li>Địa chỉ: Vĩnh Long</li>
+                <li>Giờ làm việc: 8:00 - 17:00</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer2">
+        <p>&copy; 2026 Hệ Thống Tư Vấn Tuyển Sinh </p>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+.tracuu-main {
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.tracuu-box {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 750px;
+}
+
+.tracuu-box h1 {
+  font-size: 1.4rem;
+  color: #1e293b;
+  margin-bottom: .4rem;
+}
+
+.tracuu-desc {
+  font-size: .88rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+.tracuu-input-group {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tracuu-input {
+  flex: 1;
+  padding: .6rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: .95rem;
+  outline: none;
+}
+
+.tracuu-input:focus {
+  border-color: #2563eb;
+}
+
+.tracuu-btn {
+  padding: .6rem 1.4rem;
+  background: #1a3a6b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+.tracuu-btn:hover { background: #162f58; }
+
+.tracuu-alert {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: .8rem 1rem;
+  font-size: .88rem;
+  margin-bottom: 1rem;
+}
+
+.tracuu-info {
+  margin-bottom: 1.5rem;
+}
+
+.tracuu-info h3, .tracuu-ketqua h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: .8rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tracuu-table {
+  width: 100%;
+  font-size: .88rem;
+}
+
+.tracuu-table td {
+  padding: .4rem .5rem;
+  color: #475569;
+}
+
+.tracuu-table td:first-child {
+  width: 120px;
+  color: #94a3b8;
+}

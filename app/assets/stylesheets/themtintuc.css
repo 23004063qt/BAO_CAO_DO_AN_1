@@ -4,6 +4,8 @@
     padding: 28px 40px;
     background: #f5f7fa;
     min-height: 100vh;
+    width: 100%;          /* thêm */
+    box-sizing: border-box; /* thêm */
 }
 
 .tieude {
@@ -15,16 +17,26 @@
     letter-spacing: 0.3px;
 }
 
-/* Layout hai cột */
+.noidung {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    align-items: flex-start;
+    width: 100%;          /* đảm bảo full */
+    box-sizing: border-box; /* thêm */
+}
+
 /* Fix thẻ form của Rails */
 .noidung form,
 .noidung > form {
-    display: contents; /* form "biến mất" khỏi layout, con của nó trực tiếp vào flex */
+    display: contents;
 }
 
 /* Cột trái */
 .trai {
     flex: 3;
+    min-width: 0;
     background: #fff;
     border: 0.5px solid #e2e8f0;
     border-radius: 12px;
@@ -32,11 +44,14 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
+    box-sizing: border-box; /* thêm */
 }
 
 /* Cột phải */
 .phai {
     flex: 1;
+    min-width: 240px;
+    max-width: 320px;
     background: #fff;
     border: 0.5px solid #e2e8f0;
     border-radius: 12px;
@@ -45,7 +60,8 @@
     flex-direction: column;
     gap: 14px;
     position: sticky;
-    top: 80px; /* bám theo scroll nếu cột trái dài */
+    top: 80px;
+    box-sizing: border-box; /* thêm */
 }
 
 /* Label dùng chung */
@@ -55,7 +71,7 @@
     font-weight: 500;
     color: #64748b;
     display: block;
-    margin-bottom: 0; /* gap của flex đủ rồi */
+    margin-bottom: 0;
 }
 
 /* Input & Textarea dùng chung */
@@ -74,6 +90,7 @@
     background: #f8fafc;
     resize: none;
     outline: none;
+    box-sizing: border-box; /* thêm */
     transition: border-color 0.15s, box-shadow 0.15s;
 }
 
@@ -204,23 +221,4 @@
     background: #fee2e2;
     color: #dc2626;
     border-color: #fca5a5;
-}
-.noidung {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 20px;
-    align-items: flex-start;
-    width: 100%;
-}
-
-.trai {
-    flex: 3;
-    min-width: 0;
-}
-
-.phai {
-    flex: 1;
-    min-width: 240px;
-    max-width: 320px;
 }

@@ -1,4 +1,3 @@
-
 <header>
     <nav>
         <div class="logo">
@@ -52,50 +51,69 @@
         </ul>
     </nav>
 </header>
-<main>
-  <div class="actions">
-    <button class="btn-add"><%= link_to "+ Thêm", themtintuc_themtintuc_path %></button>
-  </div>
+<main class="tracuu-main">
+  <div class="tracuu-box">
+    <h1>Tra cứu kết quả hồ sơ</h1>
+    <p class="tracuu-desc">Nhập số CCCD để tra cứu kết quả xét tuyển</p>
 
-  <table class="bang">
-    <tr class="head">
-      <th>STT</th>
-      <th>Tiêu đề</th>
-      <th>Ảnh đại diện</th>
-      <th>Tóm tắt</th>
-      <th>Danh mục</th>
-      <th>Ngày đăng</th>
-      <th>Thao tác</th>
-    </tr>
-
-    <% @tintuc_list.each_with_index do |tin, index| %>
-      <tr>
-        <td><%= index + 1 %></td>
-        <td><%= tin.TIEUDE %></td>
-        <td>
-          <% if tin.ANH_DAI_DIEN.present? %>
-            <%= image_tag tin.ANH_DAI_DIEN, width: 50 %>
-          <% else %>
-            Chưa có ảnh
-          <% end %>
-        </td>
-        <td><%= truncate(tin.TOM_TAT, length: 80) %></td>
-        <td><%= tin.DANHMUC %></td>
-        <td><%= tin.NGAYDANG&.strftime("%d/%m/%Y") %></td>
-        <td>
-          <%# <button class="btn-delete">🗑️ Xóa</button> %>
-          <%= button_to "🗑️ Xóa", xoatintuc_path(tin.IDTINTUC),
-            method: :delete,
-            data: { turbo_confirm: "Bạn có chắc muốn xóa?" },
-            class: "btn-delete" %>
-          <button class="btn-up"><%= link_to "✎ Sửa", edittintuc_path(tin.IDTINTUC) %></button>
-        </td>
-      </tr>
+    <%= form_with url: tracuuhs_ketqua_path, method: :post, local: true do |f| %>
+      <div class="tracuu-input-group">
+        <%= f.text_field :cccd, placeholder: "Nhập số CCCD...", class: "tracuu-input", value: params[:cccd] %>
+        <%= f.submit "Tra cứu", class: "tracuu-btn" %>
+      </div>
     <% end %>
-  </table>
-</main>
 
-<div class="footer">
+    <% if @khong_tim_thay %>
+      <div class="tracuu-alert">Không tìm thấy thí sinh với CCCD này.</div>
+    <% end %>
+
+    <% if @thisinh %>
+      <div class="tracuu-info">
+        <h3>Thông tin thí sinh</h3>
+        <table class="tracuu-table">
+          <tr><td>Họ tên</td><td><strong><%= @thisinh.HOTENTS %></strong></td></tr>
+          <tr><td>Ngày sinh</td><td><%= @thisinh.NGAYSINH&.strftime("%d/%m/%Y") %></td></tr>
+          <tr><td>CCCD</td><td><%= @thisinh.SOCCCD %></td></tr>
+          <tr><td>SĐT</td><td><%= @thisinh.SDT %></td></tr>
+          <tr><td>Email</td><td><%= @thisinh.EMAIL %></td></tr>
+        </table>
+      </div>
+
+      <div class="tracuu-ketqua">
+        <h3>Kết quả hồ sơ</h3>
+        <% if @hoso_list.empty? %>
+          <p>Chưa có hồ sơ nào.</p>
+        <% else %>
+          <table class="bang">
+            <tr class="head">
+              <th>STT</th>
+              <th>Ngày nộp</th>
+              <th>Trạng thái</th>
+              <th>Kết quả</th>
+            </tr>
+            <% @hoso_list.each_with_index do |hoso, i| %>
+              <tr>
+                <td><%= i + 1 %></td>
+                <td><%= hoso.NGAYNOP&.strftime("%d/%m/%Y") %></td>
+                <td><%= hoso.TRANGTHAI %></td>
+                <td>
+                  <% if hoso.KETQUA == "Đậu" %>
+                    <span style="color:green;font-weight:600">✔ Đậu</span>
+                  <% elsif hoso.KETQUA == "Không xét" %>
+                    <span style="color:red;font-weight:600">✘ Không xét</span>
+                  <% else %>
+                    <span style="color:#888"><%= hoso.KETQUA.presence || "Chưa có kết quả" %></span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</main>
+<footer>
     <div class="footer-content">
         <div class="footer1">
             <h3>Về Chúng Tôi</h3>
@@ -106,7 +124,7 @@
         <div class="footer1">
             <h3>Liên Kết Nhanh</h3>
             <ul>
-                <li>Ngành học</li>
+                <li>Ngành học<</li>
                 <li>Lịch tuyển sinh</li>
                 <li>Nộp hồ sơ</li>
                 <li>Câu hỏi thường gặp</li>
@@ -125,4 +143,4 @@
     <div class="footer2">
         <p>&copy; 2026 Hệ Thống Tư Vấn Tuyển Sinh </p>
     </div>
-</div>
+</footer>

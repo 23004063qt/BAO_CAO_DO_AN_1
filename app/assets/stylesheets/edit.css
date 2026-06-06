@@ -140,3 +140,170 @@
   border-color: #1565c0;
   background: white;
 }
+/* ===== EDIT TIN TỨC ===== */
+.sua-container {
+  padding: 28px 40px;
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+
+.sua-tieude {
+  text-align: center;
+  font-size: 26px;
+  color: #2563eb;
+  margin-bottom: 24px;
+  letter-spacing: 0.3px;
+}
+
+.sua-noidung {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.sua-trai {
+  flex: 3;
+  min-width: 0;
+  background: #fff;
+  border: 0.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sua-phai {
+  flex: 1;
+  min-width: 240px;
+  max-width: 320px;
+  background: #fff;
+  border: 0.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 80px;
+}
+
+.sua-trai label,
+.sua-phai label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  display: block;
+}
+
+.sua-trai input[type="text"],
+.sua-trai input[type="date"],
+.sua-trai textarea,
+.sua-phai input[type="text"],
+.sua-phai input[type="date"],
+.sua-phai textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 0.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #1e293b;
+  background: #f8fafc;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.sua-trai input:focus,
+.sua-trai textarea:focus,
+.sua-phai input:focus,
+.sua-phai textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+  background: #fff;
+}
+
+.sua-url-input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 0.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #f8fafc;
+  margin-top: 8px;
+}
+
+.sua-image p {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.sua-anhbaiviet,
+.sua-anhdaidien {
+  border: 0.5px dashed #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 18px;
+  min-height: 80px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.sua-anhbaiviet:hover,
+.sua-anhdaidien:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.sua-anhbaiviet input[type="file"],
+.sua-anhdaidien input[type="file"] {
+  display: none;
+}
+
+.sua-nut {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.sua-btn-submit {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.sua-btn-submit:hover { background: #1d4ed8; }
+
+.sua-btn-cancel {
+  background: transparent;
+  color: #64748b;
+  border: 0.5px solid #cbd5e1;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sua-btn-cancel:hover {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fca5a5;
+}
