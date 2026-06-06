@@ -24,9 +24,9 @@ ENV RAILS_ENV="production" \
 # Throw-away build stage to reduce size of final image
 FROM base AS build
 
-# Install packages needed to build gems (Added libpq-dev for database support)
+# Install packages needed to build gems (Added libpq-dev and default-libmysqlclient-dev)
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config libpq-dev && \
+    apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config libpq-dev default-libmysqlclient-dev && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install application gems
