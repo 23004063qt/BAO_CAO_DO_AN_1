@@ -4,7 +4,14 @@ gem "rails", "~> 8.1.2"
 
 gem "propshaft"
 
-gem "mysql2", "~> 0.5"
+# Dùng mysql2 ở local (development), pg ở production (Render)
+group :development, :test do
+  gem "mysql2", "~> 0.5"
+end
+
+group :production do
+  gem "pg", "~> 1.1"
+end
 
 # gem "sqlite3", ">= 2.1"
 
