@@ -101,6 +101,14 @@ Rails.application.routes.draw do
   delete "qlkhoa_dv/delete/:id",
   to: "qlkhoa_dv#delete"
 
+  # Quản lý ngành đào tạo (Admin)
+  get "qlnganh", to: "qlnganh#qlnganh", as: "qlnganh_qlnganh"
+  get "qlnganh/new"
+  post "qlnganh/create"
+  get "qlnganh/edit/:id", to: "qlnganh#edit"
+  patch "qlnganh/update/:id", to: "qlnganh#update"
+  delete "qlnganh/delete/:id", to: "qlnganh#delete"
+
   get  "quen-mat-khau", to: "quenmatkhau#quenmk", as: "quenmatkhau"
 
   post "quen-mat-khau/gui-otp", to: "quenmatkhau#gui_otp"

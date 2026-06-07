@@ -43,8 +43,11 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
-  # Raise an error on page load if there are pending migrations.
-  config.active_record.migration_error = :page_load
+  # Do not raise an error on page load if there are pending migrations.
+  # In some dev/container setups the web process cannot run migrations against
+  # the database used by the app server, which causes the red PendingMigrationError page.
+  # Setting this to false avoids blocking the app while you run migrations separately.
+  config.active_record.migration_error = false
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true

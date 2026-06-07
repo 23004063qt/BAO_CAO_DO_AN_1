@@ -1,0 +1,30 @@
+<%= form_with model: @nganh, url: (@nganh.persisted? ? "/qlnganh/update/#{@nganh.IDNGANH}" : "/qlnganh/create"), local: true do |f| %>
+  <div class="field">
+    <%= f.label :TENNGANH, "Tên ngành" %><br>
+    <%= f.text_field :TENNGANH %>
+  </div>
+
+  <div class="field">
+    <%= f.label :MOTA, "Mô tả" %><br>
+    <%= f.text_area :MOTA %>
+  </div>
+
+  <div class="field">
+    <%= f.label :IDKHOA, "Khoa" %><br>
+    <%= f.select :IDKHOA, options_from_collection_for_select(@khoas, :IDKHOA, :TENKHOA, @nganh.IDKHOA), include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :HOC_PHI, "Học phí (VND)" %><br>
+    <%= f.number_field :HOC_PHI %>
+  </div>
+
+  <div class="field">
+    <%= f.label :CHI_TIEU, "Chỉ tiêu tuyển sinh" %><br>
+    <%= f.number_field :CHI_TIEU %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

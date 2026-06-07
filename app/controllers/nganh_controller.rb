@@ -1,5 +1,6 @@
 class NganhController < ApplicationController
   def nganh
+    @nganhs = Nganh.all.order(:TENNGANH)
   end
 
   def motanganh

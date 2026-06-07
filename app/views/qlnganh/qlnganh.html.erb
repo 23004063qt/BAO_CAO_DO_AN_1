@@ -1,0 +1,34 @@
+<h1>Quản lý Ngành Đào Tạo</h1>
+
+<p>
+  <%= link_to "Thêm ngành mới", "qlnganh/new" , class: "btn btn-primary" %>
+  <%= link_to "Quay lại trang chủ", trangchu_index_path, class: "btn" %>
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Tên ngành</th>
+      <th>Khoa</th>
+      <th>Học phí</th>
+      <th>Chỉ tiêu</th>
+      <th>Thao tác</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @nganhs.each_with_index do |n, idx| %>
+      <tr>
+        <td><%= idx + 1 %></td>
+        <td><%= n.TENNGANH %></td>
+        <td><%= n.IDKHOA.present? ? Khoa.find_by(IDKHOA: n.IDKHOA)&.TENKHOA : '-' %></td>
+        <td><%= n.respond_to?(:HOC_PHI) ? (n.HOC_PHI || '-') : '-' %></td>
+        <td><%= n.respond_to?(:CHI_TIEU) ? (n.CHI_TIEU || '-') : '-' %></td>
+        <td>
+          <%= link_to "Sửa", "qlnganh/edit/#{n.IDNGANH}", class: "btn btn-sm" %>
+          <%= button_to "Xóa", "/qlnganh/delete/#{n.IDNGANH}", method: :delete, data: { confirm: "Bạn chắc chắn?" }, class: "btn btn-sm btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
